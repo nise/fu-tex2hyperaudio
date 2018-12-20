@@ -1,0 +1,1343 @@
+%!TEX root = Kurs1884.tex
+%!TEX encoding = IsoLatin
+%%%%%%%%%%%%%%%<%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kurseinheit 7
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{comment}
+
+- Internetsucht
+
+Sariyska, R.; Lachmann, B.; Markett, S.; Reuter, M.; Montag, C.
+Individual differences in implicit learning strategies and risk taking tendencies in the context of Internet addiction and Internet Gaming Disorder under consideration of gender
+Addictive Behaviors Reports, 5:19-28
+2017 
+
+ Montag, C.; Markowetz, A.; Blaszkiewicz, K.; Andone, I.; Lachmann, B.; Sariyska, R.; Trendafilov, B.; Eibes, M.; Kolb, J.; Reuter, M.; Weber, B.; Markett, S.
+Facebook usage on smartphones and gray matter volume of the nucleus accumbens
+Behavioural Brain Research, (329):221-228
+2017 
+
+ Rumpf, H. J.; Batra, A.; Bleckmann, P.; Brand, M.; Gohlke, A.; Feindel, H.; Gro�e Perdekamp, M.; Lem�nager, T.; Kaess, M.; Markowetz, A.; M��le, T.; Montag, C.; M�ller, A.; M�ller, K.; Pauly, A.; Petersen, K. U.; Rehbein, F.; Schnell, K.; Te Wildt, B.; Thomasisus, R.; Wartberg, L.; Wirtz, M.; W�lfling, K.; Wurst, F. M.
+Empfehlungen der Expertengruppe zur Pr�vention von Internetbezogenen St�rungen. Sucht, 63, 217-225.
+Sucht, 63:217-225
+2017 
+
+ Duke, �.; Montag, C.
+Smartphone addiction, daily interruptions and self-reported productivity
+Addictive Behaviors Reports,
+2017 
+
+ Lachmann, B.; Duke, �.; Sariyska, R.; Montag, C.
+Who's addicted to the smartphone and/or the Internet? Psychology of Popular Media Culture.
+Psychology of Popular Media Culture,
+2017 
+
+
+
+- lediglich interessant: https://www.ted.com/talks/zeynep_tufekci_we_re_building_a_dystopia_just_to_make_people_click_on_ads#t-1357822
+
+- Vermischung von Privat- und Kommunikationsleben
+- Erwartungsdruck bzgl. Reaktionszeiten
+- Rolle des Ortes
+- Rolle der Privatheit
+
+Literatur aus Synodenlesebuch 2014
+ 
+Zeiterfahrung und Zeitgestaltung im Social Web, 
+in: Deutsches Pfarrerblatt, 7 (2013): 
+www.ekd.de/url/lesebuch14-pfarrerverband
+
+
+Datenschutz: Inhalt von Sperrdisplays
+%\todo{Beispiel: Darstellung von Informationen auf dem Sperrbildschirm -- Studien zum Mitlesen von e-Mails in B�roumgebungen (CHI 2003?)}
+
+Peer-to-peer Apps: http://smarter-projekt.de/projektpartner/
+
+Verf�gbarkeit: 
+-- Konstante Verf�gbarkeit
+-- Vom Sinn des Abschaltens
+-- Flashmobs
+-- Schw�rme
+
+
+- Augmented Reality
+
+- Browser-Apps
+
+--> Offline Storage
+
+\textbf{Multi-Device-Design Kooperativer Systeme} => pers�nliche Devices + �ffentliche Devices -> iLand / Apple Watch / ... 
+
+
+
+
+Delay /Disruption Tolerant Networking (DTN),  IP-basierte Mobilit�t
+ sarchitekturen,  Kommunikation in der Raumfahrt, Locator/ID-Separation-Architekturen,  Mehrpfadkommunikation in mobilen Systemen, Mobile Machine-to-Machine-Kommunikation,  Planung und Simulation mobiler Netzwerke,  Zellulare Netze, 
+ Experiment Design in Human Factor Evaluation
+
+ https://en.wikipedia.org/wiki/Proxemics
+
+Dillenbourg: Location is not enogh
+http://ieeexplore.ieee.org/document/1579225/
+
+Facebook Free Basics: https://globalvoices.org/2017/07/27/can-facebook-connect-the-next-billion/amp/
+
+% LINK: http://youtu.be/OINa46HeWg8 --> Video mit mindless Smartphone Use
+Mobile Communities: https://link.springer.com/chapter/10.1007%2F978-1-4614-3634-8_12
+
+
+
+- mobile Mensch-Computer-Interaktion in Entwicklungsl�ndern
+Examples are DakNet and KioskNet, which use buses as data mules. [30-34] In many developing regions, rural bus routes regularly visit villages and towns that have no network connectivity. By equipping each vehicle with a computer, a storage device and a mobile WiFi-node on the one hand, and by installing a stationary WiFi-node in each village on the other hand, the local transport infrastructure can substitute for a wireless internet link. [11]
+
+---
+
+
+---
+%https://www.youtube.com/watch?v=i_3nANGBSb0
+KioskNet is a system, developed at the University of Waterloo, to provide very low cost Internet access to rural villages in developing countries, based on the concept of delay-tolerant networking. It uses vehicles, such as buses, to ferry data between village kiosks and Internet gateways in nearby urban centers. The data is re-assembled at a Proxy Server for interaction with legacy servers.[1] The system is free and open source.
+
+
+\end{comment}
+
+\ifsplit
+	\subtitle{Kurseinheit 7}
+	\setcounter{chapter}{6}
+	\setcounter{page}{208}
+	\TitelBlatt{} 
+	\tableofcontents
+	\thispagestyle{empty}
+\fi
+\chap{Mobile Kooperation}{Mobile}\label{Mobile}
+
+W�hrend die Ans�tze aus den ersten sechs Kurseinheiten unabh�ngig von bestimmter Hardware diskutiert wurden, werden wir in Kurseinheit sieben auf die Besonderheiten von mobilen Ger�ten eingehen und Trends f�r mobile computervermittelte Interaktion vorstellen.\blfootnote{Stand: \today.}  
+\minitoc
+
+
+\section*{Lernziele}
+Nach der Bearbeitung dieser Kurseinheit sollten Sie in der Lage
+sein,
+
+\begin{itemize}
+\itemb den Begriff Mobilit�t in Bezug auf die Nutzung mobiler Technologien zu differenzieren
+\itemb die Eigenschaften mobiler Systeme zu beschreiben
+\itemb die Bedeutung der Situiertheit im mobilen Kooperationskontext zu erl�utern
+\itemb die mobile Kooperation im Bereich Ubiquitous Computing zu verorten
+\itemb basale responsive Webseiten zu erstellen 
+\itemb die Ans�tze des \textit{gracefull downgrades} und des \textit{progressive enhancement} zu er�rtern
+\itemb die Probleme der orts- und zeitunabh�ngige Verf�gbarkeit zu analysieren
+\itemb Anforderungen f�r die technische Verf�gbarkeit von mobilen Anwendungen und Diensten zu bestimmen 
+\itemb die Beziehung zwischen Smartphone und Subjekt zu beschreiben
+\itemb die Rolle von \textit{Cognitive Interfaces} f�r die mobile Kooperation zu charakterisieren 
+\itemb die durch Mobiltechnologie erm�glichten Eingriffe in die Privatsph�re zu beurteilen und Gegenma�nahmen zu entwickeln
+%\itemb L�sungen zum Erhalt der informationellen Selbstbestimmung aufzuzeigen
+\itemb mit den folgenden Mustern im Design eines kooperativen Systems umzugehen:
+\begin{itemize}
+%\item \patternName{Nomadic Objects} (),
+%\item \patternName{Replicated Objects} (),
+\item \patternName{Attention Screen},
+\item \patternName{Availability Status},
+\item \patternName{Geo Mapping},
+\item \patternName{Neighborhood},
+\item \patternName{Geo Traces},
+\item \patternName{Geo Tagging},
+\item \patternName{Location Based Push Notification},
+\item \patternName{Substitute Position},
+\item \patternName{Generalized Position},
+%Distributed Command
+\end{itemize}
+\end{itemize}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Einleitung}
+Seit 2005 ist die mobile Verf�gbarkeit von Netzwerkanbindungen rapide gestiegen. Hieraus ergeben sich auch M�glichkeiten f�r die Gestaltung kooperativer Systeme. Die digitale Infrastruktur wird fast an jedem Ort und zu jeder Zeit verf�gbar. Zudem wird die Verbindung zwischen der digitalen Technologie und den Nutzenden ebenso gest�rkt wie der Bezug zwischen den mobilen Endger�ten und physikalischen Orten und Objekten. Zentrale Stichworte sind hier die Personalisierung der Ger�te und die permanente Verf�gbarkeit.  
+
+Unter der �berschrift \emph{Neue Benutzungsschnittstellen} thematisierten Gross und Koch 2007 die Rolle von mobilen und ubiquit�ren Computersystemen f�r das computerunterst�tzte gemeinsame Arbeiten: ``Au�erhalb des Desktops k�nnten Benutzungsschnittstellen besser und nahtloser in Arbeitsprozesse und Arbeitsumgebungen integriert werden und den Zugriff auf CSCW-Anwendungen dann erm�glichen, wenn sie gebraucht werden, jederzeit, an jedem Ort, in jeder Situation.'' \citeN[149]{Gross2007} Inzwischen kann man feststellen, dass die technischen Grundlagen f�r diese Vision vorhanden sind, insbesondere, da die Nutzenden in der Regel �ber ein pers�nliches mobiles Endger�t verf�gen, das �ber das Internet mit anderen Ger�ten kommunizieren kann. Die von Gross und Koch ins Auge gefasste Integration in die Arbeitsprozesse ist hingegen oftmals noch sehr gering. Ziel dieser Kurseinheit ist es, den Blick f�r die M�glichkeiten der Integration mobiler Technologien in computergest�tzte Kooperationsprozesse zu sch�rfen. Dabei werden wir vor allem auf aktuell weit verf�gbare Ger�teklassen eingehen (Smartphones und Tablets).
+
+Bei der Gestaltung mobiler Kooperationsunterst�tzung d�rfen zudem der soziale und der individuelle Kontext nicht aus dem Blick verloren werden. Wie sehr mobile Technologien -- Smartphones, Tablets und Phablets, also Smartphones, die wegen ihrer Gr��e Interaktionen wie bei einem Tablet erlauben -- die kopr�sente Interaktion ver�ndert haben, wird inzwischen in vielf�ltigen Kunstprojekten diskutiert. Zwei Projekte sollen zu Beginn dieser Kurseinheit den Blick f�r die Wirkung mobiler Technologien sch�rfen:
+
+\begin{description}
+\item[REMOVED] (\url{http://www.removed.social}): Das Kunstprojekt REMOVED von Eric Pickersgill nimmt Beobachtungen von Alltagssituationen, in denen mobile Ger�te zum Einsatz kamen, als Ausgangspunkt. Der K�nstler bat die dort agierenden Personen, die Situation genauso f�r ein Foto nachzustellen. Bevor er das Foto aufnahm, entfernte er jedoch die Smartphones und Tablets aus den H�nden der Akteure. Dadurch wirken die Posen verfremdend, der Blick auf die dann leeren Bereiche in der Hand oder zwischen den H�nden zeigt jedoch recht plastisch, wie intensiv der Fokus der Menschen auf die mobilen Ger�te gerichtet ist.
+
+\item[I Forgot My Phone] (\videolink{https://youtu.be/OINa46HeWg8}): In diesem Video wird ebenfalls die allt�gliche Nutzung von Smartphones in den Blick genommen. So sieht man zum Beispiel, wie beim gemeinsamen Bowling alle Mitspielerinnen und Mitspieler gar nicht mit bekommen, wenn sich eine Spielerin �ber einen guten Wurf freut -- alle sind parallel mit ihrem Smartphone besch�ftigt. Auch bei einer Geburtstagsfeier wird die �bergabe des Geburtstagskuchens nur noch durch das Smartphone wahrgenommen, das parallel die Situation aufzeichnet und so mit dem sozialen Netzwerk teilt.
+\end{description}
+
+Dass die kulturelle Diskussion um die Nutzung von Smartphones im Alltag inzwischen einen breiten Raum einnimmt, belegt auch das Jugendwort des Jahres: \randhervor{Smombie} - ``... jemand, der wie gebannt auf sein Smartphone schaut und dadurch wie ein Zombie durch die Gegend l�uft'' \cite{smombie}. Mit ihrer Entscheidung provozierte die Jury zum Jugendwort des Jahres vielf�ltige Kritik. Insbesondere wurde kritisiert, dass das Wort zuvor nicht im Sprachgebrauch verbreitet war. Trotzdem spiegelt die Entscheidung eine f�r unsere �berlegungen interessante Beobachtung wieder: H�ufig haben Nutzende von mobilen sozialen Medien (genau wie von mobilen Computerspielen) ihre Aufmerksamkeit so stark auf das Medium gerichtet, dass sie ihr Umfeld ausblenden. Dass hierf�r neue Worte gesucht werden, ist ein Indikator f�r die Relevanz des Ph�nomens. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Raum, Ort und Mobilit�t}
+
+Mobile Kooperation nimmt Bezug auf die Bewegung im Raum und die Verlagerung des Ortes, an dem kooperative Arbeitsprozesse ausgef�hrt werden.  Bevor wir uns n�her mit den daf�r notwendigen technischen Systemen besch�ftigen, wollen wir uns einige damit in Zusammenhang stehenden Begriffe analysieren.  
+
+% Raum
+Beginnen wir mit dem Begriff des \textquote{Raumes}\randnotiz{Raum}. Im Sprachgebrauch hat der Begriff mehrere Bedeutungen. Einerseits verbinden wir damit mehr oder weniger begrenzte Fl�chen oder Volumen, die durch Koordinaten beschrieben werden k�nnen. Zum anderen verstehen wir darunter eine abgegrenzte Struktur oder Konstellation von Subjekten, Objekten und Vorg�ngen. Die Subjekte, Objekte und Vorg�nge sind im Raum verortet, sie haben ihren Platz -- genug Platz -- und stehen in relativer Beziehung zueinander. R�umliche Anordnungen von Elementen lassen sich durch ihre N�he bzw. Distanz beschreiben, wobei nah beieinander liegende Elemente positiv oder negativ miteinander in Beziehung stehen. Diese Korrelation bezeichnet man auch als \textit{spatiale Autokorrelation}. Waldo Tobler formulierte dazu das erste Gesetz der Geografie\randnotiz{Erstes Gesetz der Geografie}: 
+\begin{quote}
+\textit{Everything is related to everything else, but near things are more related than distant things.} 
+\end{quote}
+% Beobachtungn an nahe bei einanderliegenden Orten sind statistisch gesehen nicht unabh�ngig voneinander. => spatial regression models...
+ 
+Dieses Gesetz wurde empirisch belegt und auch schon fr�her in anderen Disziplinen in �hnlicher Weise formuliert (vgl. \textquote{Gesetzt der N�he}, Gestaltpsychologie \cite{Wertheimer1964}). In Bezug zum Raum hat es jedoch keine absolute G�ltigkeit, da die Vielfalt geografischer R�ume durch Kontraste und Grenzen, z.B. zwischen Land und Meer, Berg und Tal, Wald und Feld sowie politischen Gliederungen (z.B. Staatsgrenzen) gepr�gt ist \cite{Keim2010}.  
+Die Weise des \emph{leiblichen Ent-fernens} ist dabei nicht dieselbe wie die des \emph{digitalen Ent-fernens}. Im virtuellen Raum lassen sich Entfernungen nicht genau quantifizieren. Der Versuch N�he zu einem Gruppenmitglied durch die Anzahl von Klicks auszudr�cken, ist ebenso wenig hilfreich wie die Anzahl an Seiten anzugeben, die der \patternName{Remote Cursor} in einem \textit{shared editor} entfernt liegt. Folglich ist auch die Bewegung im Sinne der Entfernungs�nderung, Geschwindigkeit und Beschleunigung im virtuellen Raum nicht schl�ssig darstellbar. 
+
+Im Kontext der mobilen Kooperation bilden die physische und virtuelle Entfernung, wie in Abb. \ref{7Entfernung} veranschaulicht, zwei unabh�ngige Dimensionen. Virtuelle Begegnung erfordert keine physische N�he, und wenn dieser Fall dennoch eintritt, sprechen wir von Ko-Pr�senz im Gegensatz zur virtuellen Pr�senz (vgl. Kurseinheit 3). Im Fall einer virtuellen Distanz kann nur dann von einem kooperativen Szenario ausgegangen werden, wenn sich die Kooperationspartner in unmittelbarer physischer N�he zueinander befinden. 
+
+\begin{figure}
+  \includegraphics[width=.5\textwidth]{fig/7-distanz.pdf}\\
+  \caption{Zusammenhang zwischen der physischen und virtuellen Entfernung der Kooperationspartner}
+\label{7Entfernung}
+\end{figure}
+
+%Ort
+Im Gegensatz zum Raum haftet einem Ort\randnotiz{Ort} eine soziale Bedeutung (z.B. Stadtzentrum), ein kulturelles Rollenverst�ndnis (z.B. Rathaus) oder eine Funktion (z.B. Verkehrsampel) an. Orte sind diesbez�glich klarer abgegrenzt als R�ume und erwachsen aus den individuellen und kollektiven Erfahrung der Menschen. W�hrend ein Raum immer auch ein Potential f�r etwas darstellt, ist der Ort bereits semantisch besetzt. In welcher Weise bedeutungsvolle Informationen in geografischen R�umen verorten werden k�nnen, wird in den nachfolgenden Abschnitten dieser Kurseinheit noch thematisiert. 
+
+
+%aus einer anderen KE: Beide Dimensionen, Raum und Zeit, werden durch das \enquote{Im-Netz-sein} (ebd.) ent-fernt, verdichten sich mehr und mehr zu einem Punkt. \enquote{Wenn \emph{wir} diejenigen sind, die im Netz sind, dann hei�t dieses Im-Netz-sein immer schon ein zugleich Hier- und Dortsein, wenngleich die Weise des \emph{digitalen Ent-fernens} nicht dieselbe wie die des \emph{leiblichen Ent-fernens} ist.} (ebd.). Durch die F�higkeit des Ent-fernens k�nnen sich Menschen nach \citet{Capurro2002} erst im Netz aufhalten.
+
+%aus KE3: F�r eine virtuelle Gemeinschaft gibt es keinem physischen Raum oder Ort, in dem sich die Menschen begegnen k�nnen. Folglich besteht auch keine physische N�he zwischen den Beteiligten. N�he muss deshalb durch Kommunikation ausgedr�ckt werden. Wer viel miteinander kommuniziert, steht sich nahe. In der Virtualit�t entstehen soziale R�ume somit durch computervermittelte Kommunikation. Eine Community kann man als einen Raum verstehen, in dem Menschen miteinander kommunizieren. Zwischen diesen R�umen k�nnen wir hin und her bewegen ohne unsere physische Position zu �ndern.
+
+ 
+%However, the effect of the first lawis not absolute. In geography for instance, the law is weakened by the heterogeneity of the geographical space, where water differs from land, mountain range from valley, forest from meadow, seashore from inland, city centre from suburbs, and so on. Moreover, every location has Applicability of the first some degree of uniqueness relative to the other locations. Spatial dependence law is also affected by natural or artificial barriers. For example, the climate may significantly differ in two neighbouring valleys separated by a mountain range, and people's lives in two villages separated by a state border may also differ quite a lot. Similarly, temporal dependence may be interrupted by events; for example, radical changes may be caused by storms or floods. Relatedness between things may depend, not only on their distance (proximity) but also on direction. Thus, a flood or water pollution spreads downstream along a river. Events in time have an effect on future rather than past events. The notion of proximity is also phenomenon-dependent. It may be defined spatially, for example, in terms of distance by roads, rather than the straight line distance or distance on the Earth's surface. Temporal
+
+%According to Cresswell (2004, p. 10), "Space has been seen in distinction to place as a realm without meaning--as a 'fact of life,' which, like time, produces the basic coordinates for human life." Spaces are often regarded as having areas, volumes, or coordinates on a map, and can be understood as abstract or general representations of physical settings and the activities or associations that evolve there (Hubbard et al., 2004; Tuan, 1977). Space has also been called "t"he structure of the world; it is the three-dimensional environment, in which objects and events occur, and in which they have relative position and direction Harrison and Dourish, 1996, p. 2). Place as a concept, on the other hand, explicitly encompasses the meanings given to places by individuals (Dourish, 2006).
+
+% Mobilit�t
+Ein weiterer Aspekt\randnotiz{Mobilit�t}, der im ersten Gesetz der Geografie nicht ber�cksichtigt wird, ist die Bewegung bzw. Beweglichkeit von Objekten, die sich zu einem bestimmten Zeitpunkt in unmittelbarer Nachbarschaft befinden, jedoch kurz darauf schon weit voneinander entfernt liegen k�nnen. Dies gilt etwa f�r eine auf einem Bahnsteig stehende Person, deren Kooperationspartner augenblicklich in einem ICE Zug vorbei rauscht. Die Lokalit�t der Interaktionspartner ist eine wichtige Kontextvariable in der mobilen Kooperation. In der Raum-Zeit-Matrix (vgl. Kurseinheit 1) differenzierten wir diesbez�glich zwischen Personen, die sich am gleichen Ort befinden sowie solchen, die sich an verschiedenen vorhersagbaren und nicht vorhersagbaren Orten aufhalten.
+Wenngleich wir uns in dieser Kurseinheit vorrangig mit der Mobilit�t der beteiligten Individuen besch�ftigen, muss man in Anbetracht autonomer Agenten und Gef�hrten deren Eigenbewegung auch l�sgel�st von den Nutzern betrachten. Die Matrix in Tab. \ref{mobileMMI} erweitert diese Sichtweise und zeigt eine Gegen�berstellung des Zusammenspiels station�rer sowie mobiler Akteure in Gestalt von Nutzern und Ger�ten. Betrachten wir dazu die folgenden beiden Beispiele: 
+
+\begin{description}
+
+	\item[station�res Ger�t / mobiler, vorhersehbarer Nutzer] \textit{USB dead drop:} Das von Aram Bartholl initiierte Kunstprojekt besteht aus einem in einer Wand befestigten USB-Stick, der als anonymes \textit{peer-to-peer file sharing} Netzwerk dient. Passanten k�nnen sich direkt mit ihrem mobilen Ger�ten oder per Kabel damit verbinden und Dateien kopieren oder hinterlegen.
+\marginpar{ \includegraphics[width=\linewidth]{fig/7-dead-drop.jpg}{\vspace{-10pt}\footnotesize \begin{flushleft}Dead drop. (Foto: Harco Rutgers, CC-BY)\end{flushleft}}}
+	
+	\item[fremdgesteuertes, mobiles Ger�te / mobiler Nutzer] \textit{botiful:} Als ein Telepr�senz Roboter pr�sentiert sich \textit{botiful} als ein kleines dreir�driges Gef�hrt auf dem man w�hrend einer Videokonferenz ein Smartphone abstellt, um den kleinen Roboter von einem anderen Gespr�chspartner steuern zu lassen. Zus�tzlich zu den Fahrtbewegungen kann das Fahrzeug Gesten wie Nicken oder Kopfsch�tteln wiedergeben.
+\marginpar{ \includegraphics[width=\linewidth]{fig/7-botiful.jpg}{\vspace{-10pt}\footnotesize \begin{flushleft}Botiful. (Foto: engadget.com)\end{flushleft}}}
+
+\item[mobiles, nutzergest. Ger�t / mobiler, nicht vorhersehbarer Nutzer] WLAN im Zug: Als Fahrgast eines Zuges bin ich mobil, ohne auf die Fahrt des Zuges unmittelbaren Einfluss nehmen zu k�nnen. Mit einem mitgef�hrten Mobilger�t kann man sich jedoch relativ frei im Zug bewegen und ad-hoc kollaborieren sowie �ber die WLAN Zugangspunkte ins WWW gelangen, um mit Personen innerhalb oder au�erhalb des Zuges zusammenzuarbeiten.
+	
+\end{description}
+
+Die Beispiele machen deutlich, dass Mobilit�t immer relativ zum Bezugssystem ist. Ein Beobachter w�hlt sich das Bezugssystem zumeist entsprechend seines eigenen Aufenthaltsorts aus. W�hlt er die Erde als Bezugssystem, wird die Bewegung des Planeten um die eigene Achse sowie im Sonnensystem und Universum au�er Acht gelassen. Dinge werden als immobil angesehen, die fest auf dem Boden stehen und sich in Bezug auf den Boden nicht bewegen (z.B. H�user, Berge).
+Betrachtet man aber eine sitzende Person in einem fahrenden Zug, ist sie mobil, weil der Zug nicht still steht und gleichzeitig immobil, weil sie auf einem Platz sitzt und sich im Zug nicht bewegt. Dieser scheinbar paradoxe Zustand verdeutlicht die M�glichkeit einer gleichzeitigen Mobilit�t in mehreren Bezugssystemen. 
+% yyy Der Grad der Mobilit�t: Wann arbeite ich wirklich mobil und wann �ndere ich einfach meine Position, bevor ich zu arbeiten beginne. Wenn ich mich wirklich wie ein Smombie bewegen, welche Aufgaben kann ich w�hrenddessen erledigen? Wie hoch ist die Maximalgeschwindigkeit von sich bewegenden Kooperationspartnern?
+
+\begin{table}[h!b]
+\renewcommand{\arraystretch}{1.5}
+\caption[Matrix der mobile Mensch-Maschine-Interaktion]{\label{mobileMMI} Beispiele f�r Interaktionen station�rer und mobiler Nutzer und Ger�te.}
+\small
+\begin{tabularx}{.95\textwidth}{p{1.3cm}L|L|L|L}
+%\cline
+  &
+  & \multicolumn{3}{c}{Ger�t}
+  \\
+  &
+  %\textbf{Raum/Zeit} 
+  & {station�r} 
+  & {mobil, vorhersehbar, nutzergesteuert} 
+  & {mobil, nicht vorhersehbar, fremdgesteuert} 
+  \\\hline%\hline
+  
+  %\multirow{3}{\hsize}{Ort}
+  & {station�r} 
+  & Desktop-Rechner 
+  & Drohne
+  & Telepr�senz Roboter
+  \\\cline{2-5}
+  Nutzer
+  & {mobil, selbst vorhersehbar} 
+  & Kiosk-Systeme, Tabletops in Museen, \textit{dead drop} 
+  & Smartphone, Tablet 
+  & Telepr�senz Roboter (z.B. \textit{botiful})
+  \\\cline{2-5}
+  
+  & {mobil, nicht selbst vorhersehbar} 
+  & --- 
+  & WLAN, LTS, etc. in einem Verkehrsmittel
+  & ---
+  \\\hline
+\end{tabularx}
+\end{table}
+
+
+%https://www.kickstarter.com/projects/1452620607/botiful-telepresence-robot-for-android
+
+
+%%%%%%%%%%%%%%%
+\begin{comment}
+\subsection{Proxemik}
+Edward T. Hall: Die Sprache des Raumes (Originaltitel (1966): The Hidden Dimension, �bersetzt von Hilde Dixon). Schwann, D�sseldorf 1976, ISBN 978-3-590-14228-2.
+
+Intimdistanz
+Nahe Phase - bis 15 cm (bis 6 Zoll)
+Weite Phase - 15 bis 46 cm (6 bis 18 Zoll)
+Pers�nliche Distanz
+Nahe Phase - 46 bis 76 cm (1,5 bis 2,5 Fu�)
+Weite Phase - 76 bis 122 cm (2,5 bis 4 Fu�)
+Soziale Distanz
+Nahe Phase - 1,2 bis 2,1 m (4 bis 7 Fu�)
+Weite Phase - 2,1 bis 3,7 m (7 bis 12 Fu�)
+�ffentliche Distanz
+Nahe Phase - 3,7 bis 7,6 m (12 bis 25 Fu�)
+Weite Phase - ab 7,6 m (ab 25 Fu�)
+
+
+Extrapersonal space: The space that occurs outside the reach of an individual.
+Peripersonal space: The space within reach of any limb of an individual. Thus, to be ''within arm's length'' is to be within one's peripersonal space.
+Pericutaneous space: The space just outside our bodies but which might be near to touching it. Visual-tactile perceptive fields overlap in processing this space. For example, an individual might see a feather as not touching their skin but still experience the sensation of being tickled when it hovers just above their hand. Other examples include the blowing of wind, gusts of air, and the passage of heat.[10]
+
+While personal space describes the immediate space surrounding a person, territory refers to the area which a person may "lay claim to" and defend against others.[2] There are four forms of human territory in proxemic theory. They are:
+Public territory: a place where one may freely enter. This type of territory is rarely in the constant control of just one person. However, people might come to temporarily own areas of public territory.
+Interactional territory: a place where people congregate informally
+Home territory: a place where people continuously have control over their individual territory
+Body territory: the space immediately surrounding us
+
+\cite{Fischer2010}
+\begin{figure}
+  \includegraphics[width=.5\textwidth]{fig/7-fischer1.png}\\
+  \caption{..}
+\label{fischer1}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=.5\textwidth]{fig/7-fischer2.png}\\
+  \caption{..}
+\label{fischer2}
+\end{figure}
+
+\end{comment}
+
+%%%%%%%%%%%%%%%
+\subsection{Eigenschaften mobiler Systeme}
+
+Mobile Technologien zeigen, wenn wir von mobilen kooperativen Systemen sprechen, einige Eigenschaften, die sowohl den intendierten Gruppenprozess als auch die Technikunterst�tzung f�r diesen Prozess beeinflussen. Indem diese Eigenschaften in den Gestaltungsprozess mit einbezogen werden, ergibt sich eine Verortung der Kooperation in der konkreten Situation, sei es die Kooperationssituation oder die r�umliche und zeitliche Umgebung, in der die Kooperation stattfindet. Zun�chst soll an dieser Stelle ein grober �berblick �ber einige dieser Eigenschaften gegeben werden, bevor dann in den folgenden Kapiteln der Kurseinheit auf einzelne Aspekte detaillierter eingegangen wird.
+
+\begin{description}
+
+
+
+\item[Situiertheit in einem (Kooperations-)Kontext:] So k�nnen Komponenten des kooperativen Systems Teil einer situierten Handlung werden. Das Konzept der situierten Handlung wurde schon zuvor intensiv im Forschungsfeld CSCW diskutiert. Dabei wurde deutlich, dass geplante Interaktion (Workflows) in dynamischen Interaktionskontexten zu einem gro�en Teil von Improvisation gepr�gt ist und damit eben gerade nicht in dem Ma�e planbar ist, wie es eine vordefinierte Prozessbeschreibung vermuten l�sst (auch wenn f�r die Improvisation wiederum soziale Protokolle den Rahmen der improvisatorischen Ausdrucksformen bestimmen). \cite{Rahwan2005} sprechen in diesem Zusammenhang von \emph{Fluidity}, also der dynamischen und flexiblen Ver�nderung des Kooperationskontextes: ``Fluidity in mobility suggests that interaction can be occasional in mobile use situations, since the context in which these portable devices operate changes more frequently than with stationary computers.'' (ebd., S. 384)
+
+Durch die h�ufige Ver�nderung des Kontextes steigt die Notwendigkeit zur Anpassung der Interaktionsunterst�tzung an den Kontext, sei es an r�umliche Rahmenbedingungen, zeitliche Faktoren oder an soziale Konstellationen. 
+ 
+
+\item[Sensoren und Ausgabemedien im Ubiquitous Computing:] Im Bereich des \randhervor{Ubiquitous Computings}, also der allgegenw�rtigen Pr�senz vernetzter Computereinheiten, sind einzelne Komponenten des kooperativen Systems an Orte und Dinge gebunden. Beispiele sind Sensoren der Heim-Automation (Stichwort Smart Home) oder Sensoren in Automobilen. Die von diesen Sensoren gewonnenen Daten erweitern den Interaktionskontext um Rahmenbedingungen der (physikalischen) Umgebung. In der Interaktion mit den mobilen Endger�ten der Nutzenden kann somit ein Kooperationskontext in einer intelligenten Umgebung verankert werden. 
+
+Mobile Endger�te bestehen oft selbst aus einer gro�en Zahl von Sensoren. So bestehen aktuelle Smartphones aus Sensoren zur Ermittlung von vielf�ltigen Umgebungseigenschaften (Position, Lichtverh�ltnisse, Lautst�rke, ...) und Eigenschaften der nutzenden Person (z.B. den Bewegungen die mittels eines Beschleunigungssensors erfasst werden k�nnen). In Kooperativen Systemen werden individuelle Sensordaten zusammengefasst, um ein besseres Verst�ndnis der Gruppensituation zu gewinnen. Bei der Gestaltung ist darauf zu achten, dass die Erfassung und die Verarbeitung dieser Daten f�r die nutzenden Personen transparent und beeinflussbar ist.
+
+Im Zusammenhang mit der Dimension der Privatheit hatten wir bereits angesprochen, dass bei der Ausgabe von Inhalten darauf geachtet werden muss, dass nur die  Personen die Ausgaben sehen k�nnen, f�r die die Informationen bestimmt sind. Allgemeiner formuliert k�nnen wir als Entwurfsziel festhalten, dass die Wahl der Ausgabemedien auf den Kooperationskontext abgestimmt sein muss. Neben der grafischen Ausgabe ist bei mobilen Endger�ten vor allem die Ausgabe von Audio und die Signalisierung von Ereignissen durch Virbrationen.
+
+
+
+\item[Heterogenit�t und Orchestrierung:] Die Unterschiedlichkeit der in einem Kooperationskontext verf�gbaren Endger�te stellt die Entwicklerinnen und Entwickler eines kooperativen Systems vor Herausforderungen. Kooperationskontexte k�nnen gerade im Bereich der Communities immer weniger vom Anbieter aus geplant werden sondern m�ssen in einem dynamischen Aushandlungsprozess im konkreten Kooperationskontext gestaltet werden. Der Kontext unterliegt einer hohen Dynamik aus sich �ndernden Orts- und Zeitinformationen, Nutzerprofilen, Aufgaben und Interaktionhistorien. Nutzertypen lassen sich daraus nicht mehr so einfach identifizieren, da individuelle Anwender ihre Aufgabenziele auf ganz unterschiedliche Art und Weise erreichen und dabei auf den Austausch von Informationen angewiesen sind, um eine �bereinkunft mit den Kooperationspartnerns zu erzielen.  
+\citet[385]{Rahwan2005}
+% ``Heterogeneity. When the modelling of context is to take into account varying location, time, user profiles, tasks, interaction history etc., we are confronted with a much greater variety of agent (and user) types. Each individual agent may achieve tasks in a different way. [...] Negotiation is a natural way to exchange information and reach useful agreement or compromise with collaborators [...]'' \citet[385]{Rahwan2005}
+Dabei steht die Reduktion von technischen Beteiligungsh�rden im Zentrum. 
+
+Ein besonderer Aspekt der Heterogenit�t ist dann gegeben, wenn die Nutzenden mit mehr als einem Endger�t gleichzeitig interagieren. Hier gilt es, die Informationsverarbeitung so aufeinander abzustimmen, dass die Ger�tekombination insgesamt zu einem koh�renten Werkzeug wird. Im Sinne einer Orchestrierung der einzelnen technischen Hard- ud Software-Komponenten gilt es, ein in sich stimmiges Ensemble zu bilden. Dabei sind sowohl Sensoren als auch Ausgabemedien zu betrachten, worauf sich die folgenden zwei Dimensionen beziehen.
+
+
+\item[Verf�gbarkeit:] Mobile Systeme sind in der Regel stets bei den nutzenden Personen. Sie f�hren das Smartphone in der Tasche mit sich und k�nnen es zu jeder Zeit im Interaktionsprozess nutzen. Wir werden im Verlauf der Kurseinheit diese Grundannahme zwar kritisch hinterfragen und auf Forschungsarbeiten eingehen, die nahe legen, dass es Phasen der Trennung zwischen Nutzenden und Endger�ten gibt, sollten die generelle Verf�gbarkeit als Entwurfsaspekt jedoch im Blick behalten. 
+
+
+\item[Personalisierung:] Ein konstanter Faktor ist dabei die Verbindung zwischen Nutzenden und ihren Endger�ten. Gerade Smartphones sind zu einem hohen Grad personalisiert. Das Ger�t wird zur Stellvertreter-Identit�t, was auch Auswirkungen auf die Identifikation der Nutzenden hat: Oft kann man davon ausgehen, dass die Nutzenden eines Ger�tes dauerhaft mit einem kooperativen System verbunden sind. Ein \patternName{Login} wird z.B. in diesem Fall nur einmal durchgef�hrt und das mobile Ger�t speichert ein Zugangstoken f�r die Nutzerin oder den Nutzer. Zugangsschutz wird in diesem Fall �ber das Ger�t selbst modelliert (oft mittels eines Sperr-Codes oder eines Fingerabdrucksensors).  
+
+Die Kombination von Personalisierung und Verankerung erlaubt es den Nutzenden, ihren subjektiven Kontext in die Kooperationsumgebung einzubringen. So l�sst sich mit vielen mobilen Ger�ten eine Repr�sentanz der realen Orte und Objekte im virtuellen Raum herstellen. Ein einfaches Beispiel ist die Nutzung einer Kamera in kooperativen Systemen. Nutzende k�nnen reale Objekte im virtuellen Raum ``zeigen'' und so den Kooperationskontext auf ihre Sicht des realen Raums fokussieren. In neueren Ans�tzen ist die Kamera fest mit der Perspektive der Nutzenden verbunden: Indem sie eine Datenbrille tragen, entspricht die Blickrichtung der Kamera der Blickrichtung der agierenden Person (und erstellt somit einen \patternName{Remote Viewport}). 
+
+
+\item[Privatheit:] Damit ergeben sich auf der anderen Seite Herausforderungen bzgl. der Privatheit. Drei Hauptfragen sind dabei zu betrachten: (1) Wie kann der Nutzer oder die Nutzerin  steuern, was andere von dem sehen, was sie selbst sehen, (2) wie k�nnen die gesehenen Personen steuern, ob sie gesehen werden wollen und (3) wie kann ein Bewusstsein f�r die virtuell anwesenden und damit sehenden Personen hergestellt werden? Dies gilt es zu ber�cksichtigen, wenn Daten aus diesem sehr privaten Kontext in einen Kooperationskontext �bertragen werden. 
+
+Mindestens genauso wichtig ist es, bei der Gestaltung der mobilen kooperativen Ger�te darauf zu achten, wie und wann private Informationen angezeigt werden, sodass sie auch in Umgebungen mit mehreren anwesenden Personen privat bleiben und nur von den Nutzenden wahrgenommen werden, f�r de sie bestimmt sind.
+
+
+
+\end{description}
+
+Es ist davon auszugehen, dass sich die Liste der Gestaltungsdimensionen in den n�chsten Jahren noch erweitern wird. Dies liegt in der Natur der Dynamik von Informationstechnologien. Dennoch soll die oben stehende Liste f�r die folgenden Abschnitte der Kurseinheit die Arbeitsgrundlage bilden.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Situiertheit im (Kooperations-)Kontext mobiler Systeme}
+Die Bereitschaft, die eigene Aufmerksamkeit einem externen Ereignis zu widmen ist dabei unter anderem abh�ngig von der aktuellen T�tigkeit. Ein Verst�ndnis der aktuellen T�tigkeit ben�tigt ein breites Wissen �ber die Umgebung der nutzenden Person, z. B. aktuelle Gespr�che oder aktuell zu erledigende Aufgaben. Moderne mobile kooperative Systeme sind in der Lage, die aktuelle T�tigkeit und ggf. auch die Intention der Nutzenden zu erkennen. Da das mobile Endger�t in der Regel personalisiert ist, k�nnen hier Verbindungen zu anderen pers�nlichen Informationsquellen hergestellt werden. Das koopperative System kann z.B. den Kalender der Person auslesen und daraus erkennen, ob die Person aktuell gest�rt werden kann. 
+
+Die aktuelle Aufgabe und Arbeitssituation einer Person ist Teil eines  Konstrukts, das wir als \randhervor{Kontext} bezeichnen:
+
+\begin{quote}
+``We define context as any information that can be used to characterize the situation of an entity, where an entity can be a person, place, or physical or computational object.''  \citeN[304]{Abowd1999}
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.95\linewidth]{fig/context}
+\caption{Dimensionen des Kontexts (in Anlehung an H�kkil� und M�ntyj�rvi, 2005).}
+\label{Kontextmodell}
+\end{figure}
+
+Die Beschreibung eines Kontextes einer Nutzerin oder eines Nutzers kann verschiedene Dimensionen umfassen. Aufbauend auf einer Darstellung von \citet{Hakkila2005} k�nnen wir ein einfaches Kontextmodell f�r kooperative Systeme erstellen, das in Abbildung \ref{Kontextmodell} dargestellt ist.
+\newpage
+Das Modell betrachtet zum einen die technische Nutzung des mobilen Systems: Welche Ger�te hat der Nutzer oder die Nutzerin aktuell in der Hand oder in seiner Umgebung mit der M�glichkeit, sie zu nutzen? Allgemein: welche Ger�te Personen oder Dienstleistungen sind zuhanden? Bei der Betrachtung der technischen Ger�te bilden mobile Ger�te eine Komponente unter vielen. Weitere pers�nliche Ger�te k�nnen zum Beispiel Tablets oder Smartwatches sein. Neben den privaten Ger�ten sind aber auch �ffentliche Ger�te zu betrachten, auf die sich die Nutzenden zubewegen oder von denen sie sich entfernen k�nnen. Beispiele sind interaktive Tafeln oder in die W�nde eingelassene Informationskomponenten. 
+
+Ist ein System in der Lage, den Kontext zu interpretieren, so sprechen wir von einem kontextbewussten System bzw. von \randhervor{Context-Awareness}.
+
+\begin{quote}
+``We define context-awareness or context-aware computing as the use of context to provide task-relevant information and/or services to a user.''  \citeN[304]{Abowd1999}
+\end{quote}
+
+Auf Basis des verstandenen Kontextes kann sich das System an die Situation der Nutzenden anpassen. So k�nnen zum Beispiel Kooperationsm�glichkeiten signalisiert werden oder Benachrichtigungen blockiert oder zu den Nutzenden durchgelassen werden. Das Verhalten des \patternName{Attention Screens} wird in diesem Fall einzig vom Kontext bestimmt. Zudem kann der aktuelle Kontext f�r die anderen Nutzenden des Systems visualisiert werden. Ein Beispiel hierf�r ist der \patternName{Availability Status}:
+
+\pattern{Availability Status}{}{Signalisiere, ob der Nutzer oder die Nutzerin aktuell kontaktiert werden kann.}
+
+Je besser der Kontext verstanden wird, desto komplexer k�nnen die Anpassungen des Systems ausfallen. Eine einfache Anpassung ist die Auswahl der Darstellungsmedien in Abh�ngigkeit der Interaktionssituation. Erkennt das System zum Beispiel, dass sich die nutzende Person in einer Umgebung befindet, in der viel gesprochen wird, so kann es entscheiden, eingehende Nachrichten nur als Textnachricht darzustellen. Sind Personen in der N�he, so kann das System zus�tzlich entscheiden, dass die Nachricht nicht direkt angezeigt wird sondern dass lediglich die Existenz einer Nachricht signalisiert wird. So kann die empfangende Person sicherstellen, dass beim Lesen der Nachricht keine andere Person die Nachricht mitlesen kann. Bewegt sich die Person in f�r das Laufen typischen Bewegungen und hat sie zudem den Kopfh�rer angeschlossen, so kann das mobile System entscheiden, die Nachricht als Audio-Nachricht vorzulesen, da es davon ausgeht, dass die Person beim Joggen nicht in der Lage sein wird, das Display des Ger�ts zu lesen. 
+
+Kooperationsspezifische Anpassungen nehmen Einfluss auf die Modi der Kommunikation, Kooperation und Koordination. So kann zum Beispiel die Erkennung einer Interaktionssituation automatisch Kommunikationskan�le etablieren und Ereignisse aus der weiteren Umgebung abschotten. Beim gleichzeitigen Zugriff auf ein Dokument kann das System automatisch einen kooperativen Editor �ffnen und so von einer losen Kooperation in eine enge Kooperation �berleiten. An diesem Beispiel wird deutlich, dass die hier beschriebenen Mechanismen zur kontextadaptiven Anpassung eines kooperativen Systems nat�rlich nicht auf mobile Systeme beschr�nkt sind. Allerdings spielen Sie bei mobilen Systemen gerade wegen der engen Verbindung zwischen Nutzender Person und dem Ger�t eine wichtigere Rolle. 
+
+Die dadurch entstehenden Beziehungen zwischen dem Kontext und den an der Kooperation beteiligten Nutzer lassen sich wie folgt unterteilen:
+
+\begin{description}
+
+\item[Co-location:]  Situationen, in denen sich mehrere an einem physischen Ort (z.B. Besprechungszimmer) oder einem virtuellen Bereich (z.B. \textit{shared meeting space}) zusammenfinden
+%denotes the situation where several people meet at a physical (e.g. meeting room) or virtual location (e.g. shared artifact or shared meeting space),
+Ko-pr�senz im realen Raum wird im virtuellen Raum gespiegelt, z. B. indem andere Nutzende auf einem Foto in der Timeline eines facebook-Nutzers abgebildet und markiert werden und damit deren Pr�senz am Ort des Fotos auch im virtuellen Raum sichtbar wird.
+
+
+\item[Co-access:] Mehrer Personen greifen auf das selbe Artefakt (z.B. Textdokument) zu.
+%denotes the situation where several people access the same artifact (e.g. a design drawing or document),
+
+\item[Co-recommendation:] Implizite oder explizite Aktivit�ten mehrerer Nutzer dienen als Empfehlung f�r Informationen, die zur L�sung einer gemeinsamen Aufgabe n�tzlich sein k�nnen.
+% denotes the situation where explicit or implicit actions of the collaborators are used to suggest information resources potentially useful for a common task, and
+
+\item[Co-dependency:] Situationen, in denen Aufgaben, Objekte oder Nutzer voneinander abh�ngen (z.B. Aufgaben sind von anderen Aufgaben abh�ngig, die ein anderer Benutzer bearbeitet)
+% denotes the situation where several tasks, objects or users are dependent (e.g. tasks are dependent on tasks being worked on by other users).
+
+\end{description}
+
+Die r�umliche N�he zu der nutzenden Person erlaubt es zudem, die aktuelle Position mit den anderen Nutzenden des kooperativen Systems zu teilen. Allgemeiner k�nnen wir sagen, dass Eigenschaften des Kontextes mit dem kooperativen System und den dort agierenden Benutzerinnen und Benutzern geteilt werden. Wenn wir zuvor formuliert haben, dass das Da-sein der Nutzenden im kooperativen System nie unterbrochen wird, so k�nnen wir mit Blick auf den Kontext sagen, dass das Hier-sein der Anderen im eigenen Kontext erm�glicht wird. Entfernte Nutzende bekommen ein Gef�hl f�r die r�umliche Umgebung der entfernt arbeiten Nutzenden. Aktuelle Bilder der Umgebung werden mit anderen Nutzenden geteilt, h�ufig in Form eines Selbstportraits (Selfie) am jeweiligen Ort. Lokal zuhandende Objekte werden der Wahrnehmung der entfernten Nutzenden zug�nglich gemacht. Bei einem Restaurantbesuch wird zum Beispiel das Essen fotografiert um ``gemeinsam'' mit Nutzenden aus der virtuellen Gemeinschaft das Essen ``zu genie�en''. 
+
+\citet{Pei2012} beschreiben einige Szenarien, in denen der  \emph{mobile Kontext}\randnotiz{Mobiler Kontext} in Arbeitskontexten eine Rolle spielt. Eines der Beispiele beschreibt die Kooperation in einem mobilen Katastrophen-Einsatzteam. Hier m�ssen die beteiligten Einsatzkr�fte m�glichst schnell ein gemeinsames Wissen �ber die Situation vor Ort aufbauen. Indem die r�umlichen Kontexte der einzelnen Einsatzkr�fte in einem gemeinsamen Informationsraum geteilt werden, entsteht ein Gesamtbild, das zur Koordination der weiteren Aktivit�ten genutzt werden kann.
+
+%yyy Kontext k�nnen wir allgemein definieren als ``Summe der Informationen, die zur Durchf�hrung einer Aktivit�ten notwendig sein k�nnen''
+
+
+\begin{comment}
+yyy
+Meercat / Periscope sind eine Live Sreaeming App, die mit Twitter verbunden ist und Videos in Echtzeit aufzeichnet, �bertr�gt und via Twitter andere Nutzer teilhaben l�sst. W�hrend eine 
+Gespr�che der Teilnehmer werden im unteren Teil des Videostreams angezeigt. 
+\randnotiz{\video Instantly stream your life with Meerkat: \url{https://youtu.be/FlFmpRqkfMA}}
+
+%yyy \todo{-- EXAMPLE: KONTEXTDEFINITION UND ADAPTION}
+
+%Capture and retrieve context information 
+%Adapt to the user's context
+%Reduce need for explicit user input
+%Are better integrated with user's environment and activity
+
+
+\end{comment}
+
+%%%%%%%%%%%%%%%%
+\section{Sensoren und Ausgabemedien im Kontext des Ubiquitous Computing}
+% UbiComp
+
+Im Bereich des \randhervor{Ubiquitous Computings}, also der allgegenw�rtigen Pr�senz vernetzter Computereinheiten, sind einzelne Komponenten des kooperativen Systems an Orte und Dinge gebunden. Beispiele sind Sensoren der Heim-Automation (Stichwort Smart Home) oder Sensoren in Automobilen. Die von diesen Sensoren gewonnenen Daten erweitern den Interaktionskontext um Rahmenbedingungen der (physikalischen) Umgebung. In der Interaktion mit den mobilen Endger�ten der Nutzenden kann somit ein Kooperationskontext in einer intelligenten Umgebung verankert werden. 
+
+%yyy \begin{example}
+%%%\textbf{Smart City: Singapur}\\
+%%%Siehe \url{https://www.smartnation.sg/}
+%%%\end{example}
+
+
+%%%%%%%%%
+\subsection{Sensoren}\label{sensorgeo}
+Mobile Endger�te bestehen oft selbst aus einer gro�en Zahl von Sensoren. So bestehen aktuelle Smartphones aus Sensoren zur Ermittlung von vielf�ltigen Umwelteigenschaften (Umgebungstemperatur, Licht, Luftdruck, relative Luftfeuchtigkeit, Ger�tetemperatur), Positionsdaten (Magnetische Feldst�rke, Geomagnetische Rotation, Game Rotation, Orientierung, N�he) und Bewegungsinformationen (3D Beschleunigungskr�fte, 3D Rotationskr�fte, Gravitation, Gyroskop, Lineare Beschleunigung, Schrittz�hler, Schrittdetektor, Signifikante Bewegungen, Rotationsbewegungen).
+
+In Kooperativen Systemen werden individuelle Sensordaten zusammengefasst, um ein besseres Verst�ndnis der Gruppensituation zu gewinnen. Das Ziel besteht darin alle verf�gbaren Informationen in einer Situation heranzuziehen, um ein m�glichst intelligentes Verhalten der Anwendung zu erzeugen. Im Idealfall m�ssen die Anwender dann weniger mit dem System interagieren. Die Ger�te k�nnen somit in den Hintergrund treten und beanspruchen die Aufmerksamkeit der Nutzenden weniger stark. Ubiquitous Computing spielt also nicht auf die Tatsache an, dass in unserem Umfeld dutzende Mobile Ger�te zu finden sind, sondern auf die kleinen, irgendwo verbauten Sensoren und Aktuatoren, die uns im Verborgenen gute Dienste leisten. Ein triviales Beispiel daf�r sind Heizungsanlagen, welche die Innen- und Au�entemperaturen messen und unter Ber�cksichtigung eines definierten Zielwertes den Betrieb der Heizung regeln. 
+
+Bei der Gestaltung von mobilen Systemen ist darauf zu achten, dass die Erfassung und die Verarbeitung dieser Daten f�r die nutzenden Personen transparent und beeinflussbar ist. Entwickler m�ssen sich auch damit auseinandersetzen, wie genau (Wertebereich, Aufl�sung), zuverl�ssig (Rauschen), aktuell (Messinterval, Verz�gerung durch Verarbeitung) und kostspielig (Zeit, Energieverbrauch) die gewonnen Daten des Sensors sind. Das folgende Beispiel zeigt wie man unter Android Daten des Luftdrucksensors ausliest. 
+
+\begin{comment}
+Resolution / precision
+Accuracy
+Sample rates
+Delay
+Range
+Noise
+Reliability
+Cost
+\end{comment}
+
+\begin{example}
+\textbf{Nutzung von Sensoren unter Android: Luftdrucksensor}\\
+Voraussetzung f�r die Verwendung eines Sensors innerhalb einer Android App ist die Zustimmung des Nutzers. Sofern eine App auf Sensoren oder �hnliche Informationen des Mobilger�ts angewiesen ist, muss dies im Android App Manifest hinterlegt sein (z.B. \emph{<uses-feature android:name='android.hardware.sensor.pressure'/>}).
+Um die Sensordaten dann nutzen zu k�nnen, greift man auf das Sensor Framework zu, welches Teil des Pakets \emph{andoid.hardware} ist. Als n�chstes sollte man sich vergewissern, ob das Ger�t �berhaupt mit dem Sensor ausgestattet ist. Im Code Beispiel \ref{android-sensor} wird gepr�ft, ob der Sensor Manager einen Sensor vom Type Pressure hat. 
+%Determine an individual sensor's capabilities, such as its maximum range, manufacturer, power requirements, and resolution.
+%Acquire raw sensor data and define the minimum rate at which you acquire sensor data.
+Abschlie�end registriert man einen Listener auf den Sensor, der bei �nderungen des Luftdrucks ein Event (\emph{onSensorChanged}) feuert. Im \emph{SensorEvent} Objekt sind dann die Daten (Rohdaten, Zeitstempel, Genauigkeit) enthalten und stehen f�r eine weitere Verarbeitung oder Ausgabe zur Verf�gung.
+
+
+\begin{lstlisting}[caption={Ausgabe des Luftdrucks unter Android},label={android-sensor},language=Javascript,firstnumber=1,basicstyle=\tiny]{}
+
+public class SensorActivity extends Activity implements SensorEventListener {
+ private SensorManager mSensorManager;
+ private Sensor mPressure;
+
+ @Override
+ public final void onCreate(Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+   setContentView(R.layout.main);
+    // Instanzierung des Sensordienstes
+    mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+    // Ist ein Luftdrucksensors verhanden?
+    if (mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE) != null){
+    	mPressure = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);	
+    }else{
+    	// Falls nicht:
+    	Log.i("Kein Luftdrucksensor verf�gbar");
+    }
+ }
+
+ @Override
+ public final void onSensorChanged(SensorEvent event) {
+   float millibars_of_pressure = event.values[0];
+   // Ausgabe des Luftdrucks
+   Log.i("Pressure: " + float millibars_of_pressure + "mbar" );
+ }
+
+ @Override
+ protected void onResume() {
+   // Listener f�r den Sensor registrieren
+   super.onResume();
+   mSensorManager.registerListener(this, mPressure, SensorManager.SENSOR_DELAY_NORMAL);
+ }
+
+ @Override
+ protected void onPause() {
+   // Listener abmelden, wenn der Sensor pausiert
+   super.onPause();
+   mSensorManager.unregisterListener(this);
+ }
+}
+\end{lstlisting}
+\end{example}
+
+Das Auslesen von Daten ist der einfachere Teil. Schwieriger ist es aus den Rohdaten verwertbare Kontextinformationen zu erzeugen. Das sogenannte Context Retrieval\randnotiz{Context Retrieval} kann mehrere Verbeitungsstufen erfordern:
+\begin{enumerate}
+\item Rohdaten erfassen: elektrisches Signal vom Sensor
+\item Sampling: diskrete Werte erzeugen  
+\item Einfache Abstraktion: z.B. statistische Muster erkennen 
+\item Erweiterte semantische Abstraktion: z.B. mit Neuronalen Netzen, (hidden) Markov Modellen, Kohonennetzen oder Bayesschen Netzen 
+\item Interpretation der Daten als Kontext
+\end{enumerate}
+In den �bungen zu dieser Kurseinheit werden wir uns mit dem Context Retrieval noch genauer besch�ftigen. 
+
+
+\begin{comment}
+yyy Kamera:
+
+Physical hyperlinking (mobile tagging)
+Visual codes for camera phones
+Image recognition
+Optical movement detection
+Target acquisition with camera phones
+
+Taking snapshot of surroundings
+  Camera phones
+  Additional data input channel
+  1D / 2D barcodes
+  Bridging different media types
+  Paper and electronic media, mobile devices and electronic displays
+  Linking mobile devices
+  Authentication between devices via the visual channel
+  Overlaying information onto the real world
+  Augmented reality
+  Creating input devices
+  Optical movement detection
+  Server-based image recognition
+  Server analyzes uploaded image
+
+  Linking the physical to the virtual world
+  The environment as part of the interface
+  Integration with the users activities
+  Camera phones as bridging devices
+  Always available imaging device
+  Continuous wireless connectivity
+  Processing power enables on-device
+image processing
+  Display and audio capabilities
+  Handheld camera vs. fixed camera
+  Traditionally predominantly fixed cameras
+
+Digital cameras: Sources of rich sensor data
+  Interpretable by humans and machines
+  Can be processed in many ways
+  Issues of perceptual interfaces (computer vision,
+gesture recognition, speech recognition)
+  Potential for recognition errors
+  Impact on user experience depends on application
+  Issues of camera-based interfaces
+ 
+ 
+Recognition errors
+Delay for processing (responsiveness)
+Dependence on lighting conditions
+Needs a lot of computational resources
+
+
+Reality Browsers: Wikitude
+
+\end{comment}
+
+
+%%%%%%%%%%%%
+\subsection{Ausgabemedien}
+Im Zusammenhang mit der Dimension der Privatheit hatten wir bereits angesprochen, dass bei der Ausgabe von Inhalten darauf geachtet werden muss, dass nur die  Personen die Ausgaben sehen k�nnen, f�r die die Informationen bestimmt sind. Problematisch ist dies beispielsweise hinsichtlich der auf dem Sperrbildschrim dargestellten Informationen bei Smartphones. Ein L�sungsansatz besteht darin,  geteilte und individuelle Displays bzw. Ausgabeger�te gleichzeitig zu nutzen. Dies ist in einigen Bereichen bereits g�ngige Praxis. Beispielsweise im Unterhaltungsbereich, wo parallel zum TV-Programm Social Media Kan�le bedient, Umfragen durchgef�hrt oder Hintergrundinformationen abgefragt werden k�nnen. Ein gutes Beispiel stellen auch \textit{Twitter Walls} dar, die bei gro�en Veranstaltungen -- etwa bei Tagungen und Konferenzen -- die Meinungen der Teilnehmer unter einem vereinbarten Hashtag zusammenf�hren und auf einer gesonderten Projektionsfl�che darstellen.
+
+Des Weiteren gibt es zahlreiche Anwendungsszenarien, in denen gro�fl�chige, teils �ffentliche Displays zum Einsatz kommen \cite{Fischer2010}. Wie in Abb. \ref{fig:fischer-display} dargestellt ist dabei der Abstand der Personen vom Display ausschlaggebend daf�r, ob sie dazu im Stande sind mit dem Display zu interagieren oder die Darstellung bewusst oder nur peripher wahrnehmen k�nnen. 
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.7\linewidth]{fig/7-fischer2.png}
+\caption{Differenzierung zwischen Bereichen der direkten Interaktion, fokussierten und peripheren Aktivit�ten vor gro�en Displays oder Projektionen \cite{Fischer2010}.}
+\label{fig:fischer-display}
+\end{figure}
+ 
+Neben der grafischen Ausgabe ist bei mobilen Endger�ten vor allem die Ausgabe von Audio und die Signalisierung von Ereignissen durch Virbrationen. Im Abschnitt \ref{attention} werden wir darauf im Zusammenhang mit den Gewinnung von Aufmerksamkeit noch genauer eingehen.
+%
+Zusammenfassend formuliert k�nnen wir als Entwurfsziel festhalten, dass die Wahl der Ausgabemedien auf den Kooperationskontext abgestimmt sein muss. 
+ 
+
+\begin{example}
+Es mag auf den ersten Blick verwirren, wenn wir in einer Kurseinheit zum Thema mobile kooperative Systeme technische Komponenten wie interaktive Tafeln betrachten. Nehmen wir das weitere Forschungsfeld des \emph{Ubiquitous Computing}, so wird jedoch deutlich, dass schon lange bei der Gestaltung kooperativer Systeme immer das gesamte Setting der Kooperationsumgebung betrachtet wurde. Eindr�ckliche fr�he Beispiele finden sich in den Forschungsarbeiten von Hiroshi Ishi:
+
+\begin{itemize}
+\item[1997] \textit{transBoard}: Das Digital Enhanced Whiteboard erm�glicht als verteilte Anwendung das kollaborative Zeichnen in Echtzeit. Siehe \url{http://tangible.media.mit.edu/project/transboard/}.
+
+\item[1997] \textit{AmbientRoom}: Durch die Steuerung und Erzeugung von Umgebungsbeleuchtung, Schatten, Kl�ngen, Luft- und Wasserbewegungen hat man die periphere Wahrnehmung von Personen angesprochen, um auf diese Weise Informationen zu kommunizieren. Die vordergr�ndigen Aktivit�ten sollten somit nicht durch die hintergr�ndigen, aber dennoch wahrnehmbaren Informationen unterbrochen werden. Siehe \url{http://tangible.media.mit.edu/project/ambientroom/}.
+
+\end{itemize}
+\end{example}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Heterogenit�t und Orchestrierung}
+
+Anwender entwickeln im Laufe der Zeit Gewohnheiten f�r bestimmte Nutzungspraktiken, Ger�te,  Betriebssysteme und Softwareanwendungen. Mit ihrer individuellen Konfiguration aus Hard- und Software k�nnen sie in der Regel effektiv und effizient arbeiten. Viele Unternehmen machen sich dies zu eigen und gestatten ihren Mitarbeitern, ihre privaten (Mobil-)Ger�te f�r berufliche Zwecke zu nutzen. \textit{Bring Your Own Device} bzw. \textit{BYOD} wird diese Praxis bezeichnet. Eine Arbeitnehmerin braucht sich somit keine komplett neuen Ger�te und Anwendungen einrichten. Insbesondere reduziert sich die Zeit f�r die Einarbeitung in die Umgebung aus Hard- und Software. Das Unternehmen spart dar�ber hinaus Kosten f�r die Anschaffung von Ger�ten und versetzt die Mitarbeiter in die Lage von unterwegs und auch von zu Hause aus zu arbeiten. 
+Der Ansatz von BYOD findet nicht nur in Unternehmen, sondern auch in Kultur- und Bildungseinrichtungen Anwendung. Museumsbesuchern wird beispielsweise eine App f�r den virtuellen, ortsabh�ngigen Rundgang empfohlen, statt ihnen Audioguides oder Kiosksysteme anzubieten. Und auch an Bildungseinrichtungen wie der FernUniversit�t in Hagen gibt es seitens der Studierenden kaum noch Bedarf an Computerkabinetten.
+
+Mit diesem Ansatz entstehen jedoch einige Herausforderungen, insbesondere zur Gew�hrleistung der Daten- und IT-Sicherheit. Auch kooperative Anwendungen m�ssen sich auf die Vielfalt unterschiedlicher Ein- und Ausgabeger�te, Softwarekonfigurationen (z.B. Betriebssysteme und Browser unterschiedlicher Versionierungen) und Datenanbindungen einstellen. In diesem Abschnitt beleuchten wir technische L�sungen, die -- auch unabh�ngig von BYOD -- eine konsistente plattform- und systemunabh�ngige  Zusammenarbeit erm�glichen.
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Responsive Design} 
+Smartphones, Phablets, Tablets, Desktopcomputer, Spielekonsolen, Fernseher und sogar Wearables wie Uhren weisen eine extreme Vielfalt an verschiedenen Displaygr��en auf. Bei Mobilger�ten kann sich zudem die Orientierung des Displays �ndern und der Darstellungsbereich durch das Einblenden einer virtuellen Tastatur verkleinern. Und auch die Art des Displays kann Auswirkungen auf die Darstellung der Inhalte haben. Mobile Anwendungen und insbesondere WebApps m�ssen sich deshalb an die jeweiligen Eigenschaften des Endger�ts anpassen. Die Gestaltung einer flexiblen Anpassung der Darstellung und Interaktionsm�glichkeiten fasst man als \textit{Responsive Design} zusammen. Im Entwurf von Sketches oder Wireframes sowie bei der praktischen Umsetzung solcher Designs beginnt man �blicher Weise mit der kleinsten, noch zu unterst�tzten Bildschirmgr��e\footnote{Im Extremfall des kleinsten Smartphones bedeutet das 2,5'' gro�e Displays zu unterst�tzen.} Sobald alle Gestaltungselemente auf engem Raum arrangiert sind, f�llt es leicht die selbigen auf gr��eren Fl�chen zu platzieren bzw. auszudehen. F�r die kooperative Anwendungen folgt daraus, dass die Kooperationspartner unter Umst�nden eine unterschiedliche Anordnung der Informations- und Interaktionselemente vorfinden und keine koh�rente Vorstellung vom strukturellen Aufbau der Anwendung entwickeln k�nnen. Letzteres bedingt auch unterschiedliche M�glichkeiten und Geschwindigkeiten bei der Bedienung der Anwendung.
+
+Aus Platzgr�nden k�nnen wir im Rahmen dieser Kurseinheit nicht auf Details in der Umsetzung eingehen. Dennoch sollen in der folgenden Auflistung wesentliche Aspekte und Gestaltungshinweise zusammengefasst werden. 
+
+%%%
+\paragraph{Medienabfragen:} Gem�� der zu unterst�tzenden Darstellungsbereiche werden zun�chst Media Queries definiert, die festlegen wie die Darstellungselemente innerhalb eines Intervalls der Displaybreite anzuzeigen sind. Bootstrap 4 unterst�tzt per Default die folgenden vier Gr��en bzw. drei Breakpoints:
+\begin{lstlisting} 
+@media all and (max-width: 1199px) { /*...*/ } 
+@media all and (max-width: 991px) { /*...*/ } 
+@media all and (max-width: 768px) { /*...*/ } 
+@media all and (max-width: 575px) { /*...*/ }
+\end{lstlisting} 
+In dem Beispiel ist zu bemerken, dass keine untere Grenze, sehr wohl jedoch eine obere Grenze definiert ist, um die Bedienbarkeit auch auf sehr gro�en Displays zu gew�hrleisten. 
+
+%%%
+\paragraph{Navigation:} Aufgrund des begrenzten Platzangebots k�nnen umfangreichere Navigationsmen�s nicht permanent dargestellt werden. Es empfiehlt sich jedoch nicht die Navigation hinter einem sogenannten Hamburger Men� (\faBars ) zu verbergen. Statt dessen sollten die wichtigsten Navigationselemente als Icons in einem Reiter oder als schrittweise ausklappbares Men� sichtbar bleiben. 
+
+%%%
+\paragraph{Vollst�ndigkeit:} Trotz der Notwendigkeit zur Umgestaltung von Layout und Design sollten den Nutzern von Kleinstger�ten keine Informationen und Funktionalit�ten vorenthalten werden.
+
+%%%
+\paragraph{Texte:} Um eine gute Lesbarkeit von Texten zu erzielen, sollten pro Zeile in einer Spalte zwischen 70 und 80 Zeichen erscheinen. 
+
+%%%
+\paragraph{Relative Einheiten:} Statt die Breite oder H�he eines Elements in Pixel (px) anzugeben, sollten relative Ma�e in Prozent (\%) angegeben werden. Gleiches gilt f�r Schriftgr��en, die mit der Einheit \textquote{em} relativ zur Basisschriftgr��e, anstatt als fixe Gr��e in Point (pt) zu definieren sind.
+
+%%%
+\paragraph{Rand:} Insbesondere bei Touchdisplays ist es schwer Interaktionselemente auszuw�hlen, die unmittelbar am Displayrand positioniert sind (siehe auch \textquote{Fat Finger Problem}). Einige Ger�te wie z.B. das iPhone X weisen Geh�useteile auf, die in das Display hineinragen und die am Rand liegenden Informationen verdecken. 
+
+%%%
+\paragraph{Bilder:} Hochaufl�sende Retina-Displays k�nnen entsprechend aufbereitete Bilder anzeigen, sofern dies im CSS ber�cksichtigt wird, z.B.:
+\begin{lstlisting}[basicstyle=\footnotesize]
+@media
+  (-webkit-min-device-pixel-ratio:1.5),
+  (min--moz-device-pixel-ratio:1.5),
+  (-o-min-device-pixel-ratio:3/2),
+  (min-resolution:1.5dppx) 
+{ /* ... */ }
+\end{lstlisting}
+Auch Bilddateien lassen sich automatisch durch hochaufl�sende Formate ersetzen und in den Image-tag einf�gen:
+\begin{lstlisting}[basicstyle=\footnotesize]
+<picture>
+  <source media="(min-width: 800px)" srcset="a.jpg, a-2x.jpg 2x">
+  <source media="(min-width: 450px)" srcset="a-sm.jpg, a-sm-2x.jpg 2x">
+  <img src="a-fb.jpg" srcset="a-fb-2x.jpg 2x" alt="foo">
+</picture>
+\end{lstlisting}
+
+%%%
+\paragraph{Page load:}\label{pageload} Breitbandverbindungen sind nur in wenigen Teilen der Erde verf�gbar und f�r die Mehrheit der Menschen leider auch nicht erschwinglich. Eine durch schlecht komprimierte und �berdimensional gro�e Bilder sowie Bibliotheken  und redundanten HTML-Code aufgebl�hte Seite kosten den Anwender beim Laden mindestens Wartezeit, oft jedoch auch bares Geld (siehe \url{https://whatdoesmysitecost.com/}). 
+
+
+Weiterf�hrende Perspektiven auf die Responsivit�t unter Ber�cksichtigung der Ein- und Ausgabemedien finden Sie in den folgenden Quellen: 
+\begin{description}
+\item[Mobile Design Pattern Gallery] \citep{neil2014mobile}  beinhaltet 90 Muster zur Gestaltung von mobilen Anwendungen. Dabei steht neben der mobilen Nutzung die Bedienung mit Fingergesten und die Darstellung von Informationen auf kleinstem Raum im Fokus.
+
+\item[Designing Mobile Interfaces] \citep{hoober2011designing}  \link \url{http://4ourth.com/wiki/} beschreibt weitere 78 Muster f�r Anwendungen auf mobilen Ger�ten. 
+
+\item[Fingers, Thumbs, and People:] Design for How People Touch and Hold Their Devices, von Steven Hoober \videolink{https://vimeo.com/110216618}
+\end{description}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Gracefull downgrades vs. progressive enhancement} 
+In den Browserkriegen (1992--1998) setzten sich Hersteller �ber die vom W3C vereinbarten Standards hinweg und sorgten f�r inkompatible Funktionen und Darstellungen von Webseiten. F�r Entwickler war es damals schwer, eine universelle L�sung zu entwickeln, die f�r alle Browser gleicherma�en funktionierte. Inzwischen halten sich die Hersteller von Browsern an die Empfehlungen des W3C. Das Tempo, in dem neue Standards entwickelt und in Produkten unterst�tzt werden, hat sich jedoch erh�ht. Viele Anwender halten dabei nicht mit den Entwicklungen Schritt und bleiben mit ihren veralteten Browsers bzw. Browserversionen hinter dem Stand der Technik zur�ck.  
+ Als Entwickler eines mobilen kooperativen Systems k�nnen Sie diese Nutzergruppen meistens nicht ignorieren. Auf jeden Fall werden Sie keinen Einfluss darauf nehmen k�nnen, dass andere ihre Systeme aktuell halten. Sie m�ssen Sie sich deshalb �berlegen, wie Sie eine Abw�rtkompatibilit�t f�r Ihre Anwendungen gew�hrleisten k�nnen. Sie haben die Wahl zwischen den folgenden beiden Strategien:
+ 
+\begin{description}
+\item[Graceful downgrades:] (oder auch \textit{graceful degradation}) Die Funktionen und die User Experience einer Anwendung ist f�r aktuelle Browser optimiert. In �lteren Browsern werden zumindest die grundlegenden Funktionalit�ten erm�glicht sowie eine ausreichende User Experience geboten.
+%So, graceful degradation is the practice of building your web functionality so that it provides a certain level of user experience in more modern browsers, but it will also degrade gracefully to a lower level of user in experience in older browsers. This lower level is not as nice to use for your site visitors, but it does still provide them with the basic functionality that they came to your site to use; things do not break for them.
+
+\item[Progressive enhancement:] F�r alle Browser wird ein Mindestumfang an Funktionalit�t mit einer grundlegenden User Experience realisiert. Weiterf�hrenden Funktionalit�ten bzw. eine besondere User Experience ist dann nur f�r aktuellere Browser verf�gbar, die diese Features auch unterst�tzen. 
+% Progressive enhancement is similar, but it does things the other way round. You start by establishing a basic level of user experience that all browsers will be able to provide when rendering your web site, but you also build in more advanced functionality that will automatically be available to browsers that can use it.
+
+\end{description}
+
+
+\textit{Graceful downgrads} erfordern weniger Planung und sind deshalb oftmals schneller zu realisieren. Auf lange Sicht ist es jedoch aufwendiger mehrere Versionen einer Anwendung zu pflegen, als eine Anwendung progressiv zu verbessern. Hilfreiche Information dar�ber, welche Web Technologien verschiedene Browser unterst�tzen, finden sich auf der Webseite \url{https://caniuse.com/}. Die Herausforderung abw�rtskompatibel zu bleiben, ist �brigens nicht auf Browser beschr�nkt, sondern gilt ebenso f�r native Apps welche f�r mehrere Betriebssysteme und Betriebssystemversionen entwickelt werden m�ssen. Single Source L�sungen wie \textit{React Native} oder \textit{Native Script}, die auf Basis eines Quellcodes z.B. iOS, Android und WebApps erzeugen, versuchen diese Herausforderung zu adressieren.
+% https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement
+
+
+%%%
+\subsection{Interaktion zwischen Ger�ten}
+
+\citet{Madden2018} haben Gesten zweier Ger�te mit bestimmten Reaktionen auf diese Gesten kombiniert und daraus 26 Entwurfsmuster abgeleitet. Eine Interaktion zwischen zwei Ger�ten kann dabei durch gleichzeitig ausgef�hrte Gesten wie \textit{bump}, \textit{shake} oder \textit{touch} sowie durch einseitig ausgef�hrte Gesten wie \textit{swipe, throw} oder \textit{approach} initiiert werden. 
+Nach der Initiierung einer Interaktion verkn�pft man basale Reaktionen wie beispielsweise \textit{give, take, exchange} sowie \textit{extent} und \textit{connect}/\textit{disconnect} damit. Abb. \ref{deviceinteraction} zeigt das Muster \textsc{Bump to exchange}, was beispielsweise zum Austausch von Kontaktdaten oder Public Keys genutzt werden kann. Weitere Informationen zu diesen Mustern und deren Implementierung finden Sie unter \url{http://multiscreen-patterns.uxid.de/patterns/} (abgerufen am 29.09.2018).
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{fig/7-bump_to_exchange.png}\\
+  \caption{\textsc{Bump to exchange}: Der einen leichten Zusammensto� zweier Ger�te wird je ein Datenobjekt von einem Ger�t zum anderen �bertragen.}
+\label{deviceinteraction}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%yyy \paragraph*{Standardisierung}
+%Eine Vorraussetzung f�r das Funktionieren heterogener, mobiler Systemlandschaften ist die Standardisierung von Schnittstellen, Datenformaten und Protokollen. 
+
+%bluetooth, NFC
+ 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Verf�gbarkeit}
+Unter Verf�gbarkeit verstehen wir zum einen die Perspektive des Nutzers, jeder Zeit und an jedem Ort mittels mobiler Ger�te und �ber die dar�ber zug�nglichen Dienste verf�gen zu k�nnen. Dem gegen�ber steht die technische Notwendigkeit, diese Dienste st�ndig und �berall verf�gbar zu machen. 
+
+\subsection{Orts- und zeitunabh�ngige Verf�gbarkeit}
+Zwei Aspekte kooperativer System gewinnen bei mobilen kooperativen Systemen besondere Bedeutung, auch wenn sie bereits bei den bisherigen �berlegungen zu kooperativen Systemen eine wichtige Rolle gespielt haben: Zeit und Raum. Mobile kooperative Systeme verdichten den Raum indem sie immer in der N�he der nutzenden Person bleiben. Sie verdichten die Zeit indem sie die Verz�gerungen zwischen Ereignissen und Reaktionen auf das Ereignis reduzieren. Beides wollen wir im Folgenden genauer betrachten und dabei das Konstrukt des Kontextes kennenlernen.
+
+Mobile kooperative Systeme sind in der Regel dort, wo sich die Benutzerin oder der Benutzer aufh�lt. Damit kann ein Benutzer oder eine Benutzerin schneller reagieren. Ein Awareness-Signal wird sofort wahrgenommen (das Smartphone spielt zum Beispiel einen Ton ab) und die nutzende Person greift in der Regel sofort zum Ger�t, um auf eine Aktion der anderen Nutzenden zu reagieren. Die Nutzerin oder der Nutzer bleibt im virtuellen Raum pr�sent, auch wenn sie oder er sich im realen Raum an einen anderen Ort bewegt. Das Da-sein der Person im virtuellen Raum wird vom Da-sein der Person im physikalischen Raum entkoppelt. Dies war theoretisch auch bei immobilen kooperativen Systemen schon gegeben, allerdings verlie� eine Nutzerin oder ein Nutzer des immobilen kooperativen Systems das System, wenn sie oder er den Schreibtisch verlie�, bspw. um etwas zu essen, um mit der Familie zusammen zu sein oder um Sport zu treiben. Mobile kooperative Systeme bleiben hingegen in der Regel bei der Person, auch wenn  sich die Person bewegt. So ist das System bei allen Aktivit�ten pr�sent und die H�rde zur Interaktion im System wird deutlich reduziert. 
+
+Auch wenn wir also die pauschale Annahme, dass die Nutzenden eines Smartphones permanent mit dem kooperativen System verbunden sind, relativieren m�ssen, liegen die Daten aus der Studie von \cite{Winnick2016}\randnotiz{\url{https://blog.dscout.com/mobile-touches}} trotzdem noch so hoch, dass wir davon ausgehen k�nnen, mit mobilen Systeme eine erh�hte Verf�gbarkeit zu erreichen. Mit den Begriffen Heideggers bleiben das System und die im System interagierenden Personen  zuhanden bleiben, unabh�ngig davon, wo sich der K�rper der Person befindet. Im Zuhanden-sein bleiben die Personen im sozialen Interaktionsprozess. Zeiten der Unverf�gbarkeit durch Abwesenheit werden es in solchen Systemen zum Luxusgut. Die Interaktion wird deutlich beschleunigt.
+
+\begin{comment}
+\cite{Czerwinski2016}
+Competing for attention will become an increasing concern as we move towards an IoT environment where more and more devices in varied contexts will compete for our attention.
+
+
+yyy Benutzer nicht �berfordern und zu Handlungen verleiten, die ihn Unterbrechen. 
+
+Nudging 
+
+Ziel: how do we time and contextualize notifications so as to optimize for minimal disruption of the user's attention while
+\end{comment}
+Ein genauerer Blick auf die N�he zwischen Nutzenden und ihren mobilen Ger�ten ergab eine Studie mit 94 Teilnehmern, deren Interaktionen mit dem Smartphone in einem Zeitraum von 4,5 Tagen aufgezeichnet und ausgewertet wurde. Im Durchschnitt �ber alle Nutzer und pro Tag ergab sich folgendes Bild:
+\begin{itemize}
+	\item 2617 Touch-Gesten; 
+	\item 76 Benutzersessions;
+	\item 47\,\% der Nutzersessions erfolgten w�hrend das Display gesperrt war;
+	\item w�hrend einer Session wurde zumeist nur eine App (52\,\%) genutzt, seltener zwei (27\,\%) oder mehr (23\,\%);
+	\item 27\,\% der Interaktionen erfolgten in einer App von Facebook (z.B. \textit{Facebook, Instagram, What'sApp, ...}) und 16\,\% in einer zu Alphabet geh�renden App (z.B. \textit{Google, Chrome, YouTube, ...}).
+\end{itemize}
+
+%.... \todo{-- PAPER DISTANCE BETWEEN USERS AND DEVICES; weitere STUDIE ZUR HANDY-NUTZUNG}
+
+Die quasi gleichzeitige Pr�senz in unterschiedlichen Kooperationskontexten f�hrt zu einer \emph{konstanten Unterbrechung}\randnotiz{Konstante Unterbrechungen} der Aktivit�ten. Eine Person ist physisch zwar an einem Ort, ihre Aufmerksamkeit ist durch die Unterbrechung jedoch im mobilen kooperativen System gefangen. Eine planbare aufgabenorientierte Aktivit�t der einzelnen Nutzenden wird von einer kaum noch planbaren Menge von ereignisgetriebenen Mikroaktivit�ten abgel�st. Wir sprechen im Unterschied zu geplanten Aktivit�ten in diesem Fall von \randhervor{Ad-hoc-Kooperation}. Wie \citet{Hakkila2005} feststellen, ist die Ad-hoc-Kooperation in mobilen Kontexten die vorherrschende Form der Interaktion. 
+
+Die Frage, welche Ereignisse den Nutzenden sofort signalisiert werden sollen, erh�lt durch die konstante Erreichbarkeit eine neue Relevanz. 
+
+\pattern{Attention Screen}{}{Bestimme, wer und was die Aufmerksamkeit einer Nutzerin oder eines Nutzers erhalten kann.}
+
+Diese Entscheidung spiegelt den Interessenkonflikt zwischem Entwicklern bzw. Anbietern und dem Nutzer wieder. Anbieter wollen Aufmerksamkeit des Nutzers auf ihre Anwendung, w�hrend der Nutzer selbst �ber seine Handeln bestimmen m�chte, ohne dabei einer psychologisch manipulativen Werbung beeinflusst zu werden. Zu bedenken sind hierbei auch Feedback Loops, die entstehen wenn zwei Kooperationspartner wechselseitig auf die Benachrichtigungen des jeweils anderen reagieren. Die Anwenderin sollte deshalb nicht nur entscheiden, ob sie �ber Ereignisse informiert werden m�chte, sondern auch in welcher Weise dies geschehen soll. Entscheidend sind hierbei der Zeitpunkt und die Modalit�t der Benachrichtigung. 
+
+In Momenten hoher kognitiver Belastung (z.B. beim Schreiben eines Absatzes), ist es sehr ung�nstig den Nutzer zu unterbrechen. Unterbrechungen wirken sich dann besonders negativ auf die Arbeitsleistung aus und sorgen f�r Frustration \cite{Czerwinski2016}. Auch St�rungen w�hrend �blicher Ruhe- und Schlafenszeiten sollten nur in wirklich dringenden F�llen sofort die Aufmerksamkeit des Nutzers erlangen. Als Gestalter eines kooperativen Systems k�nnen Sie mindestens die momentane Aktivit�t des Nutzer innerhalb der Anwendung eruieren und u.U. die Benachrichtigung �ber Ereignisse verz�gern. 
+\label{attention} 
+
+F�r die Lenkung der Aufmerksamkeit k�nnen unterschiedliche Sinneskan�le �ber verschiedene Aktuatoren angesprochen werden (siehe Tab.~\ref{tab:notification-signals}). Die Modalit�t der Benachrichtigung sollte sich von der Modalit�t unterscheiden, welche die Aufmerksamkeit des Nutzers aktuell in Anspruch nimmt \cite{Czerwinski2016}. Falls der Anwender gerade ein Video anschaut, ist es unwahrscheinlich, dass er w�hrenddessen eine visuelle Ereignisnachricht wahrnimmt. 
+Die Ausgestaltung eines Signals kann dabei jedoch die Wirkung des Signals verst�rken. Beispielhaft sei hier die Signalfarbe Rot (z.B. im Batch der neu eingegangenen Nachrichten) oder besonders disonante Klangfolgen erinnert. \marginpar{ \includegraphics[width=\linewidth]{fig/7-gloria-mark.jpg}{\vspace{-10pt}\footnotesize \begin{flushleft}Prof. Dr. Gloria Mark, University of California\end{flushleft}}} Dem interessierten Leser seien an dieser Stelle die Forschungsarbeiten von Gloria Mark �ber die \textquote{digital distraction} empfohlen.
+ 
+
+%https://www.theguardian.com/technology/2017/oct/05/smartphone-addiction-silicon-valley-dystopia
+
+\begin{table}\small\renewcommand{\arraystretch}{1.3}
+\caption{Aktuatoren zur Erlangung der Aufmerksamkeit des Nutzers}
+\label{tab:notification-signals}
+\begin{tabularx}{\textwidth}{p{3cm}LLL}
+\hline
+Signal & Sinneskan�le & Informationsgehalt & Spezifik\\
+\hline
+Blinklicht									& visuell							& gering & gering\\
+Push notifications 					& visuell 							& hoch & hoch\\
+Sperrbildschirm 						& visuell 							& hoch & hoch\\
+Vibrationsarlarm 						& haptisch, akustisch & gering & gering\\
+Klingelton 									& akustisch 					& gering & gering\\	
+Klingelmelodie 							& akustisch 					& mittel & mittel\\
+\hline
+\end{tabularx}
+\end{table}
+
+
+In der Gesellschaft formieren sich jedoch inzwischen auch kritische Stimmen, die entweder auf pers�nlicher Ebene oder politisch gegen die Aufmerksamkeits�konomie ank�mpfen. Mehr Selbstkontrolle versuchen manche durch strikte Offline-Zeiten, Kindeschutzvorrichtung zur Beschr�nkung auf bestimmte Apps, Browsererweiterung zur Ausblendung von manipulativen Seitenelementen oder Apps wie \textit{Pocket Points}, welche die Nichtbenutzung des Mobiltelefons belohnen.  
+Entschleunigung zugunsten von qualitativen Inhalten und einem bewu�ten Umgang mit denselben fordern die Initiatoren des \textit{Slow Media Manifests}\randnotiz{\url{http://www.slow-media.net/manifest}}
+Auf politischer Ebene engagiert sich zudem die Bewegung \textit{Time Well Spent} \randnotiz{\url{http://timewellspent.io/}} f�r bessere Design Entscheidungen, die den Menschen mit seinen wirklichen Bed�rfnissen in den Mittelpunkt stellen, anstatt die Aufmerksamkeit auf sich ziehen zu wollen.\randnotiz{\video TEDtalk von Tristan Harris: \url{https://youtu.be/jT5rRh9AZf4}}
+ 
+%https://www.theguardian.com/technology/2017/oct/05/smartphone-addiction-silicon-valley-dystopia
+
+%attention economy :: an internet shaped around the demands of an advertising economy
+
+
+
+%%%%%%%%%%%%%%
+\subsection{Verf�gbarkeit aus technischer Perspektive}
+Um kooperative Systeme f�r mobile Anwendungsszenarien verf�gbar zu machen, sind eine Reihe von technischen Herausforderungen zu meistern:
+\begin{itemize}
+	\item Netzzugang: Vor allem in l�ndlichen Gebieten, aber auch in weniger entwickelten L�ndern ist eine Drahtloskommunkation (z.B. Edge, UMTS, WLAN) nur eingeschr�nkt m�glich. Eine �berlastungen der Netzinfratrukturen kann au�erdem dazu f�hren, dass Kommunikationsdienste tempor�r nicht verf�gbar sind (z.B. zum Jahreswechsel in deutschen Gro�st�dten oder bei Gro�veranstaltungen wie Fu�ballspielen).
+	
+	\item Verbindungsunterbrechungen: Die Aufrechterhaltung einer steten Verbindung ist in Anbetracht der Eigenbewegung der Nutzerinnen nicht immer gew�hrleistet. Folglich muss ein kooperatives System innerhalb einer Session sowohl online, als auch offline bedienbar sein.
+	 
+	\item Latenz: Eine gro�e Entfernungen zwischen den Kooperationspartnern (oder eine Unterbrechung der Verbindung) kann zu teils erheblichen Verz�gerungen bei der Auslieferungen von Nachrichten f�hren und eine synchrone Kooperation stark beeintr�chtigen. 
+
+	\item Geringe �bertragungskapazit�ten: Die �bertragungskapazit�t in der drahtlosen Kommunikation ist von der Wellenl�nge abh�ngig, jedoch grunds�tzlich geringer als bei drahtgebundenen Netzwerken. Die Kapazit�t verringert sich zudem mit zunehmenden Abstand zum Sender. Hindernisse zwischen Sender und Empf�nger vermindern die Daten\-�ber\-tra\-gung, je nach dem aus welchem Material das Hindernis beschaffen ist und mit welcher Frequenz die Daten transferiert werden. 
+\end{itemize} 
+
+In diesem Teilabschnitt adressieren wir diese Herausforderungen mit ausgew�hlten Guidelines f�r die Entwicklung entsprechender Systeme, die in der Community anerkannt und zudem mit vertretbarem Aufwand realisierbar sind. Aus Sicht des Anwenders m�ssen Systeme unter den oben geschilderten Umgebungsbedingung der Mobilkommunikation funktionieren. Anwender aber auch andere Dienste erwarten  von diesen Systemen eine st�ndige Verf�gbarkeit, das Verm�gen gro�e Datenvolumen zu �bermitteln und Antworten innerhalb weniger Millisekunden. Um diese Anforderungen zu erf�llen, m�ssen Systeme stets antwortbereit, widerstandsf�hig, elastisch und nachrichtenorientiert sein. Systeme, die die folgenden vier Qualit�ten gleichzeitig erf�llen bezeichnet man als Reaktive Systeme. Die folgende Auflistung stellt eine Zusammenfassung des Reactive Manifesto\randnotiz{Reactive Manifesto} dar und ist im Original zu lesen unter 
+\url{https://github.com/reactivemanifesto}.
+
+
+%Verteilte Systeme sind nicht nur f�r die Wirtschaft, sondern auch in vielen gesellschaftlichen Bereichen unerl�sslich geworden. 
+
+
+\begin{description}
+\item[Responsivness:] Das System antwortet unter allen Umst�nden innerhalb vereinbarter Antwortzeitgrenzen, solange dies �berhaupt m�glich ist. Fehler im verteilten System lassen sich nur durch Verz�gerungen oder das Ausbleiben von Antworten sicher ermitteln. 
+
+%Antwortbereitschaft ist die Grundlage f�r Funktion und Benutzbarkeit eines Systems, aber noch wichtiger ist, dass Fehler in verteilten Systemen nur durch die Abwesenheit einer Antwort sicher festgestellt werden k�nnen. Ohne vereinbarte Antwortzeitgrenzen ist die Erkennung und Behandlung von Fehlern nicht m�glich. Eine weitere Facette ist, dass konsistente Antwortzeiten als Zeichen von Qualit�t Vertrauen stiften und so weitere Interaktion f�rdern.
+
+\item[Resilient:] Das System bleibt selbst bei Ausf�llen von Hard- oder Software antwortbereit. Widerstandsf�higkeit ist nur erreichbar durch Replizieren der Funktionalit�t (z.B. durch offline verf�gbare Daten), Eind�mmung von Fehlern, Isolation von Komponenten sowie Delegieren von Verantwortung. 
+
+%Dies bezieht sich nicht nur auf hochkritische Anwendungen: jedes System, welches nicht widerstandsf�hig ist, verliert durch einen Ausfall seine Antwortbereitschaft und damit seine Funktion. Widerstandsf�higkeit ist nur erreichbar durch Replizieren der Funktionalit�t, Eind�mmung von Fehlern, Isolation von Komponenten sowie Delegieren von Verantwortung. So bleibt der Ausfall eines Teilsystems auf dieses begrenzt, andere Teilsysteme sind gesch�tzt und in ihrer Funktion nicht behindert. Die Wiederherstellung des Normalzustandes wird einer �bergeordneten Komponente �bertragen, die durch die gesteuerte Replizierung der ihr untergeordneten Komponenten die geforderte Verf�gbarkeit sicherstellt. All dies bedeutet, dass Nutzer eines auf diese Weise widerstandsf�higen Systems von der Last befreit sind, sich mit dessen Ausf�llen auseinandersetzen zu m�ssen.
+
+\item[Elastic:] Das System bleibt auch unter sich �ndernden Lastbedingungen antwortbereit. Die Komponenten des Systems weisen keine fixen Engp�sse auf, w�hrend die Auslastung stetig erfasst wird. Aufgaben werden zerlegt und auf Teilsysteme und Ressourcen verteilt. 
+%Bei Verminderung oder Erh�hung der Last werden automatisch die Replizierungsfaktoren und damit die genutzten Ressourcen angepasst. Um dies zu erm�glichen, darf das System keine Engp�sse aufweisen, die den Gesamtdurchsatz vor Erreichen der geplanten Maximalauslegung einschr�nken. Ideal ist eine Architektur, die keine fixen Engp�sse aufweist. In diesem Fall kann das bearbeitete Aufgabengebiet in unabh�ngige Teile zerlegt und auf beliebig viele Ressourcen verteilt werden. Reaktive Systeme unterst�tzen die Erfassung ihrer Auslastung zur Laufzeit, um automatisch regelnd eingreifen zu k�nnen. Dank ihrer Elastizit�t k�nnen sie auf Speziall�sungen verzichten und mit handels�blichen Komponenten implementiert werden.
+
+\item[Message driven:] Das System verwendet asynchrone Nachrichten�bermittlung zwischen seinen Komponenten zur Sicherstellung von deren Entkopplung und Isolation sowie zwecks der �bermittlung von Fehlern an �bergeordnete Komponenten. 
+
+%Die explizite Verwendung von Nachrichten�bermittlung f�hrt zu einer ortsunabh�ngigen Formulierung des Programms und erlaubt die transparente Skalierung von Komponenten. Die �berwachung von Nachrichtenpuffern erm�glicht kontinuierlichen Einblick in das Laufzeitverhalten des Systems  sowohl zur Diagnose als auch zur automatischen Ressourcensteuerung  sowie Priorisierung und Kontrolle der Nachrichtenfl�sse. Ortsunabh�ngigkeit bedeutet, dass Code und Semantik des Programms nicht davon abh�ngen, ob dessen Teile auf demselben Computer oder verteilt �ber ein Netzwerk ausgef�hrt werden. Nicht-blockierende nachrichtenorientierte Systeme erlauben eine effiziente Verwendung von Ressourcen, da Komponenten beim Ausbleiben von Nachrichten vollst�ndig inaktiv bleiben k�nnen.
+
+\end{description}
+
+
+Wie diese Forderungen im Einzelnen umgesetzt werden k�nnen m�ssen Designer, Entwickler und Betreiber von kooperativen Systemen gemeinsam abstimmen. Wesentlich konkreter formuliert und mit Beispielen untersetzt sind hingegen die Guidelines f�r \textit{Progressive Web Apps}. 
+Unter dieser Form von Anwendungen \randnotiz{Progressive Web App} versteht man zun�chst hybride Anwendungen, die sowohl als Web Anwendung, als auch als native App auf einem Mobilger�t installiert werden k�nnen. Google erweiterte diese Definition um weitere Anforderungen, die im einzelnen auch �berpr�fbar bzw. messbar sind:\vspace{-5pt}
+\begin{itemize}
+\item \textit{progressive enhancement} %(siehe Abschnitt \ref{progenhancement})
+
+\item Responsivit�t, \textit{cross browser} %(siehe Abschnitt \ref{responsive})
+
+\item HTTPS
+
+\item App Manifest: (siehe \url{https://www.w3.org/TR/appmanifest/})
+
+\item Web Push Notifications 
+% siehe Beispiel Code: https://github.com/GoogleChrome/samples/blob/gh-pages/push-messaging-and-notifications/service-worker.js
+
+\item Service Worker
+
+\end{itemize} 
+
+Um die Verf�gbarkeit einer Anwendung zu steigern ist der letzte Punkt besonders interessant. Als \textit{Service Worker} bezeichnet man Scripte, die im Hintergrund vom Browser ausgef�hrt werden. In einem solchen Script k�nnen minimale HTML, Javascript und CSS Quellen in den Web Cache geladen sowie Daten mit einer entfernten Datenbank synchronisiert werden, so dass auch im Offline-Betrieb alle zur App geh�renden URLs mit dem HTTP Code 200 antworten und der Nutzer brauchbare Informationen erh�lt. In wie weit damit eine kooperative Zusammenarbeit fortgef�hrt werden kann, muss im Einzelfall gepr�ft werden. Es empfiehlt sich hier verschiedene Caching Strategien miteinander zu vergleichen und zu testen.
+
+% yyy Beispiele f�r Caching Strategien einf�gen.
+
+Ein wesentliches Ziel der Optimierungen stellt zudem die Verbesserung der \textit{User Experience} durch eine schnellere Auslieferung der Seiteninhalte dar. Dieses Ziel sollte auch hinsichtlich schlechter Datenverbindungen (z.B. in 3G Netzen) anvisiert und dahingehend getestet werden. F�r die Evaluation gibt es Kennwerte wie \textit{Pagespeed} oder \textit{Speedindex}. Beim initialen Laden einer Seite, d.h. ohne Caching, sollte der \textit{Pagespeed}, laut Google, $<$\,85 bzw. der \textit{Speedindex} $<$\, 4000 sein. F�r die Optimierung der Ladezeit gibt es neben dem bereits erw�hnten Caching eine Reihe von Ans�tzen wie z.B. die serverseitige Kompression der �bertragen Dateien oder das ausschlie�liche Nachladen von ge�nderten Seitenelementen (\textit{Single Page App}). Eine ausf�hrlichere Checkliste f�r \textit{Progressive Web Apps} findet sich unter \url{https://developers.google.com/web/progressive-web-apps/checklist}.  
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Personalisierung}
+Das Thema der Personalisierung im Kontext mobiler Kooperation kann man aus verschiedenen Perspektiven betrachten. 
+Viele Mobilger�te haben wir in unser Leben integriert und als Bestandteil unserer Identit�t konfiguriert und gestaltet. Gleichzeitig passen wir unser Leben zu einem gewissen Teil an die Nutzung der Ger�te an. Diese beiden Seiten einer Medaille spiegeln die Beziehungsebene zwischen Mobilger�t und Subjekt. 
+Aus psychologischer Sicht erweitern die Ger�te unsere kognitiven F�higkeiten, indem nicht nur pers�nliche Informationen externalisiert, sondern auch kognitive Aufgaben jeder Zeit an sie delegiert werden k�nnen. 
+Eine dritte Form der Personalisierung beruht auf der aktuellen geografischen Position. Bestimmte Informationen und Dienste gewinnen f�r uns erst dann an Bedeutung, wenn sie sich auf Objekte oder Subjekte in unserer N�he beziehen und somit einen unmittelbaren Nutzen bzw. eine Funktion entfalten. 
+In diesem Zusammenhang werden wir einige neue Patterns kennenlernen, welche ortsabh�ngige Formen der Kooperation erm�glichen und unterst�tzen. 
+
+% Personalisierung
+\subsection{Beziehung zwischen Smartphone und Subjekt}
+Nach der anf�nglichen Skepsis und Ablehnung werden Smartphones in der �ffentlichkeit und im Privaten inzwischen weitgehend akzeptiert. In vielen Schwellen- und Entwicklungsl�ndern er�ffneten vergleichsweise g�nstigen Mobilger�te (z.B. die \textit{One Laptop per Child}) f�r breite Bev�lkerungsschichten die erste Gelegenheit virtuelles Neuland zu betreten und miteinander zu kommunizieren. Die Verbindung zwischen Nutzenden und ihren Endger�ten hat sich zu einem konstanten Faktor im Leben vieler Menschen entwickelt. Das Ger�t wird zur Stellvertreter-Identit�t, was auch Auswirkungen auf die Identifikation der Nutzenden hat. So kommt es vor, dass Nutzer eine psychologische Bindung zu ihren Mobiltelefonen bzw. zu den damit verbundenen Aktivit�ten und Diensten aufbauen und neben der materiellen auch eine anthroposophische und sentimentale Sicht auf die Ger�te entwickeln \cite{Fullwood2017}. In der Literatur werden zwei Nutzergruppen unterschieden: (1) \textit{Instant Communicators}, die vor allem Textnachrichten und Fotos versenden und (2) \textit{Communicators/Information Seekers}, die sowohl Nachrichten (E-Mails) kommunizieren, als auch im WWW surfen und Informationen suchen. 
+Unabh�ngig davon dienen Smartphones als ein Instrument zur Selbstreflexion anhand der gesammelten Fotos, Dialoge und Informationen. Pers�nliche Erinnerungen werden gespeichert und mit ausgew�hlten Personen geteilt. Dieses Ged�chtnis ist deshalb ein Teil der Identit�t. 
+ 
+ 
+
+\begin{comment}
+yyy Paper weiter lesen: \cite{Fullwood2017}
+%% Funktionen
+
+ist ein Ger�t zum Speichern pers�nlicher Erinnerungen, wodurch man sich selbst auch reflektiert. %Meschtscherjakov, 2009; Tian et al., 2009, Venta et al., 2008
+
+
+%% Bindung - Abh�ngigkeit
+
+Das Smartphone kann Aspekte der sozialen Identit�t sowie die Zugeh�rigkeit zu einer Gruppe repr�sentieren. Der Besitz eines Mobiltelefons und das Antwortzeiten 
+ 
+phones express aspects of our social identities, or the extent to which we define ourselves by our membership to specific groups. Having a phone and speed of response is part of a group norm. 
+
+Smartphone als Statussymbol ... der Typ von Telefon und die Art der Benutzung ist Teil der Identit�t der Nutzer
+
+..sprechen dem Ger�t menschliche Qualit�ten und Charakteristiken zu 
+
+.. �berlebenswichtig
+
+.. notifikations: 'It's like it's crying for you'
+
+.. starke emotionale Bindung: 
+
+Nutzngsformen:
+- funktional: 
+- informational:
+\end{comment}
+
+%% Normalit�t
+Die Benutzung des Smartphone im Alltag wird kaum noch als eine ungew�hnliche Verhaltensweise angesehen. Hingegen wird eine Verweigerungshaltung gegen�ber bestimmten Diensten oder den Ger�ten als solches durch einen Ausschluss von sozialen Aktivit�ten sanktioniert. Der Besitz eines Mobiltelefons sowie die Reaktionsgeschwindigkeit auf eingehende Nachrichten sind Bestandteil von Gruppennormen und beeinflussen somit die Kommunikation innerhalb von Gruppen. Dar�ber hinaus gelten in manchen Milieus die Mobilger�te als Statussymbole, die sich durch das Modell und die Art der Benutzung unterscheiden. \cite{Fullwood2017}
+
+Gerade als Alltagsgegenstand sind Smartphones zu einem hohen Grad personalisiert. Kennzeichen der Personalisierung ist neben der �u�eren Gestalt des Ger�ts (Marke, Modell, H�lle, etc.) vor allem der individualisierte Arbeitsbereich, der sich aus Hintergrundbilder, Widgets, App Launcher und Benachrichtigungen (\textit{push notifications}) zusammensetzt. Durch die Anwendungen und die zur Verf�gung stehenden Schnittstellen, er�ffnen sich Verbindungen zu einem Kosmos weiterer Dienste und Ger�te. 
+Oft kann man davon ausgehen, dass die Nutzenden eines Ger�tes dauerhaft mit einem kooperativen System verbunden sind. Ein \patternName{Login} wird z.B. in diesem Fall nur einmal durchgef�hrt und das mobile Ger�t speichert ein Zugangs-Token f�r die Nutzerin oder den Nutzer. Zugangsschutz wird in diesem Fall �ber das Ger�t selbst modelliert (oft mittels eines Sperr-Codes oder eines Fingerabdrucksensors). 
+
+%\begin{example}yyy Beispiel: App-Authentification in iOS\end{example}
+
+
+%% Friedrich Hesse: Kognitive Denkr�ume, 
+\subsection{Personalisierte kognitive Schnittstellen und intelligente Assistenten}
+Ein wichtiger Aspekt der Personalisierung mobiler Ger�te betrifft deren Funktion als st�ndig und fast �berall verf�gbare kognitive Schnittstelle\randnotiz{Cognitive Interface}. Es handelt sich um eine Schnittstelle zwischen dem Menschen als Anwender und dem Computer als Mediator von Anwendungen und Diensten im WWW. Rechenkapazit�t, Speicher, Sensorik und Ausgabe des Mobilger�ts werden dazu eingesetzt, die begrenzten kognitiven Kapazit�ten des Anwenders auf individuelle Weise zu erweitern. Diese Systeme unterst�tzen die menschliche Kognition zum einen durch die Selegierung relevanter Informationen, die in geeigneter Weise dargestellt werden. Zum anderen �bernehmen mobile Systeme als virtuelle Kollaborateure kognitive Aufgaben, die dem Anwender zu viel Zeit oder Anstrengungen kosten oder ihn von den aktuell wichtigen Aufgaben abhalten.
+Beispielsweise sind  Kontaktinformationen von Freunden und Bekannten im Adressbuch des Smartphones gespeichert, so dass Anwender ohne Kenntnis der Kontaktdaten kommunizieren und sich koordinieren k�nnen. Auch die in Kurseinheit 6 thematisierten Awareness Funktionen erweitern unsere kognitive F�higkeiten, in dem sie die Aufmerksamkeit lenken.\\ 
+Dialogsysteme wie \textit{Chat Bots} und Sprachassistenten stellen Anwendungen dar, die versuchen uns kognitive anspruchsvollere Aufgaben wie die Recherche, Orientierung und Auswahl von Informationen abzunehmen. Nutzer eines Navigationssystems bzw. einer Routenplanung k�nnen sich von der kognitiven Last der Orientierung in unbekannten Umgebungen befreien und sich schier blind leiten lassen. In �hnlicher Weise vertraut man Suchmaschinen oder Sprachassistenten, die richtigen Antworten auf die gestellten Fragen zu liefern. Im Kontext kooperativer Anwendungen sind \randnotiz{Kooperative Assistenzsysteme}Assistenzsysteme in Form von Agenten oder auch Social Bots schon seit langem bekannt. In der Wikipedia helfen hunderte Bots beispielsweise dabei, das System zu pflegen und Vandalismus zu verhindern. H�ufige Schreib- und Formatierungsfehler sowie inhaltliche Unzul�nglichkeiten werden behandelt oder behoben. Im Unterschied zu Maintainance-Funktionen sind die Aktivit�ten von Bots transparent. Bearbeitete Dokumente werden mit einem \patternName{Change Indicator} versehen und alle Aktivit�ten eines Bots sind in einem \patternName{ActivityLog} zusammengefasst. In eine �hnliche Richtung hat sich ein pers�nlicher Alter Ego namens \textit{Replika}\footnote{Siehe \url{https://replika.ai/}.} entwickelt, der vom Nutzer und seinen Eingaben so viel (mit KI Methoden) lernt, dass er oder sie als guter Kompanion, Freundin und st�ndiger Begleiter wahrgenommen wird. Der n�chste Schritt in dieser Entwicklung k�nnten Chat Bots sein, die nicht nur einen einzelnen User kennen und helfen, sondern auch dem Team mit dem die Person zusammenarbeitet.
+
+%(Amazon Alexa, Microsoft Cortana, Apple Siri). 
+\begin{comment}
+- unterst�tzen menschliche Kognition
+- �bernehmen kognitive Aufgaben (=> stille Kollaborateure)
+- Siehe https://youtu.be/EsU01gc9bAk?t=41m14s
+- Zwei Fragen
+-- Informations Design: Welche Informationen soll die kognitive Schnittstelle aus der Umwelt selegieren? Wie sollen die Informationen dargestellt werden? => Multiple Repr�sentationen, Awareness Technologien, Nutzung kognitiver Konflikte, 
+
+-- Interaktion Design: Welche Handlungsm�glichkeiten sollen Individuen einger�umt werden? Wie kann die kognitive Schnittstelle adaptiv auf Nutzer reagieren? => intuitive Interaktion, Explorationsgelegenheiten, Unterst�tzung kooperativen Arbeitens
+
+- Augmented Working Memory. �hnliche Handlungsm�glichkeiten wie im Arbeitsged�chtnis. 
+\end{comment}
+
+
+
+%%%%%%%%%%%%%%%%%%
+\subsection{Ich bin hier}%{Mein Dorf, meine Stadt, mein Kiez}
+% https://www.wired.com/story/facebook-local-the-only-facebook-app-you-need/
+Ein weiteres Feld der Personalisierung ergibt sich aus der Geoposition der Nutzer. Positionsdaten sind in nativen Umgebungen (siehe Abschnitt \ref{sensorgeo}), aber auch in WebApps (siehe Code \ref{geopos}) verf�gbar und er�ffnen eine Reihe von personalisierten Kooperationsm�glichkeiten. In diesem Teilabschnitt werfen wir einen Blick auf kartenbasierte Interaktionsm�glichkeiten vor dem Hintergund einer ortsunabh�ngigen Kooperation in bekannten und weniger bis kaum bekannten Terrain. 
+
+\begin{lstlisting}[caption={Ermittlung der Geoposition mit Hilfe von Javscript im Webbrowser},label={server-code},language=Javascript,firstnumber=1,label=geopos]{}
+if ( navigator.geolocation ) {
+  navigator.geolocation.getCurrentPosition(function( position ){
+    console.log( 'long: ' + position.coords.longitude );
+    console.log( 'lat: ' + position.coords.latitude );
+  });
+} 
+\end{lstlisting}
+
+Ausgangspunkt f�r die Betrachtung ist die Verortung der eigenen Person (\textquote{Wo bin ich?}) und der Kooperationspartner im Raum (\textquote{Wo seid ihr?}). Dar�ber hinaus kann es auch relevant sein, die Position von beweglichen oder unbeweglichen Hilfsmitteln (z.B. WIFI Hotspot, 3D Drucker) oder Fortbewegungsmitteln in Erfahrung zu bringen (\textit{Wo gibt es \dots?})\marginpar{ \includegraphics[width=\linewidth]{fig/7-standort.jpg}{\vspace{-10pt}\footnotesize \begin{flushleft}\end{flushleft}}}. 
+
+
+\pattern{Geo Mapping}{}{Visualisiere die relative Position des Nutzers sowie die f�r ihn/sie relevanten Personen, Objekte und Ereignisse auf einer Karte.}
+%A user wants to see where he is (or where his stuff is) in relation to other people and places
+
+Auf diese Weise kann man sich nicht nur einen �berblick verschaffen, was um einen herum passiert, sondern sich auch ad-hoc Personen anschlie�en oder notwendige Hilfsmittel finden. Durch die relative Darstellung l�sst sich der Aufwand f�r die Zur�cklegung der Distanz absch�tzen.  Voraussetzung daf�r sind jedoch Eigenschaften der Karte betreffs ihrer Darstellung, Ma�stab, Thematik, Aktualit�t und Ausschnitt. %, die Aufschluss �ber Wege, Barrieren oder andere ortsbezogene Besonderheiten geben sollte.  
+%- Allow the user to search for items based on location
+
+
+\begin{discussion}
+\textbf{Geo IoT}\\
+Das Tracking von mobilen Objekten ist in vielen Bereichen bereits etabliert. So lassen sich beispielsweise verf�gbare Fortbewegungsmittel von \textit{Car Sharing} oder \textit{Bike Sharing} Diensten lokalisieren oder die Echtzeitposition eines Stadtbuses feststellen. �ber das Tracking hinaus gehen Konzepte und Anwendungen, die unter dem Stichwort \textquote{Geo IoT} kursieren. Gemeint sind damit vernetzte und mit Sensoren ausgestattete Ger�te, die neben den Positionsdaten weitere Statusinformationen anbieten und zudem �ber Schnittstellen verf�gen, um Ereignisse zu behandeln und und Nutzerrollen festzulegen:
+
+\begin{itemize}
+\item \textit{Position:} Wo befindet es sich?
+\item \textit{Statusinformationen:} Ist es gerade verf�gbar? 
+\item \textit{Historie:} Wo befindet es sich? Ist es noch vor Ort? Wo befindet es sich am h�ufigsten?
+\item \textit{Ereignisse:} Wenn Person X es nutzt, sende Nachricht an Y. Wenn es Ort A verl�sst, informiere Dienst Z.
+\item \textit{Nutzerrollen:} Wenn Nutzer A es nutzt, verwende Konfiguration K.
+\end{itemize}
+
+�berlegen Sie sich eine potentielle \textit{Geo IoT} Anwendung im Kontext der Mobilen Kooperation. Welche Chancen und Risiken bergen \textit{Geo IoT} Anwendungen im Allgemeinen? 
+
+\end{discussion}
+
+
+In der Einleitung dieser Kurseinheit haben wir den \textquote{Ort} mit seiner kulturellen Rolle, Funktion und sozialen Bedeutung kennengelernt. Ein in dieser Hinsicht ganz besonderer Ort stellt f�r die meisten Leute das eigene Zuhause dar. Als Lebensmittelpunkt ist das Zuhause nicht auf eine Wohnung oder ein Haus beschr�nkt, sondern umfasst auch das Umfeld der umgebenden Stra�en, Wege, Gr�nanlagen, Geb�ude, �ffentliche Einrichtung sowie andere Auspr�gung von Infrastruktur und Landschaft. 
+Da Menschen in diesem Umfeld h�ufig verkehren, verf�gen Sie �ber eine gute Ortskenntnis. Im Laufe der Zeit haben sie Erfahrungen mit den Eigenheiten des Raumes sowie den dort lebenden Menschen gesammelt. Das intrinsische Interesse Neuigkeiten zu erfahren, die mit dem Ort und seinem Umfeld in Zusammenhang stehen, ist oft in einer Verbundenheit begr�ndet. Im Sprachgebrauch ergreift man dann Besitz von diesen Orten und bezeichnet sich als \textquote{meine Nachbarschaft}, \textquote{mein Dorf}, \textquote{mein Kiez}, \textquote{mein Quartier}, \textquote{mein Viertel} oder \textquote{meine Stra�e}. Eine gesonderte Form des \patternName{Geo Mapping} ist deshalb die Nachbarschaft: 
+
+\pattern{Neighborhood}{}{Stelle die in der Umgebung des Wohnorts des Nutzers befindlichen und f�r ihn/sie relevanten Personen, Objekte und Ereignisse auf einer Karte dar.}
+%A user wants to know what's going on around her neighborhood
+%- pulling together geographic or place-specific content.
+%- Allow users to select a neighborhood for filtering information. The neighborhood
+% boundaries should include relevant location definitions, including zip code and
+% school districts, and explicit metadata and location keywords
+
+Beispiele daf�r stellen ortsbezogene Nachrichtenangebote (Stichwort \textit{Hyperlocal}) sowie Community Portale wie \textit{Just My Neighbors} (\url{https://www.justmyneighbors.com/}) oder \textit{Go Neighbors} (\url{https://www.goneighbour.org/}) dar.
+
+%LBS: http://www.ctia.org/content/index.cfm/AID/11300
+
+\begin{example}
+\textbf{Ortsabh�ngige Kommunikation}\\
+Kennen Sie diese Zettel, die an B�umen, Laternen oder Stra�enschildern kleben, auf denen Leute nach ihrer Katze suchen, eine Wohnung anbieten oder zu einer Veranstaltung einladen? Diese Art von Kommunikation richtet sich konkret an die Leute, die sich h�ufig im Umkreis des Anbringungsorts aufhalten. In der virtuellen Welt finden sich �hnliche Ans�tze, um die Anzahl der Nachrichtenempf�nger auf ein bestimmtes Gebiet einzugrenzen:
+
+\begin{itemize}
+\item \textit{Lohalo} ist ein ortsabh�ngiges Forum, in dem Anwender (anonyme) Nachrichten hinterlassen k�nnen, die nur diejenigen Personen lesen k�nnen, die sich im Umkreis von 0,1 bis 10 Meilen vom Einwahlpunkt aufhalten. Siehe \url{https://www.lohalo.com/}.
+
+\item \textit{Chummy} zeigt Hilfegesuche von Nachbarn an, die sich in einer Notsituation befinden. Alle registrierten Nutzer, die sich im n�heren Umkreis vom Notleidenden befinden, werden �ber den Notfall informiert und sollten helfen. Siehe \url{http://chummyapp.com/en/}.
+\end{itemize}
+\end{example}
+
+
+Im Kontext einer mobilen Kooperation kann notwendig sein auf die Dynamik der Kooperationspartner zu reagieren. Dynamik entsteht vor allem durch die Geschwindigkeit bei der Fortbewegung bzw. durch die �ber einen l�ngeren Zeitraum zur�ckgelegte Distanz. Die Darstellung von Positionsmarken ist dann unter Umst�nden auch nicht mehr ausreichend, da der gew�hlte Weg eine zus�tzliche Information enth�lt, die entscheidend ist, um z.B. ebenso schnell an den Ort zu gelangen, an dem sich die Kooperationspartner bereits befinden. 
+
+\pattern{Geo Traces}{}{Kooperationspartner k�nnen den zuletzt zur�ckgelegten Weg des Nutzers oder eines Objektes bis zum aktuellen Standpunkt auf einer Karte verfolgen.}
+
+Beispiele f�r dieses Pattern finden sich bei Google Maps, insbesondere bei dem \textit{real-time location-sharing}), oder diversen anderen Kartendiensten, bei denen GPS-Daten von Routen abgelegt werden k�nnen. Neben den Routen und aktuellen Positionsdaten lassen sich jedoch noch weitere Information mit Orten verkn�pfen.
+
+\pattern{Geo Tagging}{}{Annotiere Pl�tze, Orte oder sonstige Objekte mit einem geografischen Tag, welcher eine Verkn�pfung aus den Positionsdaten (Longitude, Latitude, Orientierung, etc.) und einem Verweis auf eine Informationsressource (z.B. via Hyperlink) darstellt.}
+%A user wants to annotate a person, place, or thing with a geographic tag, usually in the form of latitude/longitude, which is then translated into an address that can be placed on a map.
+
+Durch das Setzen eines Tags, hinterl�sst man eine pers�nliche Signatur und bekundet damit an dem Ort gewesen zu sein. Der physische Raum wird dadurch mit Artefakten im virtuellen Raum verkn�pft und umgekehrt. Beispiele hierf�r stellen \textit{exif}-Daten dar, die als Metadaten von Fotos gespeichert sind und automatisch auf Karten positioniert werden k�nnen. 
+Als Gestalterin eines kollaborativen Systems m�ssen sie sich �berlegen, welchen Mehrwert Geo-Informationen f�r kooperative Zusammenarbeit der Beteiligen leisten kann. Ortsinformationen k�nnen dabei helfen die kooperativen Aktivit�ten zu koordinieren, in dem beispielsweise Gruppenmitglieder, Hilfsmittel oder Ereignisse lokalisiert werden, um in Ko-Pr�senz arbeiten zu k�nnen. Wie das Pattern des \patternName{Geo Tagging} verdeutlicht, kann auch die zeitversetzte Kommunikation den Schwerpunkt der Zusammenarbeit ausmachen, in dem Orte lediglich markiert und mit Informationen angereichert werden. Das Ziel der mobilen Kooperation kann jedoch auch, wie das folgende Beispiel veranschaulicht, in der Zusammenarbeit im �ffentlichen Raum oder an einem Ort bestehen.
+
+%\patternName{Geo Tagging} ist insbesondere dann sinnvoll, wenn Informationen auf einer Karte vermerken werden sollen.  
+
+%- If the item is a photo and there is exif data that includes lat/long information, associate that location string with the object
+%- Use this pattern when you want to place objects (people, places, or things) on a map.
+%- Offering geo-tagging capabilities for assets, particularly photos, allows them to exist not only in time but also in a context related to the real world. Placing images on a map gives people a sense that this image really exists and that they might see this, too, if they went there. Geo-tagging also announces to a person's network that she was there, at this spot.
+
+\begin{example}%
+\textbf{FixMyStreet}\\
+In Gro�britantian haben Kommunen einen Dienst etabliert, mit dessen Hilfe B�rger auf einfache Art und Weise Defekte in der �ffentlichen Infrastruktur an die zust�ndigen Beh�rden melden k�nnen. Auf diese Weise k�nnen B�rger neue Schlagl�cher auf den Stra�en, ausgefallene Stra�enlaternen oder �berf�llte M�llbeh�lter durch Fotos und Beschreibungen dokumentieren und genau kartieren. Die gesammelten Informationen werden in einer Karte zusammengef�hrt und bleiben bis zur Behebung der M�ngel auch f�r alle Seitenbesucher sichtbar.
+
+Verantwortliche Instanzen oder auch B�rger k�nnen zudem alle ein Gebiet betreffende Meldungen in einem Newsletter oder RSS-Feed verfolgen.
+
+\begin{center}
+ \includegraphics[width=\textwidth]{fig/7-fixmystreet.png}
+ \captionof{figure}%[Kreise in meinDorf55+]
+  {Ein vermutlich umgefahrener Schaltkasten in Westminster/London wurde via \textit{FixMyStreet} gemeldet (siehe \url{https://fixmystreet.com/}).}
+  \label{fixmystreet}
+\end{center}
+
+\end{example}
+\newpage
+Eine bislang noch nicht betrachtete Kategorie von ortsbezogenen L�sungen stellen die \textit{location based services} (LBS) dar. Zu diesem Thema existieren umfangreiche Forschungsarbeiten in unterschiedlichen Fachdisziplinen. In Bezug auf die Gestaltung kooperativer Systeme interessieren uns im Speziellen solche LBS, die als ortsbezogene push-notifications fungieren. Diese LBS sind vergleichbar mit kleinen Notizzetteln, die jemand nur f�r Sie an einem ganz bestimmten Ort hinterlassen hat. Sobald Sie diesen Ort betreten, f�llt Ihnen der Zettel auf. Die Funktionsweise ist dabei analog zu einer Erinnerung an einen Termin in einem elektronischen Kalender, die erst dann in einem Fenster erscheint, wenn der Zeitpunkt des Termins gekommen ist. 
+
+\pattern{Location Based Push Notification}{}{Benachrichtige Nutzer �ber eine f�r sie vorliegenden Nachricht, sobald sie den mit der Nachricht verkn�pften Ort betreten haben.}
+
+\begin{example}
+\textbf{Ortsabh�ngige Benachrichtigungen} werden verschiedentlich auch als \textit{geofencing} oder \textit{region monitoring} bezeichnet. Anwendung finden L�sungen dieser Art in ganz unterschiedlicher Bereichen und auf Basis unterschiedlicher Plattformen:
+\begin{itemize}
+\item Google: Nach dem Aufenthalt an einem Ort, der f�r andere Benutzer interessant sein k�nnte (bspw. Restaurants, Flugh�fen, Museen, Bahnh�fe), bittet Google die Anwenderin um eine Bewertung der Lokalit�t.
+\item Android geofencing: \url{https://developer.android.com/training/location/geofencing} (abgerufen am 29.09.2018). 
+\item iOS region monitoring: \url{https://developer.apple.com/documentation/corelocation/monitoring_the_user_s_proximity_to_geographic_regions} (abgerufen am 29.09.2018).
+\item Webbrowser: Trotzdem die W3C-Arbeitsgruppe die Arbeit an einer \textit{Geofencing API} eingestellt hat\footnote{Siehe \url{https://w3c.github.io/geofencing-api/} (abgerufen am 29.09.2018).}, was jedoch nicht bedeutet, dass eine Implementierung heute noch nicht m�glich ist.
+\end{itemize} 
+\end{example}
+ 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Privatheit und Datenschutz}
+
+Am Beispiel der Smartphones l�sst sich das Verschwimmen der Grenzen von \textquote{�ffentlichkeit} und \textquote{Privatsph�re} veranschaulichen. W�hrend �ffentlichkeit mit Sichtbarkeit sowie Privatheit mit Entzogenheit einen Sinnzusammenhang ergaben, ist diese Zuordnung heute nicht mehr m�glich. Mit dem Smartphone kann man im eigenen Badezimmer einen Vortrag halten oder in der Menschenmenge ein privates Gespr�ch f�hren. In diesem Abschnitt beleuchten wir einen kleinen Teil der Probleme aus Sicht der informationellen Selbstbestimmung und versuchen im zweiten Teilabschnitt L�sungen aufzuzeigen.
+
+%%%%%%%%%%%%%%%%%%%
+\subsection{Verkn�pfung von Identit�t und Ortsinformationen}
+
+Im deutschen Telekommunikationsgesetzt ist geregelt, welche Daten Telekommunikationsanbieter, d.h. auch Anbieter einer App erheben d�rfen\footnote{Siehe \url{http://www.gesetze-im-internet.de/tkg_2004/__96.html}. Das Telekommunikationsgesetz ist nur dann auf eine App anzuwenden, wenn diese als gesch�ftsm��iger, d.h. nachhaltiger, nicht zwingend gewinnorientierter Telekommunikationsdienst einzustufen ist. Vgl. \cite{Solmecke2014}.}. Man bezeichnet diese Daten als Verkehrsdaten oder Metadaten. Sie enthalten zwar keine Kommunikationsnhalte (z.B. den Text einer Chat-Nachricht), erlauben aber dennoch weitreichende R�ckschl�sse auf die individuelle Nutzung von Telekommunikationsdiensten. Im Zusammenhang mit der mehrmaligen Einf�hrung der 6 monatigen Speicherung von s�mtlichen Verkehrsdaten auf Vorrat\randnotiz{Vorratsdaten\-speicherung} wurde dieses Datenschutzproblem �ber lange Zeit in Medien und Gesellschaft diskutiert. Der Gr�nenpolitiker Malte Spitzer erregte im Jahre 2009 gro�e Aufmerksamkeit, als er die �ber ihn gesammelten Vorratsdaten bei der Telekom einklagte und anschlie�end ver�ffentlichte. Sein Bewegungsprofil, 
+%f�r den Zeitraum 31.08.2009 bis zum 28.02.2010, 
+angereichert um tweets und Blogeintr�ge, kann unter \url{http://www.zeit.de/datenschutz/malte-spitz-vorratsdaten} nachvollzogen werden. Erst durch die Visualisierung dieser Menge an Metadaten wird deutlich, wie umfangreich der Eingriff in die Privatsph�re ist.
+
+Kritisch zu sehen ist auch die Aufzeichnung von Drahtlossendern und Bewegungsprofilen durch Unternehmen wie Apple oder Google. Google zum Beispiel, sammelt mit Hilfe der einem Account zugeordneten Ger�te (z.B. Android Smartphones oder Tablets) \textquote{pr�zise Ortsinformationen der Drahtlossender bzw. auch personalisierte Bewegungsmuster von Nutzern} in der \textit{Location History}\randnotiz{Location History} \cite{Dhein2017}. F�r die gesammelten Daten gibt es eine Reihe von Verwendungsm�glichkeiten wie die Ortung verlorengegangener oder gestohlener Ger�te oder das \textit{Location Sharing}\randnotiz{Location Sharing} mit Kooperationspartnern in Echtzeit. Apple beschr�nkt sich beim iPhone auf die Angabe einer begrenzten Anzahl h�ufig besuchter Orte einschlie�lich Datum und der ungef�hren Position, muss daf�r allerdings ebenso fortlaufend Positionsdaten sammeln. 
+
+Ein Aspekt der Sammlung von nutzerseitigen Geodaten ist der Aufbau von \textit{Crowd-Sourced Location Databases}. Mit diesem als Schwarmkartierung bezeichneten Vorgehen verfolgt man das Ziel, die Ortsbestimmung per A-GPS zu pr�zisieren. Der Nutzer sammelt ungefragt f�r den Dienstanbieter Daten �ber Standorte von Sendern und deren Empfangsst�rke, um diese Informationen dann u.a. auch selbst nutzen zu k�nnen: 
+\newpage
+\begin{enumerate}
+	\item Intrinsische Ortung: Mobilger�te sammeln Informationen �ber Mobilfunk- und WLAN-Sender und verkn�pfen diese mit GPS-Daten.
+	\item Die gesammelten Informationen werden verschl�sselt an den Server des Herstellers �bertragen und in einer Datenbank zusammengef�hrt, um die Positionen der Sender genauer zu bestimmen. 
+	\item Extrinsische Ortung: Die Positionsdaten der Drahtlossender werden nun wieder genutzt, um die Position der Mobilger�te genauer zu bestimmen und dem Nutzer eine pr�zise Ortung seinerselbst zu erm�glichen. 
+\end{enumerate}
+
+% Sensoren
+% Audiobeacons
+Die Lokalisierung spielt dar�ber auch innerhalb von Geb�uden eine Rolle\randnotiz{Audio Beacons}. Wie in diesem Jahr bekannt wurde, werden in einigen Superm�rkten vom Smartphone ausgesendete Ultraschallwellen genutzt, um die Position von Kunden im Raum zu ermitteln. Diese nicht h�rbaren, jedoch kodierten Schallwellen (Audio-Beacons) werden an bestimmten Stellen im Supermarkt ausgesendet, so dass die f�r manche Smartphone Apps freigeschalteten Mikrofone diese empfangen k�nnen. Die dekodierten Informationen k�nnen dann zusammen mit der Nutzerkennung des Kundens an einem zentralen Server (z.B. des Supermarkbetreibers) �bermittelt werden. Durch das Tracking der Kundenbewegungen, erg�nzt mit den tats�chlich eingekauften Produkten, lassen sich R�ckschl�sse auf das Kaufverhalten sowie g�nstige Produktanordnungen ziehen. Laut der Studie von \citet{Quiring2017} k�nnen Audio-Beacons auch noch f�r weitere Privacy-Attacken eingesetzt werden (siehe Abb.~\ref{fig:audiobeacons}). 
+
+% https://www.wired.com/2017/05/hundreds-apps-can-listen-beacons-cant-hear/
+% https://github.com/jamrader/XTAudioBeacons
+% yyy Gefahren von NFC, Wifi, ...
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{fig/7-audio-beacons.png}
+\caption{Beispiele f�r die Beeintr�chtigung der Privatsph�re durch Ultraschall. 
+%Examples of different privacy threats introduced by ultrasonic side channels. 
+(a) Ultraschall-Beacons sind im Audiokanals des Fernsehers eingebettet, um das Sehverhalten der Nutzer aufzuzeichnen.
+%Ultrasonic beacons are embedded in TV audio to track the viewing habits of a user; 
+(b) Ultraschallwellen werden genutzt, um einen Anwender �ber mehrere Ger�te hinweg zu verfolgen.%ultrasonic beacons are used to track a user across multiple devices; 
+(c) Die Position des Nutzer in einem Einkaufsladen wird anhand von Ultraschallwellen pr�zise aufgezeichnet. %the user's location is precisely tracked inside a store using ultrasonic signals; 
+(d) Besucher einer Webseite werden durch Ultraschall-Beacons deanonymisiert.%visitors of a website are de-anonymized through ultrasonic beacons sent by the website. 
+\cite{Quiring2017}}
+\label{fig:audiobeacons}
+\end{figure}
+
+
+\begin{comment}
+yyy: example
+Facbook mobile targetting, 
+John Lanchester: Du bist das Produkt
+DLF Essay und Diskurs: 
+%http://www.deutschlandfunk.de/ueber-facebook-1-2-du-bist-das-produkt.1184.de.html?dram:article_id=397257
+\end{comment}
+
+%%
+% yyy Diskriminierung- inference Ortsdaten
+% yyy Herausforderungen bzgl Security - Authentifizierung: N�he vs. remote nodes
+% yyy Privacy of context
+
+
+
+
+%%%%%%%%%%%%%%%%
+\subsection{Suche nach Hinterb�hnen}
+In Anbetracht der vielseitigen und massiven Eingriffe in die Privatsph�re und die Verletzung der informationellen Selbstbestimmung, gilt es physische oder virtuelle Hinterb�hnen (siehe Kurseinheit 2) f�r das mobile CSCW zu identifizieren. Orte also, an denen das Ensemble interagieren kann, ohne von anderen wahrgenommen zu werden. Ein erster Schritt in dieser Richtung ist die Ende-zu-Ende Verschl�sselung aller Kommunikationsinhalte, die zwischen den Beteiligten Nutzern versendet werden. Davon unber�hrt bleiben jedoch die Verkehrsdaten und insbesondere die Positionsdaten der Nutzer. 
+
+Das Konzept der \textit{Mix-Zones}\randnotiz{Mix-Zones} \cite{Palanisamy2014} beschreibt eine M�glichkeit wie eine Hinterb�hne im �ffentlichen Raum aussehen kann. \textit{Mix-Zones} sind Bereiche im �ffentlichen Raum, in denen eine Bewegungs- und Positionsbestimmung nicht m�glich ist. Beim Betreten eines solchen Bereichs tauschen Anwenderinnen in einer nicht nachvollziehbaren Art und Weise ihre Pseudonyme bzw. ihre virtuellen Identit�ten aus. Anschlie�end verlassen sie den Bereich an einer beliebigen Stelle. Dieser Ansatz �hnelt dem Prinzip des \textit{Onion Routings}, wird jedoch oft auf Stra�enkreuzungen und Fahrzeuge angewendet. Aufgrund der unterschiedlichen Geschwindigkeiten sowie Ein- und Austrittszeiten sind sogenannte \textit{Timing Attacks} m�glich. Auch die Wahrscheinlichkeit f�r die Auswahl zweier Nutzer f�r den Tausch ihrer Pseudonyme gilt als Schwachstelle f�r \textit{Transition Attacks}, wenn beispielsweise zu wenige Nutzer beteiligt sind. Abgesehen davon eignet sich das Konzept nicht f�r heutige Smartphones, die durch eine Reihe von eindeutigen und unver�nderlichen Kennung identifizierbar sind (Tab.~\ref{mobile-kennungen}).
+
+\begin{table}[t]
+\caption{Kennungen, die zur Identifikation von Mobilfunkger�ten herangezogen werden k�nnen}
+\label{mobile-kennungen}
+\small\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth}{p{3.1cm}L}
+\hline
+Identit�t & Beschreibung\\\hline
+
+IMEI & Die \textit{International Mobile Equipment Identity} ist nicht eindeutig, findet sich in GSM und WCDMA Mobilger�te. Die Nummer kan durch den Code *\#06\# relative einfach abgefragt werden. \\
+% Abfrage via *#06#  ==> nicht eindeutig
+
+MEID & Die \textit{Mobile Equipment IDentifier} \\ 
+%https://en.wikipedia.org/wiki/Mobile_equipment_identifier
+
+ESN & Die \textit{Electronic Serial Number} findet sich nur in CDMA Telefonen.\\
+
+IMSI & Die \textit{International Mobile Subscriber Identity} in GSM und UMTS Netzen auf der SIM-Karte gespeichert, z.B. 262 02 9165645617, wobei MCC 262 f�r Deutschland, MNC 02 f�r Vodafone D2, MSIN 9165645617 f�r den Teilnehmer stehen.\\
+
+MAC & Die MAC-Adresse ist f�r WLAN- oder Bluetooth-f�hige Ger�te verf�gbar, sofern diese Protokolle auch aktiviert sind.\\
+
+Ger�tenummer & Unter Android verf�gen meist nur Ger�te ohne Telefonfunktion �ber diese Nummer. Siehe android.os.Build.SERIAL\\
+
+Secure Android~ID & �ndert sich beim zur�cksetzen der Werkseinstellungen. Herstellerseitige Dopplungen sind nicht ausgeschlossen. Siehe Settings.Secure.ANDROID\_ID\\
+
+UUID & Identifiziert eine Android Installation\\
+
+identifierForVendor & Der iOS UIDevice.identifierForVendor identifiziert Ger�t gegen�ber dem Anbieter einer App\\ 
+\hline
+\end{tabularx}
+\end{table}
+
+Mit einer nativen App stehen der Entwicklerin somit wesentlich zuverl�ssigere Daten zur Authentifizierung von Nutzern zur Verf�gung, als dies in einer WebApp der Fall ist. In vielen Apps (z.B. WhatsApp, Snapchat, Twitter, Facebook Messenger) geht man jedoch noch einen Schritt weiter und wickelt die Authentifizierung ausschlie�lich �ber die Mobilfunknummer ab. Dem Nutzer erspart es einerseits das leidige Memorieren von Benutzernamen und Passw�rtern (vgl. Kurseinheit 2). Andererseits bietet es Unternehmen die M�glichkeit Nutzende �ber Apps und Dienste hinweg zu identifizieren. Das erleichtert Werbe-Tracking und die Verbreitung zielgerichteter Werbung (Targeting) immens. Das Problem dabei ist nur, dass die Anwender geneigt sind ihre Telefonnummer -- im Gegensatz zu E-Mail-Adressen oder Pseudonymen -- langfristig zu behalten und selbst bei Providerwechseln (innerhalb eines Landes) mit sich tragen.        
+
+% Per Zugriff auf das Telefonbuch konnte bestehende Kontakte �bernommen werden. 
+% stille sms
+%https://github.com/CellularPrivacy/Android-IMSI-Catcher-Detector/wiki/Special-SMS
+%https://play.google.com/store/apps/details?id=com.jomegasoft.pingsmsnoad&hl=en
+
+   
+Zum Schutz der Privatsph�re steht den Anwendern nach dem heutigen Stand der Technik und Rechtssprechung nur die M�glichkeit offen, alle Ortungsdienste zu deaktivieren und konsequent auf ortsbezogene Dienste zu verzichten \cite{Dhein2017}. Gegen�ber dem Service Providern ist eine Deaktivierung der Ortung in Anbetracht der Vorratsdatenspeicherung jedoch nicht m�glich. Auch die Strategie der tempor�ren Nutzung hilft nur bedingt. In diesem Zusammenhang sei an die Aussage von Paul Watzlawick erinnert, dass man nicht nicht kommunizieren k�nne. Dies trifft auch auf die mobile Kommunikation zu, denn ein ausgeschaltetes Ger�t, der aktivierte Flugmodus oder die laufende ZEN-App geben immer auch Aufschluss �ber die Inaktivit�t des Nutzers und lassen z.B. R�ckschl�sse auf Schlaf- oder Arbeitsrhythmen zu\footnote{Robert Heaton hatte unl�ngst vorgef�hrt wie das 'last-seen' Attribut aus dem Chat von WhatsApp (\url{https://web.whatsapp.com/}) ausgelesen werden kann. Siehe \url{https://robertheaton.com/2017/10/09/tracking-friends-and-strangers-using-whatsapp/}.}. 
+
+Ungeachtet der Telekommunikationsanbieter haben Sie als Gestalter jedoch Einfluss auf die Nutzung von Positionsdaten innerhalb einer Gruppe oder Community. Ein Ansatz besteht darin, die Positionsdaten zu  verschleiern oder zu verf�lschen: 
+
+\pattern{Substitute Position}{}{Biete Nutzern die M�glichkeit, den f�r andere sichtbaren momentanen geografischen Standort an einen beliebigen Ort zu verlegen.}
+
+Im Falle einer dauerhaften Verlegung des virtuellen Aufenthaltsortes k�nnten Kooperationspartner jedoch Verdacht sch�pfen, weil die Person sich nicht am angegebenen Ort befindet oder erstaunlich lange an einem Ort ausharrt. Ein anderer Ansatz besteht darin die Positionsdaten nur sehr unpr�zise zu �bermitteln, in dem etwa die grobe Entfernung angegeben wird, in dessen Radius sich eine Person aufh�lt. 
+\newpage
+\pattern{Generalized Position}{}{Biete nur grob skalierte Entfernungsangaben, anstatt genauer  Positionsdaten der Nutzer an, um ihren genauen Aufenthaltsort als Teil ihrer Privatsph�re zu sch�tzen.}
+
+In der Umsetzung bieten sich eine Reihe von M�glichkeiten an. Zum Beispiel kann man die Daten um zuf�llige Werte verf�lschen, sie zu den n�chstgelegenen Landmarken runden oder einen gerundeten Entfernungsradius angeben. 
+%yyy Location Cloaking Paper: The new casper: query processing for location servoces without compromising privacy.
+
+�hnlich den \textit{Mix-Zones} k�nnten Nutzer auch geografische Bereiche (z.B. ihren Wohnort) festlegen, in denen ihrer Positionsdaten f�r die anderen Nutzern verborgen bleiben. Weniger erst gemeint ist hingegen der kontr�re Vorschlag des K�nstlers Aram Bartholl mit dem wir diese Kurseinheit zum Abschluss bringen. In Anlehnung an raucherfreie Zonen auf Bahnh�fen schl�gt Bartholl vor, auch die Handynutzung auf relativ kleine daf�r vorgesehene Bereiche im �ffentlichen Raum zu beschr�nken (Abb.~\ref{phone-zone}). 
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{fig/7-phone-zone-arnsberg.jpg}\\
+  \caption{Installation eines \textquote{Handybereichs} in Arnsberg (Foto: Aram Bartholl).}
+\label{phone-zone}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+%Mobile Netz-Anbindung
+%
+%\subsection{Mobile Koordination}
+%
+%Ortsabh�ngige Benachrichtigungen
+%
+%Situationsabh�gige Benachrichtigungen
+%
+%... was ist heute noch alles mobil vernetzt?
+%
+%\section{Interaktionsformen bei mobiler Kooperation}
+%
+%\section{Technische Herausforderungen mobiler Kooperation}
+%
+%\subsection{Kontextmodellierung}
+%
+%\subsection{Bereitstellung von Daten}
+%
+
+
+
+
+
+
+
+
+\cleardoublepage
+%%%%%%%
+\section[Selbsttest]{Selbsttest\randnotiz{\quiz}}
+Diese folgenden Aufgaben dienen Ihnen als Selbsttest. Die L�sungen f�r die offenen Fragen finden Sie direkt in dieser Kurseinheit.
+
+\subsection*{Aufgabe 1} 
+Was bedeutet Mobilit�t f�r die Kooperation mit mobilen Anwendungen?
+
+\subsection*{Aufgabe 2} 
+Was versteht man unter Situiertheit?
+
+\subsection*{Aufgabe 3}
+Was ist Kontext Awareness?
+
+\subsection*{Aufgabe 4} 
+Nennen Sie drei Beispiele f�r Sensoren von Mobilger�ten und ihren (potentiellen) Nutzen f�r die mobile Kooperation.
+
+\subsection*{Aufgabe 5} 
+Wie kann man einen Sensor unter Android nutzen, wenn man eine App baut?
+
+\subsection*{Aufgabe 6} 
+Wie geht man prinzipiell beim Kontext Retrieval vor?
+
+\subsection*{Aufgabe 7} 
+Welche Rolle k�nnen Ausgabemedien bei der mobilen Kooperation spielen?
+
+\subsection*{Aufgabe 8} 
+Wie funktioniert ein Responsive Design?
+
+ 
+\subsection*{Aufgabe 9} 
+Was ist der Unterschied zwischen \textit{gracefull downgrad} und \textit{progressive enhancement}?
+
+\subsection*{Aufgabe 10} 
+Wie stellt sich die Beziehung zwischen Nutzern und ihrem Mobilger�t (Smartphone) heute dar? Wie werden diese Ger�te heute genutzt?
+
+\subsection*{Aufgabe 10} 
+Erl�utern Sie das Problem der konstanten Unterbrechungen.
+
+\subsection*{Aufgabe 12} 
+Wie l�sst sich die Aufmerksamkeit von Smartphone Nutzern (positiv) beeinflussen?
+
+\subsection*{Aufgabe 13} 
+Welche technischen Herausforderungen birgt die Mobilkommunikation f�r die Verf�gbarkeit von Diensten?
+
+\subsection*{Aufgabe 14} 
+Wie sch�tzen Sie das Reactiv Manifesto ein?
+
+\subsection*{Aufgabe 15} 
+Worin bestehen die Vorz�ge von Progressiv Web Apps f�r mobile Kooperationsszenarien?
+
+\subsection*{Aufgabe 16} 
+Welche Formen der Personalisierung haben wir in dieser Kurseinheit besprochen?
+
+\subsection*{Aufgabe 17} 
+Nennen Sie f�nf Beispiele f�r kognitive Schnittstellen in mobilen Anwendungen.
+
+\subsection*{Aufgabe 18} 
+Wie lassen sich Karten und Geopositionen f�r die mobile Kooperation nutzen?
+
+\subsection*{Aufgabe 19} 
+Was ist Geo IoT?
+
+\subsection*{Aufgabe 20} 
+Auf welche Weise wird die Privatsph�re durch die Verkn�pfung von Positionsdaten und Identit�t verletzt?
+
+\subsection*{Aufgabe 21} 
+Warum stellen Audio-Beacons eine Gefahr f�r die informationelle Selbstbestimmung dar?
+
+\subsection*{Aufgabe 22} 
+Wie funktionieren Mix-Zones?
+
+\subsection*{Aufgabe 23}
+Wie k�nnen Nutzer ihre genaue Geo-Position vor ihren Kooperationspartnern verbergen?
+
+\subsection*{Aufgabe 24} 
+Wie m�sste ein optimaler Handybereich gestaltet sein?
+
+
+
+%
+%\subsection*{Aufgabenl�sungen der Multiple Choice Fragen}
+%\begin{itemize}
+%\item Aufgabe 5: b), d), g), i)
+%\item Aufgabe 6: a), d), h), j)
+%\item Aufgabe 7: b), d), k), o), p) 
+%\end{itemize}
+
+
+
+\cleardoublepage 
+\phantomsection
+\addcontentsline{toc}{section}{Literatur}
+\bibliographystyle{apa-good}
+\bibliography{Kurs1884}
+\cleardoublepage

@@ -1,0 +1,925 @@
+<?xml version="1.0"?><speak version="1.1"  xmlns="http://www.w3.org/2001/10/synthesis" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/10/synthesis http://www.w3.org/TR/speech-synthesis11/synthesis.xsd" xml:lang="de-DE">
+<mark name="chapter-Awareness"/><prosody rate="slow" pitch="low">Awareness</prosody><break strength="x-strong" />
+In dieser Kurseinheit werden wir uns mit einem zentralen Element zur
+Unterstützung der Gruppenarbeit: Der Group Awareness (engl. für
+Gruppenbewusstsein), kurz Awareness. Awareness beschreibt die Wahrnehmung der
+Präsenz, der Aktionen und der Ziele anderer Gruppenmitglieder und
+setzt sie in Beziehung zu den eigenen Aktivitäten.<mark name="footnote" /> 
+<mark name="section-Lernziele"/><prosody rate="slow" pitch="low">Lernziele</prosody><break strength="strong" />
+Nach der Bearbeitung dieser Kurseinheit sollten Sie in der Lage
+sein,
+<mark name="item-1" /> die Begriffe Group Awareness und We-Awareness zu erklären,
+<mark name="item-0" /> Awareness-Unterstützung für synchrone und asynchrone Arbeitsbereiche zu
+gestalten,
+<mark name="item-1" /> angemessene Benachrichtigungsmechanismen zu entwickeln,
+<mark name="item-0" /> Herausforderungen und Grenzen der Aufzeichnung und Wiedergabe der Group Awareness erläutern können
+<mark name="item-1" /> die Rolle von Raum und Zeit in kooperativen Systemen mit den
+Erkenntnissen der Phänomenologie zu erklären,
+<mark name="item-0" /> trotz Differenzen in Raum und Zeit ein gemeinsames Dasein im virtuellen
+Raum des kooperativen Systems zu gestalten und
+<mark name="item-1" /> mit den folgenden Mustern im Design eines kooperativen Systems umzugehen:
+<mark name="item-0" /> <mark name="pattern-Activity Log" />Activity Log,
+<mark name="item-1" /> Muster für synchrone Group Awareness: <mark name="pattern-User List" />User List, 
+<mark name="pattern-Interactive User Info" />Interactive User Info,  <mark name="pattern-Remote Field of
+Vision" />Remote Field of
+Vision, <mark name="pattern-Remote Selection" />Remote Selection, <mark name="pattern-Remote
+Cursor" />Remote
+Cursor, <mark name="pattern-Telepointer" />Telepointer und <mark name="pattern-Activity
+Indicator" />Activity
+Indicator,
+<mark name="item-0" />  Muster für asynchrone Group Awareness: <mark name="pattern-Periodic Report" />Periodic Report,  <mark name="pattern-Change Indicator" />Change Indicator,  <mark name="pattern-Aliveness Indicator" />Aliveness Indicator und <mark name="pattern-Away Message" />Away Message. 
+<mark name="section-Vorbereitung"/><prosody rate="slow" pitch="low">Vorbereitung</prosody><break strength="strong" />
+Die Wahrnehmung unserer Umgebung ist auf den ersten Blick ein ganz alltäglicher
+Vorgang. Wo immer wir uns bewegen, können wir wahrnehmen, was um uns herum
+passiert. Wir erkennen, wenn Menschen neben uns gehen, wenn ein Auto unsere Wege
+kreuzt oder wenn uns ein Mensch entgegen kommt. Diese Liste von Phänomenen der
+Wahrnehmung ließe sich lange fortsetzen.
+In kooperativen Systemen ist die Wahrnehmung der Anderen meist eingeschränkt.
+Auch hierfür gibt es einen offensichtlichen Grund: Das Medium überträgt nur das,
+was im Medium zur Übertragung vorgesehen wurde. Wenn die Entwicklerinnen und
+Entwickler des Systems zum Beispiel nicht vorgesehen haben, dass ein
+gelangweilter Blick des Gegenüber übertragen wird, z.B. weil sie die
+Aufzeichnung und Übertragung eines Video-Bildes für irrelevant hielten, wird das
+Gegenüber diesen Blick auch nur schwer wahrnehmen können.
+Im Rahmen dieser Kurseinheit werden wir zunächst einige sozio-technische Muster
+zur Integration von Awareness-Informationen in einem kooperativen System
+kennenlernen.  Danach soll ein Blick auf die Phänomenologie Ihnen Denkanstöße
+bieten, um die zu Grunde liegenden Mechanismen von Group Awareness besser zu
+verstehen. So werden Sie den Aspekt der Awareness, der im 3-K-Modell das
+zentrale Element eines kooperativen Systems bildet, aus zwei unterschiedlichen
+Perspektiven betrachten und in den Übungen zu dieser Kurseinheit selbst
+Mechanismen für ein Gruppenbewusstsein entwickeln.
+<mark name="discussion"/><prosody rate="slow" pitch="low">Diskussion</prosody><break strength="strong" />
+Bevor wir erste Mechanismen zur Vermittlung von Group Awareness kennenlernen,
+schlagen wir Ihnen ein Experiment vor:
+    <mark name="item-1" /> Begeben Sie sich mit einer Bekannten oder einem Bekannten an eine
+belebte Bus- oder S-Bahn-Haltestelle und setzen
+    Sie sich auf eine Wartebank. Schließen Sie für ein bis zwei Minuten die
+Augen, während Ihre Begleitung die Augen offen hält. Tauschen Sie sich mit Ihrer
+Begleitung über Ihre Erfahrungen aus:
+    <mark name="item-0" /> Versuchen Sie alleine aufgrund der nicht-visuellen Sinneserfahrungen
+zu
+    sagen, wie viele andere Menschen sich an der Haltestelle
+    befinden.
+    <mark name="item-1" /> Was tun diese Menschen?
+    <mark name="item-0" /> Gibt es Untergruppen?
+    <mark name="item-1" /> Gibt es irgendeine Verbindung zwischen Ihnen und den anderen
+anwesenden
+    Menschen?
+    <mark name="item-0" /> Gehen Sie an einem Samstagmorgen um 7:00 Uhr durch eine
+    sonst belebte Straße in einer Stadt. Schauen Sie auf Spuren auf
+    der Straße und tauschen Sie sich mit Ihrer Begleitung zu den folgenden
+Fragen aus:
+    <mark name="item-1" /> Was ist in dieser Straße wohl am Freitag passiert?
+    <mark name="item-0" /> Was wird am Nachmittag in dieser Straße passieren?
+    <mark name="item-1" /> Gibt es in der Straße Orte, die am Freitag frequentierter waren als
+    andere?
+<break strength="strong" />
+<mark name="section-Technische Grundlagen zur Vermittlung von Group Awareness"/><prosody rate="slow" pitch="low">Technische Grundlagen zur Vermittlung von Group Awareness</prosody><break strength="strong" />
+Mit den Konzepten der Koordination, Kooperation und Kommunikation, die wir in
+den letzten Kurseinheiten kennengelernt haben, sind die Grundlagen für die
+Gestaltung von kooperativen Systemen gelegt. An vielen Stellen haben wir bisher
+einen recht pragmatischen Blick auf diese drei <break strength="medium" />Zitat<break strength="medium" />K<break strength="medium" />Zitatende<break strength="medium" /> verfolgt. Es ging jeweils
+darum, welche Werkzeuge für Koordination, Kooperation oder Kommunikation nötig
+sind. In Anlehnung an die Sprechakttheorie können wir auch sagen, dass es um den
+jeweiligen Akt ging, der in dem entsprechenden Themenfeld nötig ist: den
+Planungsakt bei der Koordination eines Gruppenprozesses, den Manipulationsakt
+bei der Veränderung von gemeinsam genutzten Artefakten oder den
+Kommunikationsakt beim Austausch von Lauten, Wörtern, Sätzen und Nachrichten.
+Wir haben in den vorangegangenen Kurseinheiten auch gesehen, dass die oben
+genannten Akte jeweils auf den Austausch, die Interaktion zwischen zwei oder
+mehr Menschen zielen. Die Akte haben einen Verweischarakter auf ein Gegenüber.
+Diese implizite oder explizite Intersubjektivität macht ein kooperatives System
+aus. Hier geht es nicht mehr nur um die Erzielung eines Resultats sondern auch
+und gerade um den Interaktionsprozess zwischen den am Resultat beteiligten
+Individuen und sozialen Systemen. Es gilt für jedes einzelne am Prozess
+beteiligte Subjekt die eigene Position im kooperativen System zu verstehen und
+die Positionen der anderen Gruppenmitglieder so weit interpretierend
+wahrzunehmen, wie sie für die eigenen Deutungen und Handlungen relevant sind.
+Wagen wir mit dieser Grundhaltung einen Blick auf die Definition von
+, wie sie bei <mark name="citation-Dourish1992" />(Dourish und Bellotti, <say-as interpret-as="date" format="y">1992</say-as>) zu finden ist: 
+<break strength="medium" />Zitat<break strength="medium" />
+Awareness ist <break strength="medium" />Zitat<break strength="medium" />an understanding of the activities of others, which provides a
+context for your own activity.<break strength="medium" />Zitatende<break strength="medium" />
+<break strength="medium" />Zitatende<break strength="medium" /> 
+Diese Definition legt die Grundlage für die im weiteren verlauf betrachteten Awareness-Muster. Sie verweist
+auf den oben genannten Zusammenhang zwischen Aktivitäten in einem sozialen Kontext. Es gilt, die Aktivitäten der Anderen zu verstehen und daraus handlungsrelevante Schlüsse für die eigenen Aktivitäten zu ziehen. 
+Aber wie kann ein Verstehen der Aktivitäten der Anderen möglich sein? Und ist
+ein Verstehen der Aktivitäten ausreichend, um in einer Gruppe zu interagieren
+oder muss es nicht vielmehr um das Verstehen der Anderen gehen? Diese beiden
+Fragen zeigen bereits, dass die landläufige Definition von Awareness oft von
+einer großen Unschärfe geprägt ist: In vielen Fällen ist beim Design von
+Awareness-Funktionen lediglich die Fragestellung leitend, Aktivitäten zu
+erfassen und diese den anderen Gruppenmitgliedern zu visualisieren.
+Basistechnologien für Awareness <mark name="citation-Gross2013" />(Gross, <say-as interpret-as="date" format="y">2013</say-as>) betrachten folglich vor allem
+den Prozess des Erfassens, Speichern und Präsentieren von
+Wahrnehmungsinformationen. Schauen wir uns hierzu ein Beispiel an:
+<mark name="example"/><prosody rate="slow" pitch="low">Beispiel</prosody><break strength="strong" /> Die Web-basierte Open-Source Kooperationsumgebung OwnCloud
+(<mark name="url-https://github.com/owncloud/core" />) protokolliert Aktivitäten der Nutzenden
+mit den in OwnCloud abgelegten Dateien. Für jede Änderung, die mittels des
+Controllers der Web-Anwendung ausgeführt wird, erstellt das System eine
+Repräsentation der Änderung in einer Datenbank. Diese enthält u. a. die
+folgenden Attribute: 
+<mark name="item-0" />[Zeitpunkt (timestamp)] der Aktivität in Form eines System-Zeitstempels des
+Servers.
+<mark name="item-1" />[Aktor (user):] Die Kennung des Nutzers oder der Nutzerin, der oder die die
+Aktivität ausgeführt hat.
+<mark name="item-0" />[Betroffene (affected):] Kennung der Nutzerin oder des Nutzers, die oder
+der von der Aktivität erfahren sollte.
+<mark name="item-1" />[Typ (type)] und Betreff (subject) der Aktivität. Der Betreff gibt
+die Aktivität als Verb zusammen mit einem Aspekt (auf wen sich die Aktivität
+bezieht) an. Bei Dateien kann das Verb sein: erzeugt (created), verändert
+(changed), gelöscht (deleted) oder wiederhergestellt (restored). Außerdem gibt
+es Aktivitäten zum Teilen von Dateien, z.B. geteilt mit einem Benutzer oder
+einer Benutzerin (shared-user) oder geteilt mit einer Gruppe (shared-group).
+Der Aspekt stellt den Bezug auf den betroffenen Nutzer her (entweder
+self, wenn die Aktivität von dem betroffenen Nutzer selbst durchgeführt
+wurde oder by, wenn die ausführende Person sich von der zu
+benachrichtigenden Person unterscheidet).  
+<mark name="item-0" />[Anwendung (app):] Die Komponente der ownCloud-Installation, mit der die
+Aktivität ausgeführt wurde.
+<mark name="item-1" />[Datei (file):] Pfad der betroffenen Datei.
+<mark name="item-0" />[Objektkennung (object-id):] Kennung der betroffenen Datei.
+Die Änderungen werden in einer Datenbank-Tabelle abgespeichert und sind
+dauerhaft verfügbar (im Sinne eines <mark name="pattern-Activity Logs" />Activity Logs.
+Einige Beispiele für Awareness-Daten von OwnCloud finden sich in folgendem
+Auszug aus der Activities-Tabelle:
+Der erste Eintrag hält fest, dass die Nutzerin mit der Kennung alice den
+Ordner docs mit dem Benutzer mit der Kennung bob geteilt hat.
+Zu einem späteren Zeitpunkt hat alice ein neues Verzeichnis mit dem Namen
+reports erzeugt (Einträge 2 und 3). Das System weiß zu diesem Zeitpunkt,
+dass der Ordner für alice und bob sichtbar ist, weshalb zwei
+Einträge in der Tabelle angelegt werden. Sie unterscheiden sich in der
+betroffenen Person und im Attribut subject. Der eine Eintrag besagt, dass
+alice darüber informiert werden soll, dass sie selbst einen Ordner
+angelegt hat. Der andere Eintrag zu dieser Aktivität vermerkt, dass bob
+als Betroffener der Aktivität darüber informiert werden soll, dass alice
+die Datei erstellt hat.
+Die letzten beiden Aktivitätseinträge repräsentieren das Löschen einer Datei. Da
+die Datei selbst nach dem Löschen nicht mehr verfügbar sein wird, ist es
+wichtig, dass nicht nur die object-id des gelöschten Objekts gespeichert
+wird: Sonst wären keine Metadaten zur Anzeige der Awareness-Informationen mehr
+verfügbar. OwnCloud speichert zusätzlich auch noch weitere Parameter zur
+Verwandlung des subject-Felds in eine Nachricht, worauf an dieser Stelle
+jedoch nicht weiter eingegangen werden soll.
+Die Repräsentation der Daten nimmt zu einem gewissen Grad die Visualisierung der
+Awareness-Informationen schon vorweg. Sie legen fest, welche Informationen für
+wen sichtbar sein werden. Das ist der Hauptgrund, warum bei einer Aktivität
+mehrere Einträge gespeichert werden, denn so kann zum Zeitpunkt der Speicherung
+die zu diesem Zeitpunkt gültige Sichtbarkeitssteuerung respektiert werden. 
+Allerdings geht die Architektur von OwnCloud davon aus, dass unterschiedliche
+Medien zur Übermittlung von Awareness-Informationen genutzt werden können. So
+können Aktivitäten gesammelt und im Sinne eines <mark name="pattern-Periodic Reports" />Periodic Reports 
+per e-Mail an die Nutzenden verschickt werden, die die Aktivität
+wahrnehmen sollen. Sind die zu benachrichtigenden Nutzenden gerade im System
+aktiv, so kann die Information auch synchron in ihrem Arbeitsbereich
+visualisiert werden (im Sinne eines <mark name="pattern-Activity Indicators" />Activity Indicators.
+<break strength="strong" />
+Das obige Beispiel ist typisch für technisch orientierte Ansätze zur Vermittlung
+von Awareness-Informationen. Einige erste zentrale Muster zur Gestaltung von
+Awareness-Mechanismen in kooperativen Systemen haben Sie dabei auch bereits
+kennengelernt: <mark name="pattern-Activity Log" />Activity Log, <mark name="pattern-Activity Indicator" />Activity Indicator und
+<mark name="pattern-Periodic Report" />Periodic Report.
+<mark name="image-fig/ActivityLogDiagram.pdf" />
+<mark name="caption" />Architektur eines Awareness-Systems (in Anlehnung an <mark name="citation-Gross2007" />Gross und Koch (<say-as interpret-as="date" format="y">2007</say-as>)).
+Der generelle Aufbau eines Awareness-Systems ist in Abb.  dargestellt. Sensoren nehmen Aktivitäten einer Nutzerin oder eines Nutzers an Client A wahr. <break strength="medium" />Zitat<break strength="medium" />Wahrnehmen<break strength="medium" />Zitatende<break strength="medium" /> kann hier sowohl physisch im Sinne von Sensoren in der Umgebung gemeint sein, als auch im Sinnes des Aufzeichnen des Daten- und Kontrollflusses in der Anwendung auf Client A. Informationen zu Aktivitäten, die von anderen Gruppenmitgliedern wahrgenommen werden können, werden an einen Server geschickt, der diese Informationen unter Umständen abspeichert (<mark name="pattern-Activity Log" />Activity Log), zeitlich verzögert oder ausdehnt und an andere Clients schickt und ggf.
+wieder durch einen Aufmerksamkeits-Filter (<mark name="pattern-Attention Screen" />Attention Screen) gefiltert an relevante Clients weitergibt. Dort werden sie dann den Nutzenden präsentiert. Der Weg über einen Server ist nicht unbedingt nötig - es kommt vor allem darauf an, dass auf dem Weg von Client A zu Client B die Wahrnehmungsinformationen so lange gespeichert werden, bis sie bei Client B angezeigt werden können und dass nur die Informationen angezeigt werden, die Client A teilen möchte und die Client B zu sehen bereit ist.
+Hierzu werden die Wahrnehmungsinformationen in der Regel persistent abgelegt
+(z.B. in einer Datenbank) und die  Gleichzeitigkeit wird ebenso relativ
+interpretiert, wie räumliche Ko-Lokation. Ist eine Benutzerin z.B. in Berlin, so
+kann sie virtuell am <break strength="medium" />Zitat<break strength="medium" />gleichen<break strength="medium" />Zitatende<break strength="medium" /> Ort sein, wie ein Benutzer in München.
+Dadurch, dass die Wahrnehmungsinformationen im Medium transportiert werden,
+lösen sie sich vom konkreten Raum von Client A und können in den Raum von Client
+B eingeblendet werden. Ebenso verhält es sich mit der virtuellen
+Gleichzeitigkeit: Eine Aktion, die an Client A wahrgenommen wurde, kann vom
+Server so weit verzögert werden, dass sie zu einem deutlich späteren Zeitpunkt
+von Client B dargstellt wird. Die wahrnehmende Person, die Client B nutzt, wird
+diese Aktion gleichzeitig mit anderen Aktivitäten wahrnehmen, die ihre Ursache
+jedoch zu unterschiedlichen Zeiten hatten. 
+Wir werden im folgenden in zwei Schritten die Thematik der Group
+Awareness bearbeiten. In einem ersten Schritt lesen Sie einige der Muster aus
+dem Basistext. In einem zweiten Schritt werden wir dann mit einem Blick auf die
+philosophische Strömungen der Phänomenologie und des Existenzialismus kritisch
+hinterfragen, welche Aspekte der Wahrnehmung in einem kooperativen System
+überhaupt erfasst werden können und sollen. Hier werden wir die eben skizzierten
+Überlegungen zur Gleichzeitigkeit und zur Ko-Lokation weiter vertiefen.
+<mark name="section-Awareness-Entwurfsmuster"/><prosody rate="slow" pitch="low">Awareness-Entwurfsmuster</prosody><break strength="strong" />
+Wir unterscheiden zwischen synchronem und asynchronem Gruppenbewusstsein. Synchrones Gruppenbewusstsein hilft im Hier und Jetzt die eigenen Aktionen mit parallel ablaufenden Aktionen der anderen Gruppenmitglieder zu harmonisieren. Asynchrones Gruppenbewusstsein hilft die Geschichte der Gruppe besser zu verstehen und zukünftige Schritte auf Erkenntnisse aus der Gruppengeschichte aufzubauen. Wie wir eben gesehen haben, ist diese
+Unterscheidung ein relatives Konstrukt. Die Mechanismen zur Vermittlung von Gruppenbewusstsein sollen auch bei asynchronen Aktionen eine relative Gleichzeitigkeit herstellen, indem sie gleichzeitig mit anderen Aktionen vergegenwärtigt werden.
+Beiden Mechanismen liegt das Prinzip der Beobachtung von Benutzenden durch das System und der Auswertung der beobachteten Rohdaten zu Grunde, welches in dem <mark name="pattern-Activity Log" />Activity Log Pattern beschrieben ist. Sie haben dieses Muster schon am Beispiel von OwnCloud kennengelernt:
+<mark name="pattern-desc-Activity Log" />Activity Log: Beobachte und speichere Informationen über die aktuellen Aktivitäten der einzelnen Nutzerinnen und Nutzer.
+Die Aktivitäten der Nutzenden können im einfachsten Fall direkt dargestellt werden (wobei eine Speicherung nur im Transportmedium bzw. im Transportprotokoll erfolgt). Dabei ist zu beachten, welche Aktivitäten die Nutzenden sehen dürfen (die Filter in Abb. ).
+Ist ein bearbeitetes Artefakt für die anderen Gruppenmitglieder unsichtbar, so sollte dieses auch nicht in den Aktivitätsberichten auftauchen. Ebenso ist festzulegen, wie lange die Einträge im Activity Log gespeichert werden dürfen. Hierfür stecken die Vorgaben des Datenschutzrechts den Rahmen ab. 
+Datenschutz und das Recht auf Privatheit stehen nicht selten im Widerspruch mit dem Zweck der langfristigen Vermittlung von Gruppenbewusstsein. So finden sich in den meisten Ausführungen zum Schutz von Protokolldaten vor allem Hinweise, die sich auf die Nutzung der Daten zur Sicherstellung des Dienstes beziehen (z.B. zur Erkennung von Angriffen oder fehlerhaften Zugriffen auf den Dienst). Dass Protokolldaten auch für die langfristige Bereitstellung eines Gruppenbewusstseins nötig sein können, ist in der Regel nicht berücksichtigt. 
+Hierfür ist in der Datenschutzvereinbarung eine separate Zweckbestimmung anzugeben (die, wie alle rechtlichen Fragen zum Betrieb des Systems, mit Juristen geprüft werden sollten). 
+In einigen Fällen können Awareness-Informationen auch aus dem aktuellen Objektzustand der gemeinsamen Objekte rekonstruiert werden, weshalb dann ein <mark name="pattern-Activity Log" />Activity Log nicht mehr nötig ist. Werden im kooperativen System zum Beispiel Bilder bearbeitet und wird nach jeder Bearbeitung eine neue Version des Bildes
+angelegt, so kann aus der Versionshistorie der Bilder auf die Art der Änderung geschlossen werden. Speichert das System zu jedem Bild auch noch eine Referenz auf die bearbeitende Person und das Datum der Erzeugung der Version, so können alle Informationen des oben genannten Awareness-Eintrags direkt aus der
+Versionshistorie des Bildes rekonstruiert werden.
+<mark name="example"/><prosody rate="slow" pitch="low">Beispiel</prosody><break strength="strong" />
+OwnCloud visualisiert, wie oben bereits aus technischer Perspektive vorgestellt,
+die Einträge des <mark name="pattern-Activity Logs" />Activity Logs auf einer Übersichtsseite zu
+Aktivitäten im Arbeitsbereich (vgl. Abb. ). Dabei wird für jede Aktivität angezeigt, wer
+diese durchgeführt hat (Identität der Nutzerin oder des Nutzers), wann diese
+Aktivität stattfand (als Datum oder als Zeitabstand zum aktuellen Zeitpunkt), um
+welche Aktivitätsklasse es sich handelt (erzeugen, ändern, teilen, löschen) und
+auf welchem Artefakt die Aktivität ausgeführt wurde. 
+  <mark name="image-fig/activities_owncloud.png" />
+  <mark name="imagecaption" />Aktivitäten in einem OwnCloud-Workspace.
+<break strength="strong" />
+In den zurückliegenden Teilabschnitten wurde Awareness auf der Ebene der Gemeinschaft oder Gruppe betrachtet. Nutzende sollten bei der Kommunikation unterstützt werden und sich der relevanten Aktivitäten der Gruppe bewußt werden.
+Bereits in den frühen Arbeiten von <mark name="citation-Schlichter1998" />(Schlichter und Kollegen, <say-as interpret-as="date" format="y">1998</say-as>) wird betont, <break strength="medium" />Zitat<break strength="medium" />awareness is needed in both contact facilitation in communities and teams, and for maintaining team work at a high performance level within the team.<break strength="medium" />Zitatende<break strength="medium" /> Wir finden häufig Situationen, in denen die Nutzenden unabhängig voneinander arbeiten und dann plötzlich beginnen, enger miteinander zusammenzuarbeiten, weil sie ein gemeinsames Bedürfnis haben. In Abb.  sind diese Wechsel dargestellt. 
+  <mark name="image-fig/6-awareness.png" />
+  <mark name="caption" />The role of awareness for group cohesion <mark name="citation-Schuemmer2007" />(Schümmer und Lukosch, <say-as interpret-as="date" format="y">2007</say-as>)
+Die unterschiedlichen Grade der Awareness sind der Abb.  durch graduell schattierte konzentrische Kreise dargestellt. Wenn Nutzende zu unterschiedlichen Zeiten an unterschiedlichen Artefakten arbeiten, teilen Sie nur eine minimale gegenseitige Awareness. Je enger sie zusammenarbeiten, desto größer wird der Grad der gegenseitigen Awareness. In der Abb.  wird dies durch die dunklen Kreise repräsentiert. In diesem Zusammenhang kann sich folgende Situation ergeben:
+<break strength="medium" />Zitat<break strength="medium" />
+Paul und Anna fällt es bei all den verschiedenen Gruppenaktivitäten innerhalb der virtuellen Gemeinschaft nicht leicht sich gegenseitig im Blick zu behalten. Die Koordination im Sinne einer genauen Group Awarenes ist nun sehr wichtig. Paul und Anna müssen besser nachvollziehen können, was die einzelnen Gruppen machen. Jede Gruppe muss verstehen, wie sich ihre eigenen Aktivitäten auf die Ziele und Absichten der anderen Gruppen auswirken. Letztendlich müssen auch die Nutzenden die Auswirkungen ihres Handelns erkennen können.
+<break strength="medium" />Zitatende<break strength="medium" />
+<mark name="citation-Gutwin1996" />Gutwin und Greenberg (<say-as interpret-as="date" format="y">1996</say-as>) haben dafür den Begriff der workspace awareness geprägt und darunter den Bedarf an Awareness summiert, der bei der Zusammenarbeit von kleinen Gruppen in einem gemeinsamen Arbeitsbereich entsteht. Die beiden Autoren entwickelten daraus ein Referenzmodell <mark name="citation-Gutwin1996,gutwin2002b" />undefined, welches aus den in Tab.  formulierten Fragen besteht. Diese Fragen muss man typischer Weise beantworten, wenn man zur selben Zeit in einem Shared Workspace aktiv ist.
+<mark name="caption" />
+Nachdem wir die grundlegende Bedeutung der Kollaborationsunterstützung diskutiert haben, schauen wir uns nun Entwurfsmuster zur Unterstützung der Awareness an.  
+<mark name="subsection-Wahrnehmung synchroner Interaktionspartner"/><prosody rate="slow" pitch="low">Wahrnehmung synchroner Interaktionspartner</prosody><break strength="strong" />
+Das wohl am häufigsten anzutreffende Mittel zur Vermittlung von synchronem Gruppenbewusstsein ist die <mark name="pattern-User List" />User List.
+<mark name="pattern-desc-User List" />User List: Zeige, welche Personen zur gleichen Zeit
+an einer Collaborative Session teilnehmen.
+Das System protokolliert für die Realisierung einer <mark name="pattern-User List" />User List,
+welche Nutzenden gerade in einem Arbeitsbereich oder allgemein in einer Sitzung
+aktiv sind. Beginnt ein Client die Anzeige eines kooperativen Arbeitsbereichs,
+so wird hierfür eine Aktivität erzeugt (entweder beim Server oder beim Client)
+und diese Aktivität geteilt. Alternativ wird die Menge der teilnehmenden
+Nutzenden in der <mark name="pattern-Collaborative Session" />Collaborative Session - also im Modell -
+abgelegt. Anderen Nutzenden der Session werden diese Informationen in der Session angezeigt, bspw. mittels des <mark name="pattern-Virtual Me" />Virtual Me der Session-Mitglieder.
+Mit einer <mark name="pattern-User List" />User List wird vor allem die Frage beantwortet, wer in
+einem Kooperationskontext anwesend ist. Weitere Informationen, bspw. zu den
+Rollen der Teilnehmenden oder zu den aktuellen Aktivitäten der Nutzenden können
+in die <mark name="pattern-User List" />User List integriert werden (z.B. mittels Badges an den
+Nutzerbildern). Das schließt auch die Möglichkeit mit ein, direkt mit den in der
+<mark name="pattern-User List" />User List genannten Nutzenden zu interagieren.
+<mark name="pattern-desc-Interactive User Info" />Interactive User Info: Statte die Namen und/oder Fotos
+kooperierender Nutzender mit einem Kontextmenü aus, über das die lokal
+arbeitende Person mit der entfernt arbeitenden Person eine Interaktion beginnen
+oder mehr über die Person erfahren kann.
+Ein generelles Problem bei einer  <mark name="pattern-User List" />User List ist die Skalierung. 
+Meist wird die <mark name="pattern-User List" />User List nur dort eingesetzt, wo alle in einer
+Sitzung kooperierenden Nutzenden gleichzeitig auf dem Bildschirm dargestellt
+werden können. Ein Scrollen der <mark name="pattern-User List" />User List ist für synchrone
+Awareness nicht zu empfehlen, da der Mehraufwand des Scrollens den Umgang mit
+der User List zu einer Vordergrundaktivität werden lässt (im Gegensatz zu einer
+Hintergrundaktivität beim periphären Wahrnehmen der dargestellten Nutzerinnen
+und Nutzer). 
+Hierin unterscheidet sich die <mark name="pattern-User List" />User List von der <mark name="pattern-User
+Gallery" />User
+Gallery (vgl. Kurseinheit 2). In der <mark name="pattern-User Gallery" />User Gallery geht es um die
+Wahrnehmung der gesamten Community und die Identifikation von möglichen
+Kooperationspartnern. Die Exploration der <mark name="pattern-User Gallery" />User Gallery ist ein
+aktiver Prozess. In der <mark name="pattern-User List" />User List geht es um die Wahrnehmung der
+Gruppenmitglieder, die aktuell in einem <mark name="pattern-Shared Workspace" />Shared Workspace oder
+allgemein in einer <mark name="pattern-Collaborative Session" />Collaborative Session aktiv sind. Der Umgang
+mit der <mark name="pattern-User List" />User List ist ein passiver Vorgang.
+Die Präsenz der anderen Nutzenden sagt in der Regel noch wenig über ihre
+aktuellen Tätigkeiten aus. Deshalb haben sich vier weitere Muster vor allem für
+die synchrone Kooperation an gemeinsamen Dokumenten etabliert:
+<mark name="pattern-desc-Remote Cursor" />Remote Cursor: Zeige die Bewegungen des Eingabefokus
+(Maus-Cursor und Text-Cursor) entfernt arbeitender Nutzender an.
+<mark name="pattern-desc-Remote Selection" />Remote Selection: Visualisiere nicht nur die Auswahl der oder
+des lokalen Nutzenden sondern zeige auch die Auswahlbereiche von Nutzenden an,
+die ebenfalls im gemeinsamen Arbeitsbereich oder Editor aktiv sind.
+<mark name="pattern-desc-Remote Field of Vision" />Remote Field of Vision: Hebe die aktuellen Teile des
+Arbeitsbereichs oder die Dokumente hervor, die aktuell von kooperierenden
+Nutzenden betrachtet werden.
+<mark name="pattern-desc-Telepointer" />Telepointer: Statte die Benutzenden mit einem
+virtuellen Zeigestock aus, womit sie begleitend zu einem
+Embedded Chat auf bestimmte Artefakte oder Teile davon
+zeigen können.
+Technisch basieren die ersten drei Muster auf der gleichen Grundlage:
+Interagiert der Nutzer oder die Nutzerin mit der Maus oder der Tastatur, so wird
+im Controller die aktuelle Position der Maus, des Cursors, der Textauswahl oder
+des Views des Arbeitsbereichs erfasst und an die anderen Mitglieder des
+Arbeitsbereichs als   kommuniziert. Dort kann
+diese Information visualisiert werden. Der grundsätzliche Ablauf ist nach wie vor derselbe wie wir ihn zu Beginn der Kurseinheit skizziert haben.
+Der <mark name="pattern-Telepointer" />Telepointer unterscheidet sich von den ersten drei Mustern dadurch dass er nicht an ein Eingabegerät gebunden ist. Stattdessen ist er ein
+eigenständiges Kontrollelement, das von den Nutzenden aktiviert und bewegt
+werden kann. Die Erfassung der Position basiert in diesem Fall nicht auf einer Beobachtung der nutzenden Person, sondern auf einem aktiven Setzen der Position durch die benutzende Person.
+Die Visualisierung der oben genannten Muster stößt an ihre Grenzen, wenn die Bereiche einer Selektion oder
+die Punkte der <mark name="pattern-Telecursor" />Telecursor oder <mark name="pattern-Telepointer" />Telepointer sich
+stark überlappen. Wird eine Selektion hier lediglich durch einen Texthintergrund
+in der Farbe des Benutzers oder der Benutzerin ausgedrückt, so lässt sich
+die Farbe bei überlappenden Selektionen nicht mehr zuordnen. Ähnlich verhält es
+sich mit Cursors: Wenn beide nutzende Personen den Cursor an die gleiche Stelle
+bewegen, muss sichergestellt werden, dass der eigene Cursor immer sichtbar
+bleibt (und evtl. den fremden Cursor überdeckt).
+Eine weitere Herausforderung besteht in der Ermittlung einer guten
+Übertragungsrate für Positions-Ereignisse. Während die Tippgeschwindigkeit
+deutlich unter der technisch handhabbaren Ereignisfrequenz liegt, kann die
+Bewegung der Maus zu einer sehr großen Menge an Events beim Server und so zu
+einem Engpass führen. Deshalb bietet es sich an, Maus-Cursor-Bewegungen nur zu
+übertragen, wenn der Cursor einen Mindestabstand zur vorherigen Position
+überschritten hat. Weitere Probleme, die bei der Übermittlung von
+kontinuierlichen Awareness-Informationen auftreten, beruhen auf einem
+ungleichmäßigen Datenstrom vom Sender zu den Empfänger-Anwendungen. So kann es
+passieren, dass die Informationen über die neue Cursorposition nicht gleichmäßig
+den ausführenden Computer verlassen können und dass sie (z.B. wegen
+Verzögerungen im Netzwerk) den darstellenden Rechner nicht gleichmäßig
+erreichen. Hier kann die Wiedergabe entweder generell verzögert werden oder bei
+einem Ausbleiben der Aktualisierung ein Wert interpoliert werden
+<mark name="citation-Long2005" />(Long und Horsch, <say-as interpret-as="date" format="y">2005</say-as>).
+<mark name="example"/><prosody rate="slow" pitch="low">Beispiel</prosody><break strength="strong" />
+Für Own-Cloud existiert eine Komponente, die das gleichzeitige gemeinsame
+Bearbeiten von Texten unterstützt. Nutzerinnen und Nutzer <break strength="medium" />Zitat<break strength="medium" />treffen<break strength="medium" />Zitatende<break strength="medium" /> sich bei
+einem Dokument, indem sie es gleichzeitig öffnen. Die Web-basierte
+Bearbeitungskomponente überträgt alle Änderungen am Text an den OwnCloud-Server,
+von wo aus sie an die aktiven Clients der entfernten Nutzenden weitergeleitet
+werden.
+Einige der Nachrichten beschreiben Bewegungen des Textcursors oder die
+Erweiterung einer Textauswahl. Aufgrund dieser Informationen kann die entfernte
+Client-Komponente rekonstruieren, welche Textteile die jeweiligen Benutzerinnen
+und Benutzer selektiert haben. In Abb.  sind zwei
+Cursor zu sehen (niemand hat einen Text selektiert). Die Cursor tragen in dem
+Beispiel jeweils die Farbe des Nutzers. 
+  <mark name="image-fig/Shared_Editing.png" />
+  <mark name="imagecaption" />Synchrone Bearbeitung eines Textdokuments in OwnCloud.
+Informationen über die Identität der anwesenden Gruppenmitglieder finden sich in
+der <mark name="pattern-User List" />User List am rechten Rand von Abb. .
+Abb.  zeigt darüber hinaus noch Informationen über die
+Autorenschaft der jeweiligen Absätze. In der schwarzen Sprechblase werden alle
+Personen, die in einem Absatz aktiv waren, zusammen mit dem Zeitpunkt ihrer
+Aktion benannt. Die Sprechblase wird durch einen Klick auf den farbigen linken
+Balken sichtbar. Diese Visualisierung ist ein Beispiel dafür, wie das synchrone
+Konzept des <mark name="pattern-Activity Indicators" />Activity Indicators mit asynchronen Formen der
+Awareness verbunden werden können. 
+<break strength="strong" />
+Die bisher betrachteten Muster thematisieren insbesondere Aktivitäten der
+Nutzenden auf technischer Ebene. Mit Eingabegeräten nehmen die Nutzenden
+Veränderungen am Programmzustand wahr indem sie Werte eingeben oder Cursor
+bewegen. All dies sind Micro-Aktivitäten, die zusammengenommen größere
+semantische Einheiten bilden können. Solche Einheiten zu erkennen stellt nach
+wie vor eine technische Herausforderung dar, denn die einzelnen Aktionen der
+Nutzenden müssen im Kontext der Nutzenden interpretiert werden. Hierfür muss der
+Kontext verstanden werden. 
+Statt zum Beispiel eine Folge von Mausbewegungen darzustellen ist es in einigen Situationen 
+sinnvoller, den Grund für die Mausbewegungen zu kommunizieren, bspw. dass die
+aktive Person den anderen Gruppenmitgliedern eine Stelle im Text zeigen möchte,
+um auf eine Unstimmigkeit im Dokument hinzuweisen. Hierfür bewegt sie ihre Maus
+über den Text und umkreist die strittigen Wörter. Im Idealfall könnte ein
+Computersystem solche Muster der Interaktion erkennen und zu sinnvollen
+semantischen Einheiten zusammenfassen. Hier steht die Forschung allerdings noch
+am Anfang. Ein immer wieder genutztes Stichwort in diesem Bereich ist das des
+. Dies beschreibt ein
+kooperatives System, in dem der Kontext der nutzenden Personen durch Sensoren
+wahrgenommen und im kooperativen System reflektiert wird (bspw. durch
+automatische Anpassungen des Systems an den Nutzungskontext).
+<mark name="citation-rittenbruch2002" />Rittenbruch (<say-as interpret-as="date" format="y">2002</say-as>) schlug zur Lösung dieser Herausforderungen einen
+Awareness-Ansatz vor, der die Aktivitäten der Nutzenden im Nutzungskontext
+interpretiert und so zu einem gemeinsamen Verständnis der Intention der
+Nutzenden führt. Durch die Kontextualisierung erhalten die einzelnen
+Informationen eine Semantik auf der Ebene des Arbeitsprozesses, was die
+Interpretation der Aktion stark vereinfacht. 
+Ein Muster aus dem Bereich der synchronen Group Awareness sollten Sie sich vor
+diesem Hintergrund  noch anschauen:
+<mark name="pattern-desc-Activity Indicator" />Activity Indicator: Signalisiere wenn ein entfernt
+arbeitende Benutzende eine Aktion durchführt.
+<mark name="subsection-Gruppenwahrnehmung bei asynchroner Interaktion"/><prosody rate="slow" pitch="low">Gruppenwahrnehmung bei asynchroner Interaktion</prosody><break strength="strong" />
+Neben dem synchronen Gruppenbewusstsein sind in vielen Systemen auch
+Mechanismen für ein asynchrones Gruppenbewusstsein vorhanden. Das Ziel besteht darin, vergangene Aktivitäten so zu vergegenwärtigen, dass sie im Kontext der wahrnehmenden Nutzenden zu einem sinnvollen Gesamtbild der Kooperation vermitteln
+<mark name="citation-Tam2004" />Tam und Greenberg (<say-as interpret-as="date" format="y">2004</say-as>) erweitern die Fragen aus Tab.  auf den Kontext der asynchronen Awareness. In Folge müssen die Fragen nicht nur in Bezug auf den gegenwärtigen Zeitpunkt, sondern auch bezüglich der Vergangenheit beantwortet werden. Dafür gibt es zwei Gründe: Erstens sollte man den Nutzenden ein besseres Verständnis für den Verlauf der individuellen Aktivitäten und Gruppenaktivitäten geben. Zweitens sind die Nutzenden nicht kontinuierlich aktiv.
+  <mark name="image-fig/6-async-awareness.png" />
+  <mark name="caption" />Die Rolle der Awareness in der asynchronen Kollaboration <mark name="citation-Schuemmer2007" />Schümmer und Lukosch (<say-as interpret-as="date" format="y">2007</say-as>)
+Der letztere Umstand ist in Abb.  dargestellt. Die Nutzenden interagieren in einer gemeinsamen Arbeitsumgebung (hellgrau), verlassen jedoch von Zeit zu Zeit ihren Arbeitsplatz. Sie verlassen möglicherweise auch die Grenzen der Gemeinschaft, wenn Sie zum Beispiel für längere Zeit in den Urlaub fahren oder aus gesundheitlichen gründen verhindert sind, so dass Sie der virtuellen Gemeinschaft fernbleiben. Die in diesem Abschnitt folgenden Muster helfen in vergleichbaren Situationen, indem beispielsweise längere Abwesenheiten bekanntgeben werden und bei der Rückkehr die Historie der Gruppenaktivitäten nachvollzogen werden kann.
+Einen einfachen Einstieg in asynchrone Awareness-Muster bilden regelmäßige
+Berichte über Aktivitäten per e-Mail:
+<mark name="pattern-desc-Periodic Report" />Periodic Report: Verschicke periodische Nachrichten,
+in denen die Aktionen der Benutzenden im Kooperationsraum
+zusammengefasst sind.
+<mark name="example"/><prosody rate="slow" pitch="low">Beispiel</prosody><break strength="strong" />
+OwnCloud kann <mark name="pattern-Periodic Reports" />Periodic Reports per e-Mail verschicken. Hierzu wird
+ein Report-Task in der Menge der regelmäßigen Aufgaben registriert, die mittels
+eines Cron-Jobs angestoßen werden können. 
+Der Report-Task liest aus dem <mark name="pattern-Activity Log" />Activity Log alle Aufzeichnungen
+über Aktivitäten, die für die zu benachrichtigende Person relevant sind und fügt
+diese in eine e-Mail ein. Nach dem erfolgreichen Versand des Reports werden die
+Aktivitäten für diese Nutzerin oder diesen Nutzer gelöscht.
+<break strength="strong" />
+Werden keine Reports genutzt oder werden veränderte Artefakte nur
+selten betrachtet, so bietet sich ein <mark name="pattern-Change Indicator" />Change Indicator
+an.
+<mark name="pattern-desc-Change Indicator" />Change Indicator: Hebe Artefakte hervor, die von
+anderen Benutzenden geändert wurden.
+Beim Change-Indicator ist die Anzeigedauer eine der zentralen Herausforderungen:
+Wie lange soll ein Artefakt als verändertes Artefakt visualisiert werden? Nehmen
+wir relative Gleichzeitigkeit an, so wäre der <mark name="pattern-Change Indicator" />Change Indicator zu
+entfernen, sobald das geänderte Artefakt wahrgenommen wurde. Aber es kann auch
+eine längere Vergegenwärtigung der Änderung nötig sein. 
+<mark name="example"/><prosody rate="slow" pitch="low">Beispiel</prosody><break strength="strong" />
+Ein einfaches Beispiel für einen <mark name="pattern-Change Indicator" />Change Indicator ist die
+Hervorhebung neuer Nachrichten in einem e-Mail-Client. Betrachten Sie hierzu die
+folgende Situation in Ihrem Arbeitsalltag: Sie starten morgens Ihren
+e-Mail-Client und lesen alle Nachrichten in Ihrem Posteingang. Danach widmen Sie
+sich für zwei Stunden einem Buch und schauen nicht auf den Bildschirm. In dieser
+Zeit sind drei Nachrichten angekommen, eine davon wurde auf dem Transportweg
+durch ein Netzwerkproblem verzögert - der Absender hatte die Nachricht schon
+gestern geschickt.
+Ohne einen <mark name="pattern-Change Indicator" />Change Indicator müssten Sie nach der Arbeit mit dem
+Buch wieder den gesamten Posteingang durchgehen. Ob Ihnen dabei die verzögerte
+Nachricht auffallen würde, ist nicht sicher. Neue ungelesene Nachrichten werden
+deshalb hervorgehoben, bspw. indem sie in der Nachrichtenliste im Fettdruck
+erscheinen. Aber wann können Nachrichten als wahrgenommen angesehen werden? In
+einigen Mail-Systemen geschieht dies immer, wenn der Nachrichteninhalt angezeigt
+wurde, andre Systeme fordern eine längere Betrachtung des Inhalts (und nehmen
+damit an, dass die Nachricht nun vergegenwärtigt wurde). Wiederum andere Systeme
+entfernen den <mark name="pattern-Change Indicator" />Change Indicator erst, wenn die empfangende Person
+die Nachricht explizit als gelesen markiert.
+<break strength="strong" />
+Abschließend sollen noch zwei weitere Muster nicht unerwähnt
+bleiben, die aber vor allem dann eine Rolle spielen, wenn die
+Benutzenden primär asynchron miteinander arbeiten.
+<mark name="pattern-desc-Aliveness Indicator" />Aliveness Indicator: Gib Benutzenden virtuelle
+Objekte, für die sie Verantwortung übernehmen können. Visualisiere
+diese Objekte in einer aktiven und lebendigen Form, sofern sich der dafür
+zuständige
+Benutzer oder die zuständige Benutzerin kürzlich um das Objekt gekümmert hat.
+<mark name="pattern-desc-Away Message" />Away Message: Beantworte Anfragen an eine Person
+mit einer automatischen Nachricht, sofern die Person gerade
+abwesend ist. Füge der Nachricht Informationen über die erwartete
+Rückkehr und eine mögliche Vertretung bei.
+Damit haben Sie einige grundlegende Muster zur Vermittlung von
+Gruppenbewusstsein kennengelernt. Diese Liste ist ebenso wenig vollständig wie
+die Sammlung der Muster im Basistext. Bevor wir uns mit einigen Herausforderungen von Group Awareness auseinandersetzen, gehen wir in einem kurzen Exkurs auf die Aspekte der Implementierung ein.
+<mark name="subsection-Implementierung in Socket.IO"/><prosody rate="slow" pitch="low">Implementierung in Socket.IO</prosody><break strength="strong" />
+Aus technischer Perspektive müssen Awareness Information möglichst in Echtzeit und bidirektional zwischen den beteiligten Clients kommuniziert werden. Auslöser dafür sind Ereignisse, die für andere Gruppenmitglieder relevant sein können. Eine Möglichkeit dies technisch zu realisieren bietet Socket.IO. Es handelt sich dabei um ein Javascript Framework, welches unabhängig von Plattformen, Geräten und Browsers eingesetzt werden kann. Dabei baut der Client zunächst eine XHR oder JSONP Verbindung mit dem Server auf und versucht dann ein Upgrade auf eine WebSocket Verbindung. Seit HTML5 werden WebSockets nativ im Browser unterstützt und ermöglichen somit eine bidirektionale Verbindung. 
+<mark name="listing" />
+<mark name="listing" />
+Die Code Beispiele  und  demonstrieren wie mittels Socket.IO eine <mark name="pattern-User List" />User List umgesetzt werden kann, so dass die gleichzeitig an einer Session teilnehmenden Nutzer dargestellt werden. Den Code können Sie sich auch herunterladen und lokal ausführen<mark name="footnote" />. 
+<mark name="section-Kritische Betrachtung der Awareness"/><prosody rate="slow" pitch="low">Kritische Betrachtung der Awareness</prosody><break strength="strong" />
+<mark name="subsection-Awareness und virtuelle Präsenz"/><prosody rate="slow" pitch="low">Awareness und virtuelle Präsenz</prosody><break strength="strong" />
+Bei den bisherigen Betrachtungen zur Awareness haben wir die virtuelle Präsenz des Users als gegeben hingenommen und uns auf die Präsenz und Aktivität der übrigen Gruppenmitglieder konzentriert. Die Frage nach der eignen Präsenz ist jedoch eine sehr entscheidende, wenn Sie darüber hinausgehende Schlüsse über die Präsenz ihrerer Kooperationspartner ziehen möchten. Ihre Präsenz in einem kooperativen System steht also immer in Relation zur Präsenz der anderen. Besonders offensichtlich wird das im Zusammenhang mit Anwendungen im Bereich Virtual Reality (VR), Augmented Reality (AR) und Mixed Reality (XR). Die Gestaltung dieser Systeme ist darauf ausgerichtet eine Illusion zu erzeugen, dass eine vermittelte Erlebnis nicht vermittelt, sondern wahrgenommen wird. Auch bei der Gestaltung kooperativer Systeme ist man versucht, diese Illusion aufrechtzuerhalten. Dies gelingt zum einen, wenn das Medium bei der Interaktion mit anderen Menschen als sozial, warm, einfühlsam, persönlich oder intim wahrgenommen wird. Zum anderen entsteht der Eindruck von Präsenz, wenn das Medium eine nahtlose und genaue Repräsenation von Objekten, Ereignissen und Menschen erzeugen kann, die real aussieht und sich real anhört oder anfühlt. <mark name="citation-Lombard2006" />Lombard und Ditton (<say-as interpret-as="date" format="y">2006</say-as>) beschreiben diesbezüglich noch weitere Auffassung von Präsenz. 
+Michel Reilhac vergleicht die Wirksamkeit der Präsenz mit der vierten Wand einer Theaterbühne. Für die Schauspieler existiert eine imaginäre Wand zum Publikum, die sie nicht durchschreiten können und die sie daran hindert, mit dem Publikum zu interagieren. Sie fragen sich jetzt vielleicht, wer in einem kooperativen System  die Schaulspieler und wer das Publikum repräsentiert. Das Pendant zu den Schauspielern sind die jenigen Personen, mit denen Nutzende unmittelbar, etwa in einer Gruppe, zusammenarbeiten. Zum Publikum gehören jene Mitglieder der Community, welche die Zusammenarbeit der auf der Bühne agierenden Gruppe von außen verfolgen (oder beeinflussen) können. Um den Grad der Präsenz zu ermitteln stellt Reilhac vier einfache Fragen: 
+<mark name="item-1" />sep0em
+<mark name="item-0" /> Besitze ich einen Körper? 
+<mark name="item-1" /> Bin ich sichtbar? 
+<mark name="item-0" /> Kann man mich spüren? 
+<mark name="item-1" /> Kann ich interagieren?
+Aus diesen Fragen werden in Tab.  zehn verschiedene Perspektiven der Präsenz entwickelt. Die ersten sechs Perspektiven beschreiben die Innensicht einer Person, die im Geschehen auf der Bühne mehr oder weniger eingebunden ist. Die Perspektiven 7. bis 10. gehen auf die Außensicht ein, bei der man von außen das Geschehen  auf der Bühne beobachtet oder darin eingreift.  
+[t]
+<mark name="caption" />
+<mark name="discussion"/><prosody rate="slow" pitch="low">Diskussion</prosody><break strength="strong" />
+Versuchen Sie für jede der zehn Perspektiven eine exemplarische Situation in einem konkreten kooperativen System zu finden. Erläutern Sie die Auswirkungen der jeweiligen Perspektive auf die von anderen Kooperationspartnern im System wahrgenommene Präsenz. 
+<break strength="strong" />
+Das Modell in Tab.  kann uns helfen, den Grad der Präsenz und somit auch den Grad der Kollaboration in einem System zu hinterfragen. Es macht einen großen Unterschied, ob ich als Active character unmittelbar und leibhaftig am Kollaborationsprozess teilhabe, oder ob ich als Spirit mangels körperlicher Repräsentation meinem Gegenüber lediglich das Gefühl geben kann, anwesend zu sein. 
+Zusammenfassend können wir festhalten, dass die Awareness sehr stark von der Form der virtuellen Präsenz abhängt. Das Vermögen eines Systems, die Nutzenden in die virtuelle Umgebungen eintauchen zu lassen ist gegenwärtig noch nicht sehr ausgeprägt. 
+<mark name="subsection-Grenzen der Awareness in kooperativen Systemen"/><prosody rate="slow" pitch="low">Grenzen der Awareness in kooperativen Systemen</prosody><break strength="strong" />
+Treten wir nun noch einmal einen Schritt zurück und lassen die Form der virtuellen Präsenz außer Acht, um unseren Blick auf praktische Probleme bei der Realisierung einer umfassenden Awareness-Unterstützung zu lenken.
+Im letzten Abschnitt haben Sie dazu einige Entwurfsmuster kennengelernt, mit deren Hilfe ein Bewußtsein für die am Kooperationsprozess beteiligten Personen und deren Aktivitäten hergestellt werden kann. Der Kontext der zwischenmenschlichen Interaktion wird dabei jedoch nur zu einem Bruchteil berücksichtigt. Deutlich wird dies, wenn Sie beispielsweise ein persönliches Gespräch unter vier Augen als Vergleich heranziehen. In der physischen Welt sind unsere Interaktionen durch die Körperlichkeit geprägt. Vieles von dem, was wir kommunizieren besteht nicht aus Worten oder Text, sondern ist durch Gesten, Bewegungen und Mimik bestimmt. Noch bevor wir ein Wort aussprechen, sagt unsere Erscheinung viel über uns aus: das Gesicht offenbart das Geschlecht, das Alter und den kulturellen Hintergrund, während die Kleidung und Haartracht etwas über den ökonomischen Status und die soziale Zugehörigkeit verraten <mark name="citation-Donath2014" />(Donath, <say-as interpret-as="date" format="y">2014</say-as>)  }}. Unsere Bewegung offenbart unseren Habitus und unsere körperliche Fitness. Gesichtsausdrücke und Mimik spiegeln unsere emotionale Verfassung und unsere Reaktion auf das, was wir gerade sehen oder hören. All diese Informationen beziehen sich auf den persönlichen Kontext eines Gegenüber. Weitere Kontextinformationen beinhaltet der physische Arbeitsbereich inklusive Werkzeuge und Artefakte sowie der umgebende Raum und die Lokalität (siehe Kurseinheit 7). 
+Ein wesentliche Herausforderung betrifft die verbreitete Annahme, dass die Kooperationspartner meine Präsenz wahrnehmen, da ich ihre Anwesenheit ja auch wahrgenommen habe. Dies muss nicht zwingend der Fall sein, wenn die Person am anderen Ende der Leitung zum Beispiel seine Aufmerksamkeit vom geteilten Kooperationsraum abgewendet hat und sich mit anderen Dingen beschäftigt. Bezog auf die Gruppe ist somit unklar, wann sich alle beteiligten Personen gegenseitig der Präsenz aller anderen bewußt sind und man von einer <break strength="medium" />Zitat<break strength="medium" />We-Awareness<break strength="medium" />Zitatende<break strength="medium" /> sprechen kann <mark name="citation-Greenberg2016" />(Greenberg und Gutwin, <say-as interpret-as="date" format="y">2016</say-as>).
+Deutlich wird dies in der synchronen Sprachkommunikation per Telefon, Videotelefonie bzw. Videokonferenzen, wenn sich die Beteiligten fragen, ob sie jetzt an der Reihe sind und etwas sagen können, ohne einem anderen ins Wort zu fallen:
+<break strength="medium" />Zitat<break strength="medium" />
+<break strength="medium" />Zitat<break strength="medium" />Speech is evanescent, and so Alan must try to speak only when he thinks Barbara is attending to, hearing, and trying to understand what he is saying, and she must guide him by giving him evidence that she is doing just this. Accomplishing this  requires the two of them to keep track of their common ground and its moment-by-moment changes.<break strength="medium" />Zitatende<break strength="medium" /> <mark name="citation-Clark1991" />(Clark und Brennan, <say-as interpret-as="date" format="y">1991</say-as>)
+<break strength="medium" />Zitatende<break strength="medium" />
+Das Beispiel verdeutlicht den Effekt, der auch dann auftreten würde, wenn Personen im Gespräch zu weit voneinander entfernt stehen. Dies ist ein Grund dafür, warum man während der face to face Kollaboration die Distanz zu einander verringert. Je näher man zusammenrückt, desto mehr Details werden von den anderen Personen (Körpersprache, Gesichtsausdrücke, Blickrichtung, etc) sowie von ihren Werkzeugen und Artefakten (z.B. Geräusche) erfahrbar <mark name="citation-Greenberg2016" />(Greenberg und Gutwin, <say-as interpret-as="date" format="y">2016</say-as>). Die Nähe ist deshalb ein Beispiel dafür, wie der Umfang und der Detailgehalt von Awareness Informationen vom Modus der Kooperation abhängt. In vielen kooperativen Systemen wird jedoch nicht die Nähe, sondern die jeweilige Aktivität oder das genutzte Werkzeug als Entscheidungskriterium für Awareness Funktionen herangezogen.
+Problematisch ist auch die Annahme, die Diversität der Nutzer auf wenige oder gar nur einen Typus von Anwender reduzieren zu können und somit unterschiedliche Persönlichkeitsmerkmale, Vorlieben und situationsbedingter Arbeitsweisen zu vereinheitlichen. Wie bereits erwähnt, fehlt es bislang an kontextsensitiven adaptiven Systemen, die eine weitreichende Personalisierung der Awareness Informationen ermöglichen <mark name="citation-Jimenez2013" />(Montané-Jiménez und Kollegen, <say-as interpret-as="date" format="y">2013</say-as>).
+Aus Sicht eines Designers kooperativer Systems ergeben sich vor diesem Hintergrund noch weitere Fragen hinsichtlich der Relevanz, Aufzeichnung, Übersetzung, Übertragung und Darstellung von Awareness Informationen <mark name="citation-Greenberg2016,Donath2014" />undefined: 
+<mark name="item-0" />[Relevanz] Welche Art von Awareness Informationen sind essentiell für die Kooperation und müssen deshalb im System berücksichtigt werden?
+Welche Informationen sieht der Nutzer als Teil seiner Privatsphäre an und möchte sie deshalb nicht übertragen?
+Können Anwender beeinflussen, welche Informationen preisgegeben werden?
+Welche Informationen kann man dem Nutzern vorenthalten?
+<mark name="item-1" />[Aufzeichnung] Wie lassen sich diese Awareness Informationen aufzeichnen?
+In wie weit wird mein Bewegungsspielraum durch die Aufzeichnung eingeschränkt?
+Welche Information gehen beim Aufzeichnen verloren?
+<mark name="item-0" />[Übersetzung] Wie können die aufgezeichneten Informationen in eine digitale Form übersetzt, umgewandelt oder kodiert werden? Wie verändern sich die Informationen durch diesen Prozess?
+<mark name="item-1" />[Übertragung] Wie sollen diese Informationen übertragen werden und welche Netzwerkeffekte (z.B. Verzögerungen, Anforderungen an die Bandbreite) beeinträchtigen die zeitnahe Übertragung?
+<mark name="item-0" />[Darstellung] Wie können die Awareness Informationen im System so dargestellt werden, sodass sie möglichst reichhaltige und genaue Interaktionen ermöglichen?
+<mark name="discussion"/><prosody rate="slow" pitch="low">Diskussion</prosody><break strength="strong" />
+Die Studierenden im Fachpraktikum kooperative System hatten im Wintersemester 2017/18 die Aufgabe ein kooperatives Einkaufserlebnis mit Hilfe einer virtuellen Repräsentation eines Lebensmittelgeschäfts zu realisieren. Die Einkaufenden sollten sich im Geschäft frei bewegen, authentische Abbildungen der Regale betrachten und Produkte zum Kauf auswählen können.
+Versetzen Sie sich in die Situation, mit einer zweiten Person in einem solchen Laden einkaufen zu gehen, ohne dass sie beide sich am selben physischen Ort befinden 
+Überlegen Sie, welche Awarenessinformationen wie aufgezeichnet, kodiert, übertragen und dargestellt werden können, um das Einkaufserlebnis so realitätsnah wie möglich zu gestalten.
+<break strength="strong" />
+Die Art von Herausforderung und Problemen, wie sie in diesem Teilabschnitt bezüglich einer adäquaten Umsetzung der Group Awareness diskutiert wurden, sind für den Bereich der Mensch-Computer-Interaktion nicht ungewöhnlich. <mark name="citation-Berger2017" />Berger und Kollegen (<say-as interpret-as="date" format="y">2017</say-as>) sprechen in diesem Zusammenhang von <break strength="medium" />Zitat<break strength="medium" />messy, infinit, or even wicked problems<break strength="medium" />Zitatende<break strength="medium" /> und spielen damit auf das unüberschaubare und kaum vollständig erschließbaren Facetten der Problemstellung an. Es wird hiermit deutlich, dass die Aufzeichnung und Wiedergabe von Aktivitäten für das Verständnis der Vorgänge innerhalb einer Gruppe nicht ausreicht. Die Awareness Information bedarf immer einer Deutung und Interpretation durch den Betrachter. Deshalb sollen im folgenden Abschnitt die Grundlagen der gegenseitigen Wahrnehmung in kooperativen Systemen aus Sicht der Phänomenologie betrachtet und weitere Design-Implikationen daraus abgeleitet werden.
+<mark name="section-Awareness als Deutung des Da-Seins und Mit-Seins"/><prosody rate="slow" pitch="low">Awareness als Deutung des Da-Seins und Mit-Seins</prosody><break strength="strong" />
+Aus philosophischer Perspektive sind die Ansätze der Phänomenologie für die
+Forschung im Bereich der Group Awareness ein zentraler Anknüpfungspunkt. Die
+ ist eine Strömung der Philosophie des 20.
+Jahrhunderts, die sich mit der Frage befasst hat, was Wahrnehmung bedeutet und
+wie die Phänomene der Welt erkannt und in einen Sinn-Zusammenhang eingeordnet
+werden können. Sie untersucht das Wechselspiel zwischen Wahrnehmung und Deutung
+und kann gerade deshalb als Rahmen für die Betrachtung von
+Gruppenwahrnehmungsmechanismen gelten.
+Der Begriff der Phänomenologie wurde ursprünglich von  Edmund Husserl
+(1859-1938) geprägt. Dieser unterstrich, dass physikalische Messungen der
+Wirklichkeit zwar Exaktheit nahelegen, jedoch auf Vorurteilen und Erwartungen
+basieren. Wenn ein Apfel vom Baum auf den Boden fällt, dann haben wir die
+Erwartung, dass dieser sich entsprechend den Gesetzmäßigkeiten der Schwerkraft
+verhalten wird. Damit wird jegliches abweichendes Verhalten unsichtbar. Man
+könnte sagen, dass es sich der Wahrnehmung entzieht. 
+Das Awareness-Modell vom Beginn dieser Kurseinheit (Abb.
+) hat genau dieses Problem: Als
+Awareness-Information wird nur das wahrgenommen, wofür es einen Sensor gibt. Das
+Sensorium bestimmt die Erwartungshaltung, es bildet das Vorurteil über wichtige
+zu kommunizierende Aspekte der Kooperation. Husserl plädiert deshalb für eine
+systematische Ausschaltung aller Vorannahmen. In der Methode der
+eidetischen Reduktion sollen 
+wissenschaftliche Theorien, Traditionen, persönliche Relationen zum betrachteten
+Gegenstand, die nicht wesensrelevanten Eigenschaften des Gegenstands und
+schließlich auch die Notwendigkeit der Existenz des Gegenstands hinterfragt und
+bewusst ausgeschaltet werden. 
+<mark name="discussion"/><prosody rate="slow" pitch="low">Diskussion</prosody><break strength="strong" />
+Versuchen Sie im Dialog mit Kommilitoninnen oder Kommilitonen eine eidetischen Reduktion. Betrachten Sie zum Beispiel einen Tisch und fragen Sie nach den Grundannahmen, die Sie zu diesem Tisch mitbringen. Wieso ist der Tisch in Ihrer Wahrnehmung ein Tisch? Welche Traditionen verbinden Sie mit dem Tisch? Welche Aspekte könnten in der Beschreibung problemlos weg gelassen werden, ohne dass die <break strength="medium" />Zitat<break strength="medium" />Tischhaftigkeit<break strength="medium" />Zitatende<break strength="medium" /> des wahrgenommenen Gegenstands verloren ginge? Und schließlich: Was wäre, wenn der Tisch als solcher gar nicht existieren würde?
+<break strength="strong" />
+Die zu Beginn dieser Kurseinheit gegebene Definition des Awareness-Begriffs soll
+für die nun folgende Betrachtung der Group Awareness den
+Startpunkt bilden: Ausgehend von dem Begriff der Aktivität sind die Begriffe des
+Kontextes, des Selbst und der Anderen zu beschreiben. Bei der Untersuchung der
+Begriffe des Selbst und der Anderen können wir auf unsere Analysen aus
+Kurseinheit 2 zurückgreifen, wo Gedanken über das Wesen der Identität
+dargestellt und in den Kontext eines sozialen Systems eingeordnet wurden. Der
+Begriff der Aktivität kam ebenfalls bereits zur Sprache, als wir in Kurseinheit
+4 die Aufgabentypen nach McGrath diskutierten.
+Allerdings haben wir sowohl den Begriff der Aktivität als auch den Begriff der
+Identität als gegeben hingenommen (mit allen Vorurteilen), ohne nach den Grundbedingungen dessen zu
+fragen, was die Wahrnehmung von Identität und Aktivität ausmacht. Beim genaueren
+Hinsehen wird klar werden, dass hier die Frage berührt wird, was es
+bedeutet, in einem kooperativen System präsent zu sein, und wie diese Präsenz mit
+der Präsenz der anderen in Beziehung steht. Mehr noch, es wird die Frage nach dem
+zeitlichen Zusammenhang zwischen Präsenz und Raum zu stellen sein.
+Ein zentraler Text der Philosophie des 20. Jahrhunderts, der sich mit diesen
+Fragestellungen auseinandersetzt, ist das 1927 erschienene Werk  des Philosophen  (1889-1976), im
+Folgenden als SuZ abgekürzt <mark name="citation-Heidegger1927" />(Heidegger, <say-as interpret-as="date" format="y">1927</say-as>).
+Ausgehend von einer erkenntnistheoretischen Analyse (was kann ich als Mensch
+erkennen) entwirft Heidegger ein Modell der menschlichen Existenz als
+ (SuZ, S. 53). Im Gegensatz zu anderen
+erkenntnisphilosophischen Ansätzen verfolgt Heidegger in der von Husserl
+gestifteten Tradition der Phänomenologie eine Analyse aus einer
+<break strength="medium" />Zitat<break strength="medium" />Ersten-Person-Perspektive<break strength="medium" />Zitatende<break strength="medium" /> <mark name="citation-Zahavi2007" />(Zahavi, <say-as interpret-as="date" format="y">2007</say-as>). <break strength="medium" />Zitat<break strength="medium" />Kennzeichnend für die
+Phänomenologie ist [...] die Auffassung, dass die Welt, wie sie uns erscheint
+[...] die einzig wirkliche Welt sei.<break strength="medium" />Zitatende<break strength="medium" /> (a.a.O., S. 14f.). 
+Dieser Zusammenhang wird klarer, wenn wir den komplementären Ansatz des 
+ betrachten (a.a.O., S. 17). Dieser hat das Ziel, den
+beobachteten Gegenstand Subjekt-übergreifend als wahr zu erkennen und versucht
+somit von einem konkreten Betrachter oder einer konkreten Betrachterin zu
+abstrahieren. Würden wir eine  versuchen, so könnte man sie definieren als die Menge aller
+stattgefundenen Aktivitäten und der Zusammenhänge zwischen den Aktivitäten. Eine
+Deutung wäre nur dann möglich, wenn diese keine weiteren Faktoren (bspw. Gefühle
+der Nutzenden) mit einbezieht. Deutung ist aber auch hier ein Prozess des
+Verstehens, der über die messbaren Beobachtungen hinaus geht. Group Awareness
+ist somit weniger eine Frage der Aufzeichnung und Wiedergabe von Aktivitäten als
+der Prozess des Deutens der Aktivitäten der Anderen im Kontext der eigenen
+Aktivitäten. 
+Hier hilft die Grundlinie der Phänomenologie, <break strength="medium" />Zitat<break strength="medium" />dass jedes Phänomen, jedes
+Erscheinen eines Gegenstandes, immer ein  Erscheinen von etwas für
+jemanden darstellt.<break strength="medium" />Zitatende<break strength="medium" /> (a.a.O., S. 18). Damit ist dieser Erkenntnisansatz
+deutlich näher an der zu Beginn dieser Kurseinheit zitierten Definition der
+Group Awareness als ein Verstehen von etwas, nämlich den  Aktivitäten
+anderer, für das betrachtende Subjekt. Dieses Verstehen und Deuten soll den
+Kontext für die eigene Handlung bilden, es geht also über eine rein ontologische
+Zielsetzung hinaus.
+Wenn wir deutend tätig werden wollen, müssen wir die Grundlagen des zu deutenden
+Inhalts in den Blick nehmen. Kommen wir also noch einmal auf die Definition der
+Group Awareness und betrachten die darin benutzten Begriffe, die es zu deuten gilt,
+diesmal bereits in einer deutschen Übersetzung:
+<break strength="medium" />Zitat<break strength="medium" />
+Gruppenwahrnehmung ist ein Verstehen der Aktivitäten der
+Anderen, das den Kontext für ihre eigenen
+Aktivitäten bildet.
+<break strength="medium" />Zitatende<break strength="medium" />
+Die Definition geht von einer  aus (hier im Begriff
+<break strength="medium" />Zitat<break strength="medium" />ihre<break strength="medium" />Zitatende<break strength="medium" /> präsent). Diese nutzt das System und ist im gemeinsamen Kontext
+aktiv. <break strength="medium" />Zitat<break strength="medium" />Die Person ist kein Ding, keine
+Substanz, kein Gegenstand<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 47). Damit begegnet die Person den
+Anderen grundsätzlich anders, denn die Anderen sind ebenfalls
+Person und somit Subjekt in einer Begegnung des In-der-Welt-Seins.
+Phänomenologisch sind sie empfangende Personen der Erscheinung einer Person und
+gleichzeitig Gegenstand einer anderen Erscheinung für die andere Person. 
+Für die Gestaltung von Gruppenwahrnehmungsmechanismen führt diese
+Person-Orientierung beim Design zu einer Unterscheidung zwischen Objekten und
+Personen. Auch wenn wir aus technischer Perspektive von Benutzer-Objekten
+sprechen sollte klar sein, dass diese lediglich Symbole für ein
+In-der-Welt-seiendes darstellen. Das Bild im System oder der textuell repräsentierte Name 
+<break strength="medium" />Zitat<break strength="medium" />Max<break strength="medium" />Zitatende<break strength="medium" /> ist eben nicht die Person Max, sondern lediglich ein Symbol. Je weniger
+soziale Bindungen zur durch das Symbol repräsentierten Person vorhanden sind, desto mehr wird das Symbol als abstraktes Symbol verstanden. Dass keine direkte Wahrnehmung der Körperlichkeit Person Max möglich ist, verstärkt die Gefahr der Symbolwerdung des Individuums und damit einen Umgang mit dem Individuum, in dem dieses ein Zuhandenes wird. Deshalb sollten kooperative Systeme Anknüpfungspunkte an die reale Person herzustellen
+versuchen.  
+Das Individuum ist das Subjekt einer . <break strength="medium" />Zitat<break strength="medium" />Akte werden
+vollzogen, Person ist Aktvollzieher.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 48). Auch hier können wir wieder
+Implikationen für das Design erkennen: Wenn das System Aufgaben explizit
+beschreibt oder Aktivitäten der Nutzenden festhält, so sind diese gerade nicht
+loszulösen von der den Akt vollziehenden Person. Es ist nicht irrelevant,
+welches Mitglied im kooperativen System eine Aufgabe oder eine Aktion ausgeführt
+hat oder ausführen wird. Wie wir später noch detaillierter zeigen werden,
+manifestiert sich die Person auch im manipulierten Artefakt. Akt und die Akt-vollziehenden Person hinterlassen Spuren im Artefakt. 
+In der Aktivität äußert sich eine Interaktion mit dem Interaktionskontext. <break strength="medium" />Zitat<break strength="medium" />Die nächste Welt des
+alltäglichen Daseins ist die <break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 66). In der Umwelt
+tritt das In-der-Welt-seiende mit anderem In-Seiendem in Beziehung und vollzieht
+damit einen . Heidegger führt vielfältige Beispiele für das
+Wesen dieser Inter-akt-ion an: <break strength="medium" />Zitat<break strength="medium" />zutunhaben mit etwas, herstellen von etwas,
+bestellen und pflegen von etwas, verwenden von etwas, aufgeben und in Verlust
+geraten lassen von etwas, unternehmen, durchsetzen, erkunden, befragen,
+betrachten, besprechen, bestimmen ... Diese Weisen des In-Seins haben die noch
+eingehend zu charakterisierende Seinsart des
+Besorgens.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 56 f.). Viele dieser Begriffe
+verlangen den direkten Kontakt des Aktvollziehers mit etwas.   
+Das Seiende, das agierenden Individuen im Besorgen begegnet, bezeichnet
+Heidegger als Zeug, welches  ist (SuZ, S. 68). Das
+Zuhandene wird dem Zweck des Besorgens unterworfen. 
+In seiner
+Analyse des in der Umwelt begegnenden Seienden geht Heidegger vor allem auf den
+Prozess des Herstellens ein. Ein herstellendes
+Subjekt verwendet etwas (ein Material, etwas Zuhandenes, ein Werkzeug) für
+etwas, nämlich die Erreichung des Ergebnisses. Übertragen auf das Feld der HCI
+könnte das zum Beispiel wie folgt aussehen: Eine Autorin nutzt eine Tastatur
+und ein Textverarbeitungsprogramm um einen Text zu erzeugen. Die Tastatur und
+das Programm sind dabei Werkzeuge (oder besser Schreibzeuge), die ihre
+Zeughaftigkeit im aktiven Umgang der Personen mit dem Werkzeug zeigen. Im
+produzierenden Umgang mit dem Text hinterlassen die produzierenden Personen ihre
+Spuren im Text selbst. 
+Ist das Zuhandene nur medial präsent, so ist davon auszugehen, dass nicht die
+gleiche Intensität des Besorgens erreicht werden kann, wie dies bei einer
+direkten Manipulation eines Objekts der Fall wäre. Betrachten Sie als Beispiel
+eine Bildhauerin, die direkt
+am Stein arbeitet. Sie ist im direkten Kontakt zum Werkstück und nimmt dieses
+sinnlich wahr. Vergleichen wir dies mit dem Beispiel eines Sachbearbeiters, der
+elektronische Formulare bearbeitet, so hat dieser immer nur eine mediale
+Repräsentation des Formulars vor Augen. Mehr noch, es besteht keine direkte
+Beziehung zu dem Etwas, das vom Formular repräsentiert wird. Ein
+Sachbearbeiter, der nur einen Personalbogen bearbeitet, wird nicht
+zwingend eine Beziehung zu der darin erfassten Arbeitnehmerin entwickeln (er
+soll es auch in vielen Fällen nicht). In einem kooperativen System kann sich
+über die gemeinsame Arbeit an einem Artfakt jedoch eine Beziehung zwischen den
+bearbeitenden Personen entwickeln, vorausgesetzt, sie nehmen nicht nur das
+Artefakt sondern auch die Aktionen und die Aktvollzieher wahr. 
+Der letzte noch offene Begriff der Definition ist das . In
+SuZ wird das Verstehen im zeitlichen Kontext diskutiert: <break strength="medium" />Zitat<break strength="medium" />Ursprünglich
+existenzial gefaßt, besagt Verstehen: entwerfend-sein zu einem Seinkönnen,
+worumwillen je das Dasein existiert.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 336). Das Verstehen setzt für
+Heidegger den schöpferischen Akt des Entwerfens des Seins in Gang. <break strength="medium" />Zitat<break strength="medium" />Verstehen
+ist Seinkönnen.<break strength="medium" />Zitatende<break strength="medium" /> <mark name="citation-luckner2001" />Luckner (<say-as interpret-as="date" format="y">2001</say-as>). Genau dies ist in der Definition
+von Awareness gegeben, wenn es heißt, dass die Aktionen der Gruppe
+verstanden werden sollen, um das eigene Handeln, das eigene Sein im
+Gesamtbild der Gruppe darauf abzustimmen. Verstehen als Seinkönnen ist jedoch
+ein durchweg zeitlicher Prozess. 
+Die  unterscheidet beim Seinkönnen  zwischen
+vergangenem, präsentischem und zukünftigem Sein. 
+Dasein definiert sich dabei aus dem Vorlaufen des Seins in seine . Hier muss <break strength="medium" />Zitat<break strength="medium" />sich die Zukunft erst selbst gewinnen [...], nicht aus einer Gegenwart, sondern aus der uneigentlichen Zukunft<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 337), dem Erwarten. 
+In der 
+wird die Potentialität der Zukunft auf das, was im aktuellen Sein ist reduziert.
+Der Augenblick als eigentliche Gegenwart <break strength="medium" />Zitat<break strength="medium" />meint die
+entschlossene, aber in der Entschlossenheit gehaltene Entrückung des
+Daseins an das, was in der Situation an besorgbaren Möglichkeiten, Umständen
+begegnet.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 338). So wird nur in der Gegenwart das Zuhandene im Sein
+erfahrbar. Phänomenologisch ist damit die Gegenwart der einzige Ort des
+Verstehens, wenn gleich sich das Verstehen aus dem Seinkönnen, also aus der
+Zukunft definiert. <break strength="medium" />Zitat<break strength="medium" />Im Vorlaufen holt sich das Dasein wieder in
+das eigenste Seinkönnen vor<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 339). 
+Doch wie verhält es sich mit
+der ? Heidegger ist überzeugt, dass auch die
+Vergangenheit nur in
+der Gegenwart erfasst werden kann. <break strength="medium" />Zitat<break strength="medium" />Das eigentliche Gewesen-sein nennen
+wir die Wiederholung.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 339). Vergangenes wird in der
+Wiederholung gewärtigt. Es wird im Vorgang des besorgten Erinnerns zu
+etwas, was die Person angeht.
+Wenn wir in einem kooperativen System von Gleichzeitigkeit sprechen, dann geht
+es um die gleichzeitige Entschlossenheit des Daseins der Gruppenmitglieder.
+Hierzu muss es eine Verbindung in der Potentialität geben, dem Verstandenen
+potentiellen Sein der Zukunft. Diese Verbindung benötigt das Gewärtigen der
+Vergangenheit. Im Design gilt es eine Balance zwischen Potentialität,
+Entschlossenheit und Vergegenwärtigung zu schaffen. Liegt der Fokus auf dem
+Gewärtigen des Vergangenen, so bleibt die Potentialität ebenso auf der Strecke
+wie das entschlossene Handeln im Dasein. Liegt der Fokus zu sehr auf der
+Potentialität, so wird sich kein gemeinsames Verständnis erzielen lassen,
+da Kommunikation immer Vergegenwärtigung des Gewesenen bedarf (wodurch
+explizierte Sprache zum Dasein wird).    
+Eine kurze Randbemerkung sei noch gestattet: Sicher wird Ihnen inzwischen
+aufgefallen sein, dass die Sprache Heideggers auf den ersten Blick oft
+irritierend ist. Es ging Heidegger bei der Neuschöpfung und der
+Neuinterpretation von Sprache darum, den Blick für das Eigentliche des Seins zu
+schärfen, indem traditionelle Verständnisse aus dem Weg geräumt werden. So ist
+es nur konsequent, dass ein neues Verständnis von Sein auch einen neuen Blick
+auf die Sprache benötigt. Versuchen Sie also, die Worte in ihrer Eigenart zu
+erfassen - auch wenn dies in der gebotenen Kürze nicht immer möglich sein wird
+und eine Lektüre von SuZ nicht ersetzen kann (was den Umfang dieses Kurses 
+sprengen würde).
+Auf dieser Grundlage der nun definierten Begriffe wollen wir
+noch einmal Tab.  betrachten, und die dort genannten Aspekte der
+wahrzunehmenden Präsenz und Aktivität der Anderen genauer betrachten. Dies führt uns zu weiteren zu
+untersuchenden (englischen) Begriffen als Aspekte der Gruppenwahrnehmung, die
+wir mit entsprechenden Konzepten aus dem philosophischen Ansatz von SuZ
+verbinden und entsprechende Implikationen für die Gestaltung kooperativer
+Systeme ableiten werden: Location (Platz/Ort), Presence (Dasein), 
+Identity (Identität/Person), Embodiment (Körperlichkeit), Authorship (Herstellen) und Intention (Absicht). Diese
+Begriffe werden dazu beitragen, im System die Frage zu beantworten, wer was mit
+welcher Absicht in der Arbeitsgruppe tut und wie Identität, Absicht und Akt mit
+dem Fortschritt der Gruppe zusammenhängen. 
+<mark name="item-1" />[Platz / Ort] (Location): Dasein auf das Da des Seins ausgerichtet. Im Dasein
+wird die Distanz zum Zuhandenen ent-fernt. Es rückt in die Nähe und wird so
+erst zum Zuhandenen. <break strength="medium" />Zitat<break strength="medium" />Entfernen besagt ein Verschwindenmachen der Ferne, das
+heißt der Entferntheit von etwas, Näherung.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 105). <break strength="medium" />Zitat<break strength="medium" />Der Raum, der im
+umsichtigen In-der-Welt-sein als Räumlichkeit des Zeugganzen entdeckt ist,
+gehört je als dessen Platz zum Seienden selbst.  Der Raum ist in die Plätze
+aufgesplittert<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 104). Wichtig ist hier die Wechselwirkung zwischen dem
+Seienden und dem Platz, der Teil des Raumes ist. 
+In einem kooperativen Texteditor ist der Ort gegeben durch den im Editor
+angezeigten Text-Bereich. So kann eine Benutzerin oder ein Benutzer <break strength="medium" />Zitat<break strength="medium" />auf Seite
+117 arbeiten<break strength="medium" />Zitatende<break strength="medium" /> und damit den Text auf Seite 117 ent-fernen, also in ihre oder
+seine Nähe und Aufmerksamkeit rücken. Dass die Person den Text nicht physisch in
+Händen hält sondern vielleicht aus einer großen Distanz auf eine digitale
+Repräsentation des Textes zugreift, ist bei der Wahrnehmung des Ortes im
+kooperativen System sekundär. Das Werkzeug (der Computer) hat in diesem Fall
+einen anderen (physikalischen) Ort als der mit dem Werkzeug bearbeitete Text.
+Wie genau ein Ort definiert wird, hängt mit der Distanz des Subjekts zum Ort
+zusammen. Je intensiver der Umgang des Subjekts mit dem Zuhandenen, desto enger
+ist die Beziehung und desto genauer lässt sich ein Ort spezifizieren. Zeigt eine
+Person einen Text an, so kann man lediglich den Textausschnitt, der aktuell
+sichtbar ist, als Ort der Person benennen. Versucht die Person den Text zu
+verstehen, so besteht der Ort ebenso aus den Konzepten, die im Text besprochen
+werden. Wird der Text manipuliert, so zielt die Ausrichtung des Daseins auf
+genau die Position im Text, an der Veränderungen vorgenommen werden sollen
+(welche durch einen Cursor visualisiert ist). 
+Das Konzept von Raum und Ort kann in kooperativen Systemen somit immer aus
+verschiedenen Perspektiven analysiert werden. Alle Sichten können für die
+Vermittlung von Gruppenwahrnehmungsinformationen relevant sein. Hierbei spielt
+die Identität der co-präsenten Personen eine Rolle.
+<mark name="item-0" />[Dasein] (Presence): Die Kernfrage zu diesem Aspekt ist: Befindet sich eine
+Person in einem Kooperationsraum? Der Raum wird von Gutwin und Greenberg analog
+zum Raumverständnis von Heidegger nicht rein physikalisch interpretiert.
+Vielmehr geht es bei der Definition des Raumes um die Nähe zwischen der Person,
+die mit ihrem In-der-Welt-sein Dasein zeigt und so eine Beziehung zum Zuhandenen
+eingeht. <break strength="medium" />Zitat<break strength="medium" />Das Hier meint nicht das Wo eines Vorhandenen, sondern das Wobei
+eines ent-fernenden Seins bei...in eins mit dieser Ent-fernung. Das
+Dasein ist gemäß seiner Räumlichkeit zunächst nie hier,
+sondern dort, aus welchem Dort es auf sein Hier zurückkommt und das wiederum nur
+in der Weise, daß es sein besorgendes Sein zu ... aus dem Dortzuhandenen her
+auslegt.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 107f.) Für die Präsenz eines Menschen ist vor allem die
+Beziehung des Menschen zu Artefakten, zum Zuhandenen, im abstrakten Raum. In
+diesem entwickelt der Mensch die <break strength="medium" />Zitat<break strength="medium" />Umsicht des
+Besorgens<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 108). Dasein ist nach Heidegger von der Sorge her zu
+interpretieren. 
+<mark name="citation-luckner2001" />Luckner (<say-as interpret-as="date" format="y">2001</say-as>) verdeutlicht dies mit einer auf den ersten Blick
+etwas kindlichen Analogie: Sie kennen sicher alle die Frage bei einem
+Kindertheater, wo der Kasper fragt: <break strength="medium" />Zitat<break strength="medium" />Seid ihr alle da?<break strength="medium" />Zitatende<break strength="medium" />. Die Antwort scheint
+auf den ersten Blick banal: Natürlich sind die Kinder im Saal. Der Hintergrund
+der Frage muss demnach ein anderer sein. Schaut man genauer hin, so wird klar,
+dass die Frage nach dem Da-sein primär eine Frage nach der Aufmerksamkeit, der
+Sorge für das Geschehen auf der Bühne ist. Der Puppenspieler klärt mit dieser
+Frage, ob die Aufmerksamkeit der Kinder bei dem Theaterstück auf der Bühne ist.
+Unbewusst erlebtes Dasein wird zu einem Wahrgenommenen Dort-sein.
+Für die Vermittlung von sozialer Präsenz in kooperativen Systemen ergibt sich
+hieraus, dass bei der Modellierung von Präsenz vor allem die Beziehung der
+Daseienden zu den ihre Aufmerksamkeit bindenden Inhalten zu betrachten ist.
+Dasein heißt, dass der Fokus auf das gelegt wird, was da ist. Es ist legitim,
+vom Dasein bei einem Informationsobjekt zu sprechen. Ein Autor ist bei einem
+Absatz, den er gerade schreibt. Eine Anwältin ist bei einem Paragraphen, den sie
+gerade studiert.
+<mark name="discussion"/><prosody rate="slow" pitch="low">Diskussion</prosody><break strength="strong" />
+Im Dasein geht das Subjekt im Dort auf. Positiv formuliert kommt es im Dort zu
+seiner eigentlichen Existenz. Indem wir sagen, dass das Subjekt da ist, steht es
+aus dem Nichtsein heraus, verwandelt potentielles Sein in aktuelles Sein.
+Versuchen Sie mit Bekannten darüber ins Gespräch zu kommen, was es bedeutet, da
+zu sein, präsent zu sein. Betrachten Sie dazu die folgenden Beispiele:
+<mark name="item-1" /> Max, 13 Jahre, ist leidenschaftlicher Computerspieler. Seine Mutter meint,
+er würde in dem Spiel aufgehen. Gefühlt bewegt er sich in einem virtuellen Raum.
+Sein kleiner Bruder Paul, 7 Jahre, schaut hingegen gerne bei Max ins Zimmer und
+sieht dort Max sitzen. Paul ist verärgert, dass Max gar nicht reagiert, wenn
+Paul ihn anspricht.
+<mark name="item-0" /> Heidrun, 47 Jahre, hatte ein anstrengendes Arbeitsjahr. Seit zwei Tagen
+ist sie in ihrem wohlverdienten Urlaub. Sie ist nach Spanien an den Strand
+geflogen und lässt sich die Sonne auf den Leib scheinen. Und trotzdem ist sie in
+Gedanken noch bei der letzten Projektsitzung, bei der es zu vielfältigen
+Auseinandersetzungen mit ihrer Vorgesetzten kam. John, 48 Jahre, ihr
+Lebensgefährte, freut sich hingegen sehr, dass er mit Heidrun endlich einmal
+wieder in den Urlaub fahren kann. Auch er hat anstrengende Monate hinter sich
+und  ist jetzt froh, nur Wellen und Sand zu spüren.
+Wo würden Sie sagen, dass die einzelnen Personen in den Beispielen sind? Wie
+würden Sie für die Personen ihr Dasein beschreiben?
+<break strength="strong" />
+Im Dasein mehrerer Personen wird aus dem Dasein ein . Dies
+ist die Grundvoraussetzung für eine Begegnung - im realen genauso wie im
+virtuellen Raum. Das <break strength="medium" />Zitat<break strength="medium" />Mitdasein der Anderen begegnet vielfach aus dem
+innerweltlich Zuhandenen her. Aber auch wenn die Anderen in ihrem Dasein
+gleichsam thematisch werden, begegnen sie nicht als vorhandene Persondinge,
+sondern wir treffen sie <break strength="medium" />Zitat<break strength="medium" />bei der Arbeit<break strength="medium" />Zitatende<break strength="medium" />, das heißt
+primär in ihrem In-der-Welt-sein.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 120). 
+In kooperativen Systemen wird das Dasein oft durch Zeichen (Icons oder
+graphische Repräsentationen der Daseienden) expliziert, so zum Beispiel im
+<mark name="pattern-User List" />User List Pattern. Auch hier hilft ein Blick in die Definition des
+Zeichens bei Heideggers Beschreibung des Pänomens der Verweisung:
+<break strength="medium" />Zitat<break strength="medium" />Zeichen sind [...] Zeuge, deren spezifischer Zeugcharakter im Zeigen
+besteht<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 77). <break strength="medium" />Zitat<break strength="medium" />Zeichen verweisen auf etwas, was gerade nicht zuhanden
+ist.<break strength="medium" />Zitatende<break strength="medium" /> <mark name="citation-luckner2001" />Luckner (<say-as interpret-as="date" format="y">2001</say-as>). Wird das Dasein durch ein Zeichen
+repräsentiert, so zeigt es ein potentielles Dasein, eine potentielle Nähe.
+Allerdings wird die Nutzung eines Zeichens für die mitseienden Personen in einem
+kooperativen System spätestens dann problematisch, wenn mit diesen interagiert
+werden soll (bspw. durch ein Kontextmenü auf dem Icon der Person, das die
+Adressierung einer Sofortnachricht an diese Person erlaubt). Wird die durch das
+Zeichen repräsentierte Person hier vom Mit-seinden zum Zuhandenen?
+<mark name="item-1" />[Identität] (Identity) und Körperlichkeit (Embodiment): Das Mitsein
+der Anderen sagt wenig über das Selbst der jeweils anderen aus. In Kurseinheit 2 hatten wir das Konzept der (virtuellen) Identität bereits kennengelernt. Oben haben wir bereits die
+Repräsentation der anderen Person im kooperativen System angesprochen (wo sie
+zeichenhaft erfolgt). Eine phänomenologische Sicht beinhaltet als zentrales
+Element eine Unterscheidung zwischen dem Selbst und den Anderen. Jegliche
+Wahrnehmung ist perspektivisch und doch bleibt die Beschreibung des Subjekts bei
+Heidegger außerordentlich abstrakt. 
+Ähnlich verhält es sich in vielen kooperativen Systemen. Nutzende werden mit
+einem Namen und eventuell mit einem Bild dargestellt. Ein Blick auf die Person
+hinter der Darstellung entfaltet sich vor allem über die von den Nutzenden
+durchgeführten Interaktionen mit dem System und mit den Anderen. Hierauf werden
+wir gleich noch zu sprechen kommen. An dieser Stelle bleibt festzuhalten, dass
+dadurch die Körperlichkeit der Personen in den Hintergrund tritt. 
+<mark name="example"/><prosody rate="slow" pitch="low">Beispiel</prosody><break strength="strong" />
+Die Frage nach der Körperlichkeit bei der Wahrnehmung kooperativer Systeme hat in
+den letzten Jahren auf den ersten Blick skurile und dennoch interessante
+Forschungsarbeiten hervorgebracht. Ein Beispiel hierfür ist der Huggy
+Pajama <mark name="citation-Teh2008" />(Teh und Kollegen, <say-as interpret-as="date" format="y">2008</say-as>). Die Grundidee ist dabei, dass die Wahrnehmung zwischen
+Eltern und ihren Kleinkindern verbessert werden soll, indem die Eltern das
+Kleinkind aus der Ferne umarmen können. In einem Video demonstrieren die
+Forscherinnen der Gruppe ihren Ansatz: <mark name="video-https://youtu.be/hQ6usrx-GPM" />.
+Die Forschergruppe entwickelte einen Strampelanzug, der mit Aktuatoren und
+Senoren ausgerüstet war. Für die Eltern wurde ein Fernsteuerungs-Gerät
+entwickelt, das in eine Puppe eingebaut werden kann. Verspüren die Eltern das
+Bedürfnis, ihr Kleinkind zu umarmen, so drücken sie die Puppe (und damit die
+eingebetteten Sensoren). Sie Sensoren nehmen die Bewegung und den Druck der
+Eltern wahr und kommunizieren dies an den Empfangs-Client beim Kind. Dieser
+setzt die Signale daraufhin in Veränderungen des Strampelanzugs um. So zieht
+sich der Anzug z.B. bei Druck  der Eltern zusammen. Das Kind soll sich hierdurch
+<break strength="medium" />Zitat<break strength="medium" />umarmt<break strength="medium" />Zitatende<break strength="medium" /> fühlen. 
+<break strength="strong" />
+<mark name="item-0" />[Herstellen] (Authorship): Im Zuhandenen begegnet das Sein einem anderen Sein, das
+das Zuhandene für einen gewissen Zweck hergestellt hat.
+In kooperativen Systemen gibt man in der Regel die Autorin oder den Autor eines
+Objekts an. Damit wird mehr festgehalten, als die reine Urheberschaft. Im Objekt
+spricht die Autorin oder der Autor. Im Geschaffenen wird die Person deutlich,
+die das Artefakt geschaffen hat.
+<mark name="item-1" />[Absicht] (Intention): Bei der Gestaltung kooperativer Systeme wird mit
+Intentionalität in der Regel eine explizite Kommunikation der Absicht der
+agierenden Person verstanden. Dies klingt zunächst simpel und ist aus
+technischer Perspektive auch einfach zu modellieren: Das System stellt für jede
+Nutzerin und jeden Nutzer eine Textfeld zur Verfügung, in dem die aktuelle
+Intention abgespeichert werden und bei anderen Nutzenden dargestellt werden
+kann. Das Muster <mark name="pattern-Activity Indicator" />Activity Indicator ist ein Weg,
+Intentions-Informationen darzustellen.
+<mark name="example"/><prosody rate="slow" pitch="low">Beispiel</prosody><break strength="strong" />
+Betrachten wir als Beispiel die Kooperation in einer Anwaltskanzlei, in der 5
+Mitarbeitende an einem Vertragsentwurf arbeiten. Clara Meyer nutzt hierzu einen
+kooperativen Texteditor und greift damit auf ein Vertragsdokument zu. Aus
+technischer Perspektive könnte das System jetzt folgenden <mark name="pattern-Activity
+Indicator" />Activity
+Indicator anzeigen: 
+<break strength="medium" />Zitat<break strength="medium" />Clara Meyer hat das Dokument Ferienregelung.txt geöffnet.<break strength="medium" />Zitatende<break strength="medium" />
+Allerdings ist damit noch nicht klar, was Clara Meyer mit diesem Textdokument
+vor hat. Sie könnte den Vertrag lesen wollen. Sie könnte eine Vertragsänderung
+vorbereiten. Sie könnte das Vertragsdokument als Grundlage für einen neuen
+Vertrag überarbeiten wollen. Soll dieses Wissen in einem kooperativen System für
+andere Mitglieder der Gruppe explizit gemacht werden, müsste man zum Beginn der
+Arbeit mit dem Editor Frau Meyer nach ihrer Absicht befragen und diese
+Informationen für die anderen Mitglieder der Gruppe darstellen.
+<break strength="strong" />
+Wie <mark name="citation-Zahavi2007" />Zahavi (<say-as interpret-as="date" format="y">2007</say-as>) feststellt, ist die Intentionalität ein zentrales
+Element einer phänomenologischen Untersuchung. Grundgedanke ist dabei, dass
+jedes Wahrnehmen und Handeln auf etwas ausgerichtet ist. Heidegger thematisiert
+dies bei seiner Definition des Zuhandenen: <break strength="medium" />Zitat<break strength="medium" />Der Umgang mit Zeug unterstellt
+sich der Verweisungsmanigfaltigkeit des <break strength="medium" />Zitat<break strength="medium" />Um-zu<break strength="medium" />Zitatende<break strength="medium" />.
+[...] [D]as Herstellen selbst ist je ein Verwenden von etwas für etwas.<break strength="medium" />Zitatende<break strength="medium" />
+(SuZ, S. 70f.). 
+Anhand unseres Beispiels können wir aber auch die Problematik des
+Intentionsbewusstseins verdeutlichen: Während die Makro-Intention, die am Beginn
+des Eintritts in die Handlung steht, oft noch expliziert werden kann, ist dies
+gerade für kleinere Handlungseinheiten oft schwierig oder unmöglich. Stellen Sie
+sich vor, sie würden in einer Arbeitsgruppe an einem gemeinsamen Text
+kooperieren. Sie sind erfahren im Umgang mit dem Werkzeug. Viele Handlungen,
+bspw. die Bewegung des Cursors oder die Tastenkombination zur Erstellung eines
+Großbuchstabens sind Ihnen vertraut. Müssten Sie beim Druck jeder Taste, also
+bei der kleinesten vom Computer wahrnehmabaren Aktion, eine Intention angeben,
+so würde dies Ihren Arbeitsfluss unmöglich machen - denn auch für das
+Verschriftlichen der Intention ist wieder die Nutzung der Tastatur nötig.  
+Dass Problem liegt vor allem an der zeitlichen Dimension des Daseins. Erst in
+der zeitlichen Dimension entsteht der Sinn des Daseins. Heidegger unterscheidet
+drei Modi der Zeitlichkeit:  Die Zukunft, die Gegenwart und die Gewesenheit. Die
+Zukunft ist für Heidegger das zentrale Element, denn <break strength="medium" />Zitat<break strength="medium" />erst die Zukünftigkeit
+des Daseins ergibt überhaupt so etwas wie Gegenwart<break strength="medium" />Zitatende<break strength="medium" /> <mark name="citation-luckner2001" />Luckner (<say-as interpret-as="date" format="y">2001</say-as>).
+Soll in dieser aus der Zukunft definierten Gegenwart das Wozu, also die
+Intention, ihren Platz finden, so muss das Wozu vergegenwärtigt werden. Doch
+<break strength="medium" />Zitat<break strength="medium" />[d]as Gegenwärtigen des Wozu ist weder ein Betrachten des
+<break strength="medium" />Zitat<break strength="medium" />Zwecks<break strength="medium" />Zitatende<break strength="medium" />, noch ein Erwarten des bevorstehenden
+Fertigwerdens des herzustellenden Werkes.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ, S. 353). Was Heidegger hier
+beschreibt ist die explizite Auseinandersetzung mit der aktuellen
+(entschlossenen) Tätigkeit. Würde diese Reflexion den kompletten Spielraum des
+möglichen Umgangs mit dem Zuhandenen umfassen, wäre jedoch kein Platz mehr für
+die eigentliche Aktivität. Deshalb baut entschlossenes Handeln in der Regel auf
+implizitem Handlungswissen auf. Praktikerinnen und Praktiker agieren, ohne genau
+sagen zu können, wie sie agieren und welchen detaillierten Zweck sie aktuell
+verfolgen. <mark name="citation-polanyi66" />Polanyi (<say-as interpret-as="date" format="y">1966</say-as>) hat diesen Zusammenhang zwischen Handeln und
+Reflexion des Handelns genauer untersucht und den Begriff Tacit Knowledge
+geprägt, dem stillen oder stummen Wissen, das sich im Handeln ausdrückt, ohne
+jedoch explizit gegenwärtig zu werden. 
+Umgangssprachlich könnten wir sagen, dass die Aktion gerade nicht hinterfragt
+werden muss, dass man sie <break strength="medium" />Zitat<break strength="medium" />einfach so stehen lassen kann<break strength="medium" />Zitatende<break strength="medium" />, dass wir sie auf
+sich bewenden lassen können. <break strength="medium" />Zitat<break strength="medium" />Das Bewendenlassen verstehen wir existenzial als
+ein <break strength="medium" />Zitat<break strength="medium" />Sein<break strength="medium" />Zitatende<break strength="medium" />-lasen. Auf seinem Grunde kann das
+Zuhandene als das Seiende, das es ist, für die Umsicht begegnen.<break strength="medium" />Zitatende<break strength="medium" /> (SuZ,
+S. 354). 
+Bei der Erfassung und Darstellung von Intentionsbewusstseinsinformationen ist
+deshalb die Frage des <break strength="medium" />Zitat<break strength="medium" />Sein<break strength="medium" />Zitatende<break strength="medium" />-lassens zentral: Sie
+müssen klären, wann Sie den potentiellen Aktionsfluss unterbrechen, um die
+Reflexionsebene zu betreten, in der die Nutzenden das Wozu beschreiben können -
+und Sie sollten sich darüber im Klaren sein, dass die Intention nicht immer
+verbalisiert werden kann. 
+Auch wenn noch weitere Begriffe für ein umfassendes phänomenologisches Verständnis der Awareness analysiert werden könnten, sollen für diese Kurseinheit die bisher betrachteten Begriffe genügen. Wenn wir Group Awareness vor diesem Hintergrund erneut definieren, liest sich diese Definition wie folgt:
+<break strength="medium" />Zitat<break strength="medium" />
+Das Gewahrsein des Daseins im Kontext des Mit-Seins zielt auf das Verstehen des besorgten Da-Seins der Anderen in der gemeinsamen Umwelt mit dem Ziel, die Entschlossenheit zum Da-sein in dieser gemeinsamen Umwelt zu ermöglichen.
+<break strength="medium" />Zitatende<break strength="medium" />
+
+</speak>

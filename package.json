@@ -1,0 +1,18 @@
+{
+  "name": "hyperaudiorecorder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "niels seidel",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^0.3.0",
+    "aws-sdk": "^2.378.0",
+    "biblatex-csl-converter": "^1.6.1",
+    "franc": "^4.0.0",
+    "libxmljs": "^0.19.5"
+  }
+}
