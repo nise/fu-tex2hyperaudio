@@ -77,3 +77,11 @@ exports.getAuthorNames = function (key, citation_type = 'passive') {
         return '(' + out + ', ' + date + ')';
     }
 };
+
+/**
+ * Returns plain formated citation for a given key
+ * todo: xxx
+ */
+exports.getPlainCitation = function(key){
+    return this.getAuthorNames(key);
+}

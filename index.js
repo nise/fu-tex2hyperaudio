@@ -10,7 +10,7 @@
  */
 
 const
-    p = require('tex2SSML')
+    p = require('./tex2SSML')
     ;
 
 p.tex2SSML();

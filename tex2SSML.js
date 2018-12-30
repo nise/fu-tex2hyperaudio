@@ -65,8 +65,8 @@ exports.tex2SSML = function () {
                 return;
             }
             console.log('text content written to file: output.xml');
-            polly.speechSynthesis(data);
-            polly.speechSynthesis(data, true); // marks
+            //polly.speechSynthesis(data);
+            //polly.speechSynthesis(data, true); // marks
         });
         // The text to synthesize
         //t2s(data);

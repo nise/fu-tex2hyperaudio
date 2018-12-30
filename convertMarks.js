@@ -4,7 +4,10 @@
  * author: niels seidel (niels.seidel@fernuni-hagen.de) 
  */
 
-let fs = require('fs');
+let 
+    fs = require('fs'),
+    bibliography = require('./bibliography')
+    ;
 
 loadMarks('./1a88fda7-5abe-42d0-b960-9add69e63250.marks');
 
@@ -37,7 +40,19 @@ let template = {
                         }
                     ]
                 }
-            ]
+            ],
+            "Abbildungen": [],
+            "Audiolinks": [],
+            "ExterneLinks": [],
+            "Icons": [],
+            "Aufzählungen": [],
+            "RahmenAufzählungen": [],
+            "Beispiele": [],
+            "Lernziele": [],
+            "Wissen_Artikel": [],
+            "Diskussionen": [],
+            "Zitate": [],
+            "Stichworte": []
         }
     ]
 };
@@ -138,7 +153,7 @@ function ssml2hyperaudio(data){
     var 
      el, 
      toc = [],
-     citation = []
+     citations = []
      ;
     for (var entry in data) {
         // toc
@@ -152,25 +167,37 @@ function ssml2hyperaudio(data){
 
         // citation
         if (data[entry].value.substring(0, 9) === 'citation-') {
-            citation.push({ name: data[entry].value.substring(9), StartSecond: data[entry].time, value: citation.getPlain(data[entry].value.substring(9)) });
+            citations.push({ 
+                name: data[entry].value.substring(9), 
+                StartSecond: data[entry].time, 
+                value: bibliography.getPlainCitation(data[entry].value.substring(9)) 
+            });
         }
     }
-    console.log(data)
+    console.log(citations);
     template.Kurs[0].KEs[0].Inhalt = toc;
+    template.Kurs[0].KEs[0].bibliography = citations;
     //console.log(template.Kurs[0].KEs[0]);
+
+    writeHyperaudio(template, './Kurseinheiten.json');
 }
 
 /**
  * Writes hypervideo json to disk
  */
 function writeHyperaudio(data, filename){
-    fs.writeFile(filename, data, err => {
-        if (err) {
-            console.error('ERROR:', err);
-            return;
-        }
-        console.log('Hyperaudio written to file '+filename);
-        //pollyIt(data);
-        pollyIt(data, true); // marks
-    });
+    filename = '/home/abb/Documents/www2/hyperaudioApp/json/Kurseinheiten.json';
+    try{
+        data = JSON.stringify(data, null, "\t");
+        fs.writeFile(filename, data, err => {
+            if (err) {
+                console.error('ERROR:', err);
+                return;
+            }
+            console.log('Hyperaudio written to file ' + filename);
+        });
+    }catch(e){
+
+    }
+    
 }

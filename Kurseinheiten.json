@@ -1,0 +1,200 @@
+{
+	"AppName": "hear and learn",
+	"AppBeschreibung": "Herzlich Willkommen zu listen and learn, der App zum Lernen via Hyperaudio! Im unteren Bereich finden Sie alle Kurse die zur Verfügung stehen. Sie können entweder auf dieser Seite direkt Kurse auswählen, oder über das Menü zu den einzelnen Kurseinheiten gelangen... Viel Spaß",
+	"BingSoundPath": "https://www.myinstants.com/media/sounds/ding-sound-effect_2.mp3",
+	"Kurs": [
+		{
+			"Nummer": "01844",
+			"Bezeichnung": "Gestaltung Kooperativer Systeme",
+			"Kursbeschreibung": "Online-Communities, gemeinsame Informationsräume, mobile Kooperationswerkzeuge auf SmartPhones oder Anwendungen zur Unterstützung einer gemeinsamen Arbeitsgruppe sind nur einige Beispiele für das breite Feld der kooperativen Systeme. Sie alle haben gemeinsam, dass Menschen unabhängig von Raum und Zeit miteinander computervermittelt interagieren. In diesem Kurs werden Gestaltungskonzepte Kooperativer Systeme anhand von Entwurfsmustern vermittelt. Die Teilnehmenden erlernen, wie in einem partizipativen Entwurfsprozess Interaktionskonzepte und Technologien für Online-Communities entstehen, wie diese auf unterschiedliche technische Rahmenbedingungen (mobil vs. stationär) abgebildet werden können und ein Anwendungskonzept realisiert und eingeführt werden kann. Neben den technischen Aspekten geht es unter anderem auch um Aspekte der Motivation, um Gruppen- und Wissenswahrnehmung in sozialen Informationsräumen und um Aspekte des Vertrauens in gemeinsamen Informationsräumen.",
+			"KursID": 0,
+			"KEs": [
+				{
+					"KEnr": "KE1: Grundlagen und Entwurfstechniken",
+					"VideoID": 0,
+					"Dauer": 1341,
+					"Kurzbeschreibung": "In dieser Kurseinheit widmen wir uns dem Interaktions-Design und lernen zentrale Begriffe und Klassifikationsschemata von kooperativen Systemen kennen. Sie lernen das Konzept des Entwurfsmusters kennen und entwickeln Strategien zur partizipativen Systemgestaltung mit Entwurfsmustern und papierbasierten Prototypen. Abschließend werden wir in einem dritten Teil auf die ethische Verantwortung bei der Gestaltung eines kooperativen Systems eingehen. ",
+					"img": "/static/img/pic-ke1.png",
+					"Pfad": "/static/media/ke1-1_cut_low.mp3",
+					"Inhalt": [
+						{
+							"name": "Awareness",
+							"StartSecond": 6,
+							"level": 1
+						},
+						{
+							"name": "Lernziele",
+							"StartSecond": 18846,
+							"level": 2
+						},
+						{
+							"name": "Vorbereitung",
+							"StartSecond": 73604,
+							"level": 2
+						},
+						{
+							"name": "Technische Grundlagen zur Vermittlung von Group Awareness",
+							"StartSecond": 211876,
+							"level": 2
+						},
+						{
+							"name": "Awareness-Entwurfsmuster",
+							"StartSecond": 829682,
+							"level": 2
+						},
+						{
+							"name": "Kritische Betrachtung der Awareness",
+							"StartSecond": 2166155,
+							"level": 2
+						},
+						{
+							"name": "Awareness als Deutung des Da-Seins und Mit-Seins",
+							"StartSecond": 2784072,
+							"level": 2
+						}
+					],
+					"bibliography": [
+						{
+							"name": "Dourish1992",
+							"StartSecond": 307909,
+							"value": "(Dourish und Bellotti, <say-as interpret-as=\"date\" format=\"y\">1992</say-as>)"
+						},
+						{
+							"name": "Gross2013",
+							"StartSecond": 376448,
+							"value": "(Gross, <say-as interpret-as=\"date\" format=\"y\">2013</say-as>)"
+						},
+						{
+							"name": "Gross2007",
+							"StartSecond": 671087,
+							"value": "(Gross und Koch, <say-as interpret-as=\"date\" format=\"y\">2007</say-as>)"
+						},
+						{
+							"name": "Schlichter1998",
+							"StartSecond": 1054669,
+							"value": "(Schlichter und Kollegen, <say-as interpret-as=\"date\" format=\"y\">1998</say-as>)"
+						},
+						{
+							"name": "Schuemmer2007",
+							"StartSecond": 1084008,
+							"value": "(Schümmer und Lukosch, <say-as interpret-as=\"date\" format=\"y\">2007</say-as>)"
+						},
+						{
+							"name": "Gutwin1996",
+							"StartSecond": 1141736,
+							"value": "(Gutwin und Greenberg, <say-as interpret-as=\"date\" format=\"y\">1996</say-as>)"
+						},
+						{
+							"name": "Gutwin1996,gutwin2002b",
+							"StartSecond": 1157983
+						},
+						{
+							"name": "Long2005",
+							"StartSecond": 1555067,
+							"value": "(Long und Horsch, <say-as interpret-as=\"date\" format=\"y\">2005</say-as>)"
+						},
+						{
+							"name": "rittenbruch2002",
+							"StartSecond": 1748272,
+							"value": "(Rittenbruch, <say-as interpret-as=\"date\" format=\"y\">2002</say-as>)"
+						},
+						{
+							"name": "Tam2004",
+							"StartSecond": 1810111,
+							"value": "(Tam und Greenberg, <say-as interpret-as=\"date\" format=\"y\">2004</say-as>)"
+						},
+						{
+							"name": "Schuemmer2007",
+							"StartSecond": 1840394,
+							"value": "(Schümmer und Lukosch, <say-as interpret-as=\"date\" format=\"y\">2007</say-as>)"
+						},
+						{
+							"name": "Lombard2006",
+							"StartSecond": 2240146,
+							"value": "(Lombard und Ditton, <say-as interpret-as=\"date\" format=\"y\">2006</say-as>)"
+						},
+						{
+							"name": "Donath2014",
+							"StartSecond": 2436136,
+							"value": "(Donath, <say-as interpret-as=\"date\" format=\"y\">2014</say-as>)"
+						},
+						{
+							"name": "Greenberg2016",
+							"StartSecond": 2496510,
+							"value": "(Greenberg und Gutwin, <say-as interpret-as=\"date\" format=\"y\">2016</say-as>)"
+						},
+						{
+							"name": "Clark1991",
+							"StartSecond": 2534335,
+							"value": "(Clark und Brennan, <say-as interpret-as=\"date\" format=\"y\">1991</say-as>)"
+						},
+						{
+							"name": "Greenberg2016",
+							"StartSecond": 2564714,
+							"value": "(Greenberg und Gutwin, <say-as interpret-as=\"date\" format=\"y\">2016</say-as>)"
+						},
+						{
+							"name": "Jimenez2013",
+							"StartSecond": 2609155,
+							"value": "(Montané-Jiménez und Kollegen, <say-as interpret-as=\"date\" format=\"y\">2013</say-as>)"
+						},
+						{
+							"name": "Greenberg2016,Donath2014",
+							"StartSecond": 2624607
+						},
+						{
+							"name": "Berger2017",
+							"StartSecond": 2744593,
+							"value": "(Berger und Kollegen, <say-as interpret-as=\"date\" format=\"y\">2017</say-as>)"
+						},
+						{
+							"name": "Heidegger1927",
+							"StartSecond": 3028200,
+							"value": "(Heidegger, <say-as interpret-as=\"date\" format=\"y\">1927</say-as>)"
+						},
+						{
+							"name": "Zahavi2007",
+							"StartSecond": 3056284,
+							"value": "(Zahavi, <say-as interpret-as=\"date\" format=\"y\">2007</say-as>)"
+						},
+						{
+							"name": "luckner2001",
+							"StartSecond": 3555997,
+							"value": "(Luckner, <say-as interpret-as=\"date\" format=\"y\">2001</say-as>)"
+						},
+						{
+							"name": "luckner2001",
+							"StartSecond": 4050900,
+							"value": "(Luckner, <say-as interpret-as=\"date\" format=\"y\">2001</say-as>)"
+						},
+						{
+							"name": "luckner2001",
+							"StartSecond": 4296291,
+							"value": "(Luckner, <say-as interpret-as=\"date\" format=\"y\">2001</say-as>)"
+						},
+						{
+							"name": "Teh2008",
+							"StartSecond": 4412711,
+							"value": "(Teh und Kollegen, <say-as interpret-as=\"date\" format=\"y\">2008</say-as>)"
+						},
+						{
+							"name": "Zahavi2007",
+							"StartSecond": 4599419,
+							"value": "(Zahavi, <say-as interpret-as=\"date\" format=\"y\">2007</say-as>)"
+						},
+						{
+							"name": "luckner2001",
+							"StartSecond": 4714496,
+							"value": "(Luckner, <say-as interpret-as=\"date\" format=\"y\">2001</say-as>)"
+						},
+						{
+							"name": "polanyi66",
+							"StartSecond": 4775774,
+							"value": "(Polanyi, <say-as interpret-as=\"date\" format=\"y\">1966</say-as>)"
+						}
+					]
+				}
+			]
+		}
+	]
+}

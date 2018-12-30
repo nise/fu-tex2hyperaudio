@@ -1,10 +1,8 @@
 
 
 ## ToDo
-- rename and push repository
 - handle tables: extract from pdf
 - handle listing: extract from pdf
-- convert *.mark to valid hypervideo-JSON format
 - put all files in a container with relative links
 
 # Installation
@@ -17,44 +15,45 @@ get AWS Access Key ID and Secret Access Key
 
 aws configure
 
-# Run
-Voice IDs: Hans, Marlene, Vicki
+# Documentation
+
+## Getting started
+
+1. run `npm install`
+2. configure the file config.json
+3. run `node index`
+
+## Using aws CLI
+German voice IDs: Hans, Marlene, Vicki
 
 **For less than 3000 characters**
-aws polly synthesize-speech \
---text-type ssml \
---text file://output.xml \
---output-format mp3 \
---voice-id Hans \
---speech-mark-types='["sentence", "word", "ssml"]' \
-speech.mp3
+    aws polly synthesize-speech \
+     --text-type ssml \
+     --text file://output.xml \
+     --output-format mp3 \
+     --voice-id Hans \
+     --speech-mark-types='["sentence", "word", "ssml"]' \
+    speech.mp3
 
-**large files**
+**large files: sythesize mp3**
 aws polly start-speech-synthesis-task \
-  --region eu-central-1 \
-  --language-code "de-DE" \
-  --endpoint-url "https://polly.eu-central-1.amazonaws.com/" \
-  --output-format "mp3" \
-  --output-s3-key-prefix "audio" \
-  --voice-id "Hans" \
-  --text-type "ssml" \
-  --text "file://output.xml" \
-  --speech-mark-types='["sentence", "word", "ssml"]' \
-
-
-    --output-s3-bucket-name 'fu-hyperaudio' \
-
-
-
-    /*
-    --region eu-central-1 \
-      --language-code "de-DE" \
-      --endpoint-url "https://polly.eu-central-1.amazonaws.com/" \
-      --output-format "mp3" \
-      --output-s3-key-prefix "audio" \
-      --voice-id "Hans" \
-      --text-type "ssml" \
-      --text "file://output.xml" \
-      --speech-mark-types='["sentence", "word", "ssml"]' \
-    
-    */
+   --region eu-central-1 \
+   --language-code "de-DE" \
+   --endpoint-url "https://polly.eu-central-1.amazonaws.com/" \
+   --output-format "mp3" \
+   --output-s3-bucket-name 'XXXXXXXX' \
+   --voice-id "Hans" \
+   --text-type "ssml" \
+   --text "file://output.xml" \
+  
+  **large files: create mark file (~ JSON)**
+  aws polly start-speech-synthesis-task \
+   --region eu-central-1 \
+   --language-code "de-DE" \
+   --endpoint-url "https://polly.eu-central-1.amazonaws.com/" \
+   --output-format "json" \
+   --output-s3-bucket-name 'XXXXXXXX' \
+   --voice-id "Hans" \
+   --text-type "ssml" \
+   --text "file://output.xml" \
+   --speech-mark-types='["sentence", "word", "ssml"]' \

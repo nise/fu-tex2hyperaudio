@@ -4,15 +4,15 @@
  * author: niels seidel (niels.seidel@fernuni-hagen.de) 
  */
 
-var AWS = require('aws-sdk');
-var polly = new AWS.Polly({ 'region': config.region });
-
 var config = {
     s3bucket: 'fu-hyperaudio',
     region: 'eu-central-1',
     voice: 'Hans',
     language: 'de-DE'
 };
+
+var AWS = require('aws-sdk');
+var polly = new AWS.Polly({ 'region': config.region });
 
 
 /**
