@@ -10,16 +10,13 @@
 
 const
     fs = require('fs'),
-    path = require('path'),
-    file = '/home/abb/Documents/proj_001_doc/teaching-courses/2017-Gestaltung-kooperativer-Systeme/cvs/Kurs1884/Kurstext/ke6-utf8.tex',//ke6-utf8.tex
-    bibliography = require('./bibliography'),
-    polly = require('./polly')
+    bibliography = require('./bibliography')
     ;
 
 /**
  * 
  */
-exports.tex2SSML = function () {
+exports.tex2SSML = function (file) {
     fs.readFile(file, 'utf8', function (err, data) {
         if (err) {
             console.log(err);
@@ -31,7 +28,7 @@ exports.tex2SSML = function () {
             closing = '</speak>'
             ;
         data = data.split("\\section[Selbsttest]")[0]; // cut off a certain section
-        data = removeComments(data);
+        
 
         // prepare special character for easier substition later on
         data = data.replace(/\u0008egin/g, 'XXXXXXX');
@@ -46,6 +43,7 @@ exports.tex2SSML = function () {
         data = replaceHeadings(data);
         data = replaceTags(data);
         data = eliminateFullTags(data);
+        data = removeComments(data);
         data = data.replace(/(^[ \t]*\n)/gm, ""); // remove blank lines
         // Validation
         validateOutput(data);
@@ -80,9 +78,15 @@ exports.tex2SSML = function () {
  */
 var validateOutput = function (data) {
     console.log('................................................');
-    console.log('WARNING: Unhandled LaTeX expressions found :::::');
-    console.log('................................................');
-    console.log(data.match(/\\([^\0]*?)\ /gm));
+    
+    if (data.match(/\\([^\0]*?)\ /gm) === null){
+        data = data.replace(/\{/g,'');
+        data = data.replace(/\}/g, '');
+    }else{
+        console.log('WARNING: Unhandled LaTeX expressions found :::::');
+        console.log('................................................');
+        console.log(data.match(/\\([^\0]*?)\ /gm));
+    }
 
     var
         astring = data.split('\n'),
@@ -95,9 +99,14 @@ var validateOutput = function (data) {
         if (match1.exec(line)) { f1.push(number); }
         if (match2.exec(line)) { f2.push(number); }
     });
-    console.log('Symbol "{" found on lines ' + f1.toString());
-    console.log('Symbol "}" found on lines ' + f2.toString());
+    if(f1.length > 0 || f2.length > 0){
+        console.log('Symbol "{" found on lines ' + f1.toString());
+        console.log('Symbol "}" found on lines ' + f2.toString());
+    }else{
+        console.log("No more LaTeX expressions found.")
+    }
 
+    
     var libxmljs = require("libxmljs");
     var xml = function (text) {
         try {
@@ -168,6 +177,7 @@ var replaceHeadings = function (str) {
         .replace(/\\section\{([^\0]*?)\}/g, '<mark name="section-$1"/><prosody rate="slow" pitch="low">$1</prosody><break strength="strong" />')
         .replace(/\\section\*\{([^\0]*?)\}/g, '<mark name="section-$1"/><prosody rate="slow" pitch="low">$1</prosody><break strength="strong" />')
         .replace(/\\subsection\{([^\0]*?)\}/g, '<mark name="subsection-$1"/><prosody rate="slow" pitch="low">$1</prosody><break strength="strong" />')
+        .replace(/\\subsection\*\{([^\0]*?)\}/g, '<mark name="subsection-$1"/><prosody rate="slow" pitch="low">$1</prosody><break strength="strong" />')
         .replace(/\\subsubsection\{([^\0]*?)\}/g, '<mark name="subsubsection-$1"/>$1<break strength="medium" />')
         .replace(/\\paragraph\{([^\0]*?)\}/g, '<mark name="paragraph-$1"/>$1<break strength="medium" />')
         ;
@@ -186,10 +196,11 @@ var replaceTags = function (str) {
 
     return str
         // special words
-        .replace(/\\patternName\{([^\0]*?)\}/gm, '<mark name="pattern-$1" />$1')
-        .replace(/\\pattern\{([^\0]*?)\}\{([^\0]*?)\}\{([^\0]*?)\}/gm, '<mark name="pattern-desc-$1" />$1: $3')
+        .replace(/\\patternName\{([^\0]*?)\}/gm, '<mark name="pattern-$1" /><break strength="medium" />$1<break strength="medium" />')
+        .replace(/\\mpattern\{([^\0]*?)\}\{([^\0]*?)\}/gm, '<mark name="pattern-$1" /><break strength="medium" />$1: $2<break strength="medium" />')
+        .replace(/\\pattern\{([^\0]*?)\}\{([^\0]*?)\}\{([^\0]*?)\}/gm, '<mark name="pattern-desc-$1" /><break strength="medium" />$1: $3<break strength="medium" />')
         .replace(/\\today/g, 'heute')
-
+        .replace(/\$([^\0]*?)\$/g, '$1') // xxx, no math support
         //todo: check language for quotes var franc = require('franc') franc('Alle menslike wesens word vry') 
         // quotes
         .replace(/\\enquote\{([^\0]*?)\}/g, quote_start + '$1' + quote_end)
@@ -206,12 +217,13 @@ var replaceTags = function (str) {
         .replace(/YYYYYYY{quote}/g, quote_end)
         .replace(/XXXXXXX{quotation}/g, quote_start)
         .replace(/YYYYYYY{quotation}/g, quote_end)
-
+        .replace(/\{\\frq\}([^\0]*?){\\flq\}/gm, '$1')
         // text styles
         .replace(/\\emph\{([^\0]*?)\}/gm, '$1')
-        .replace(/\\textit\{([^\0]*?)\}/g, '$1')
-        .replace(/\\textbf\{([^\0]*?)\}/g, '$1') // could be more pronounced
-        .replace(/\\textsc\{([^\0]*?)\}/g, "$1")
+        .replace(/\\textit\{([^\0]*?)\}/gm, '$1')
+        .replace(/\\textsf\{([^\0]*?)\}/gm, '$1')
+        .replace(/\\textbf\{([^\0]*?)\}/gm, '$1') // could be more pronounced
+        .replace(/\\textsc\{([^\0]*?)\}/gm, "$1")
         .replace(/--/g, '-')
         .replace(/~/g, "")
         .replace(/\&/g, "und")
@@ -251,6 +263,7 @@ var replaceTags = function (str) {
 
         // lists 
         .replace(/XXXXXXX{enumerate}/g, '')
+        .replace(/XXXXXXX{enumerate}\[label=\\alph\*\]/g, '')
         .replace(/YYYYYYY{enumerate}/g, '')//'</seq></speak>') //<speak><say-as interpret-as="ordinal">1</say-as></speak>
         .replace(/XXXXXXX{itemize}/g, '')
         .replace(/YYYYYYY{itemize}/g, '')
@@ -260,6 +273,10 @@ var replaceTags = function (str) {
             item++;
             return '<mark name="item-' + (item % 2) + '" />';
         })
+        .replace(/\\igoal/g, function (v, i) {
+            item++;
+            return '<mark name="icon-goal" /><mark name="item-' + (item % 2) + '" />';
+        })
         .replace(/\\item/g, function (v, i) {
             item++;
             return '<mark name="item-' + (item % 2) + '" />';
@@ -267,7 +284,10 @@ var replaceTags = function (str) {
 
         // sounds
         .replace(/\\url\{([^\0]*?)\}/g, '<mark name="url-$1" />')
-        .replace(/\\link\{([^\0]*?)\}/g, '<mark name="link-$1" />')
+        .replace(/\\href\{([^\0]*?)\}\{([^\0]*?)\}/g, '<mark name="url-$2" />')
+        .replace(/\\link\{([^\0]*?)\}/gm, '<mark name="link-$1" />')
+        .replace(/\\book/g, '<mark name="book" />')
+        .replace(/\\video/g, '<mark name="video" />')
         .replace(/\\video\{([^\0]*?)\}/g, '<mark name="video-$1" />')
         .replace(/\\videolink\{([^\0]*?)\}/g, '<mark name="video-$1" />')
         .replace(/\\goal/g, '<mark name="icon-goal" />')
@@ -279,13 +299,16 @@ var replaceTags = function (str) {
         .replace(/XXXXXXX\{figure\}\[H\]([^\0]*?)YYYYYYY\{figure\}/gm, '$1')
         .replace(/XXXXXXX\{figure\}([^\0]*?)YYYYYYY\{figure\}/gm, '$1')
         .replace(/XXXXXXX\{flushleft\}([^\0]*?)YYYYYYY\{flushleft\}/g, '')
+        .replace(/XXXXXXX\{flushright\}([^\0]*?)YYYYYYY\{flushright\}/g, '$1')
         .replace(/XXXXXXX\{tabular\}([^\0]*?)YYYYYYY\{tabular\}/g, '')
         .replace(/XXXXXXX\{tabularx\}([^\0]*?)YYYYYYY\{tabularx\}/g, '')
         .replace(/XXXXXXX\{leftbar\}([^\0]*?)YYYYYYY\{leftbar\}/g, '')
         .replace(/\\includegraphics\[([^\0]*?)\]\{([^\0]*?)\}/gm, '<mark name="image-$2" />')
         .replace(/\\captionof\{figure\}\{([^\0]*?)\}/gm, '<mark name="imagecaption" />$1')
+        .replace(/\\captionof\{figure\}/gm, '')
         .replace(/\\captionof\{table\}\{([^\0]*?)\}/gm, '<mark name="tablecaption" />$1')
         .replace(/\\caption\{([^\0]*?)\}/gm, '<mark name="caption" />$1')
+        .replace(/\\caption\[([^\0]*?)\]\{([^\0]*?)\}/gm, '<mark name="caption" />$2')
         .replace(/\\lstinputlisting\[([^\0]*?)\]\{([^\0]*?)\}/gm, '<mark name="listing" />')
 
         .replace(/\\blfootnote\{([^\0]*?)\}/g, '<mark name="footnote" />') // todo: strip footnote content
@@ -296,6 +319,7 @@ var replaceTags = function (str) {
         .replace(/\\randhervor\{([^\0]*?)\}/g, '')
         .replace(/\\randnotiz\{([^\0]*?)\}/g, '')
         .replace(/\\marginpar\{([^\0]*?)\}/g, "")
+        .replace(/\[label\=\\alph\*\]/g,'')
         ;
 
     /*
@@ -305,34 +329,6 @@ var replaceTags = function (str) {
        \lstinputlisting[caption = { Server: server.js }, label = { server-code }, language = Javascript, firstnumber = 1]{ code / 1884 - awareness / server.js }
        \lstinputlisting[caption = { index.html }, label = { client-code }, language = Javascript, firstnumber = 1]{ code / 1884 - awareness / index.html }
 
-
-       KE1
-    '\\zB\\ ',
-'\\renewcommand{\\arraystretch}{1.5}\n\\caption[Raum-Zeit-Matrix]{Raum-Zeit-Matrix ',
-'\\small\nF�r ',
-'\\textit{digitalen ',
-'\\und ',
-'\\textit{Norwegian ',
-'\\textquote{The ',
-'\\it ',
-
-'\\igoal ',
-'\\igoal ',
-'\\igoal ',
-'\\igoal ',
-'\\igoal ',
-'\\igoal ',
-'\\href{http://wiki.cacert.org/FAQ/AssuranceDetails}{CAcert.org}) ',
-'\\href{http://couchsurfing.org/}{couchsurfing.org} ',
-'\\renewcommand{\\arraystretch}{1.8}\n<mark ',
-'\\large\\color{white} ',
-'\\textsf{Datenschutzgrundverordnung} ',
-'\\footnotesize\\color{white} ',
-'\\textsf{vom ',
-'\\\nYYYYYYY{flushright" ',
-'\\alph*]\n<mark ',
-'\\dots) ',
-'\\captionof{figure}\n ' ]
 */
 };
 
@@ -343,11 +339,12 @@ var replaceTags = function (str) {
 var eliminateFullTags = function (str) {
     return str
         //		.replace(/~/g, "")
-        .replace(/\\-/, '')
-        .replace(/\\\\/, '')
-        .replace(/\\vfill/, '')
-        .replace(/\\footnotesize/, '')
-        .replace(/\\minitoc/, '')
+        .replace(/\\-/g, '')
+        .replace(/\\%/g, ' Prozent')
+        .replace(/\\\\/gm, '')
+        .replace(/\\vfill/g, '')
+        .replace(/\\footnotesize/g, '')
+        .replace(/\\minitoc/g, '')
         .replace(/\\vspace\{([^\0]*?)\}/g, "")
         .replace(/\\label\{(.*?)\}/g, "")
         .replace(/\\newpage/g, "")
@@ -360,14 +357,19 @@ var eliminateFullTags = function (str) {
         .replace(/\\index\{o\}\{([^\0]*?)\}/g, "") // remove place index
         .replace(/\\ref\{([^\0]*?)\}/g, "")
         .replace(/\[\\dots\]/g, '')
+        .replace(/\\cdot/g, '')
+        .replace(/\\,/g, ',')
         .replace(/XXXXXXX\{shaded\}/g, '')
         .replace(/YYYYYYY\{shaded\}/g, '')
+        .replace(/XXXXXXX\{shaded\*\}/g, '')
+        .replace(/YYYYYYY\{shaded\*\}/g, '')
         .replace(/XXXXXXX\{center\}/g, '')
         .replace(/YYYYYYY\{center\}/g, '')
         .replace(/XXXXXXX\{table\}\[H\]/g, '')
         .replace(/XXXXXXX\{table\}/g, '')
         .replace(/YYYYYYY\{table\}/g, '')
 
+        .replace(/\\renewcommand\{\\arraystretch\}\{([^\0]*?)\}/g,'')
         .replace(/\\subtitle\{([^\0]*?)\}/g, "")
         .replace(/\\ifsplit/g, "")
         .replace(/\\setcounter\{([^\0]*?)\}\{([^\0]*?)\}/g, "")
@@ -377,14 +379,35 @@ var eliminateFullTags = function (str) {
         .replace(/\\hspace\{([^\0]*?)\}/g, "")
         .replace(/\\colorbox\{([^\0]*?)\}\{([^\0]*?)\}/gm, "")
         .replace(/\\fi/g, "")
+        .replace(/\\dots/g, "...")
+        .replace(/\\footnotesize/g, '')
         .replace(/\\clearpage/g, "")
         .replace(/\\definecolor\{([^\0]*?)\}\{([^\0]*?)\}\{([^\0]*?)\}/g, "")
         .replace(/\\protect/g, "")
         .replace(/\\newline/g, "")
+        .replace(/\\small/g, "")
+        .replace(/\\large/g, "")
+        .replace(/\\color\{white\}/g, "")
         .replace(/\\tiny/g, "")
         .replace(/\\centering/g, "")
+        .replace(/\\center/g, "")
         .replace(/\\\_/g, "-")
-        .replace(/\\\\/g, '')
+
+        // eleminate french axioms
+        .replace(/\\\^\{i\}/g, "i")
+        .replace(/\\\'\{e\}/g, "e")
+
+        .replace(/\\faThumbsOUplikes/g, "")
+        .replace(/\\faThumbsUplike/g, "")
+        .replace(/\\faBars/g, "")
+        .replace(/\\faHeartOfavorites/g, "")
+        .replace(/\\faHeart/g, "")
+        .replace(/\\selectfont/g, "")
+        .replace(/\\fontsize\{([^\0]*?)\}\{([^\0]*?)\}/g, "")
+
+        // eleminta epolish
+        .replace(/\\l\{\}/g, "l")
+        
         ;
 };
 
