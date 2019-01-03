@@ -10,10 +10,12 @@
  */
 
 const
-    p = require('./tex2SSML')
+    p = require('./tex2SSML'),
+    path = '/home/abb/Documents/proj_001_doc/teaching-courses/2017-Gestaltung-kooperativer-Systeme/cvs/Kurs1884/Kurstext/',
+    path2 = 'tex/',
+    file = 'ke7.tex'//ke6-utf8.tex
     ;
-
-p.tex2SSML();
+p.tex2SSML(path2 + file);
 
 
 
