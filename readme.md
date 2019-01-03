@@ -3,17 +3,18 @@
 ## ToDo
 - handle tables: extract from pdf
 - handle listing: extract from pdf
-- put all files in a container with relative links
+- handle math expressions
+- put all output files in a container with relative links
 
 # Installation
 
-sudo apt-get install awscli
+* Install Amazone webservice client: `sudo apt-get install awscli`
 
-aws --version
+* Test installation: `aws --version`
 
-get AWS Access Key ID and Secret Access Key 
+* get AWS Access Key ID and Secret Access Key 
 
-aws configure
+* Type `aws configure` and enter your Access Key ID and Secret Access Key 
 
 # Documentation
 
