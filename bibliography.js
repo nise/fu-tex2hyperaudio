@@ -23,7 +23,7 @@ exports.importBibliografy = function () {
         if (err) {
             console.log(err);
         } else {
-            const biblatex = require('biblatex-csl-converter')
+            const biblatex = require('biblatex-csl-converter');
             const bib = biblatex.parse(data, {
                 processUnexpected: true,
                 processUnknown: { comment: 'f_verbatim' },
@@ -58,13 +58,15 @@ exports.getAuthorNames = function (key, citation_type = 'passive') {
     var out = '';
 
     switch (mybib[key].author.length) {
-        case 1: console.log(mybib[key].author[0])
+        case 1: //console.log(mybib[key].author[0])
             out = mybib[key].author[0].family ? mybib[key].author[0].family[0].text : mybib[key].author[0].literal[0].text;
             break;
         case 2:
             if (mybib[key].author[1].family[0] && mybib[key].author[1].family[0]) {
                 out = mybib[key].author[0].family[0].text + ' und ' + mybib[key].author[1].family[0].text;
-            } else { console.log(key, mybib[key].author[1]); }
+            } else { 
+                //console.log(key, mybib[key].author[1]); 
+            }
             break;
         default:
             out = mybib[key].author[0].family[0].text + ' und Kollegen';
