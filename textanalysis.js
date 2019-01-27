@@ -20,7 +20,7 @@ exports.analyse = function (text, file) {
         total_words = 0
         ;
 
-    //fs.writeFile('test.txt', text, err => {});
+    //fs.writeFile('output/full-text.txt', text, err => {});
     var
         sum = 0,
         csv = 'id,words,flesh\n'
