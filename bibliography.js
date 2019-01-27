@@ -47,7 +47,7 @@ exports.importBibliografy = function () {
  * @param {*} citation_type 
  * xxx: fix bug if author has multiple family names
  */
-exports.getAuthorNames = function (key, citation_type = 'passive') {
+exports.getAuthorNames = function (key, citation_type = 'passive', plain=false) {
     if (mybib.length === 0) {
         return;
     }
@@ -71,7 +71,7 @@ exports.getAuthorNames = function (key, citation_type = 'passive') {
         default:
             out = mybib[key].author[0].family[0].text + ' und Kollegen';
     }
-    var date = '<say-as interpret-as="date" format="y">' + mybib[key].date.substring(0, 4) + '</say-as>';
+    var date = plain ? mybib[key].date.substring(0, 4) : '<say-as interpret-as="date" format="y">' + mybib[key].date.substring(0, 4) + '</say-as>';
     
     if (citation_type === 'active') {
         return out + ' (' + date + ')';
