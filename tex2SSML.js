@@ -14,6 +14,7 @@
 const
     fs = require('fs'),
     bibliography = require('./bibliography'),
+    textanalysis = require('./textanalysis'),
     franc = require('franc')
     ;
 
@@ -21,7 +22,7 @@ const
  * 
  */
 exports.tex2SSML = function (file, path) {
-    fs.readFile(path+file, 'utf8', function (err, data) {
+    fs.readFile(path + file, 'utf8', function (err, data) {
         if (err) {
             console.log(err);
             return;
@@ -33,26 +34,37 @@ exports.tex2SSML = function (file, path) {
             closing = '</speak>'
             ;
         data = data.split("\\section[Selbsttest]")[0]; // cut off a certain section
-        
+
 
         // prepare special character for easier substition later on
         data = data.replace(/\u0008egin/g, 'XXXXXXX');
         data = data.replace(/\\begin/g, 'XXXXXXX');
         data = data.replace(/\\end/g, 'YYYYYYY');
         data = data.replace(/XXXXXXX\{comment\}([^\0]*?)YYYYYYY\{comment\}/gm, '');
-
-
-        data = data.replace("\\\\", '\n');// remove double
-        data = data.replace("\n\n", '');// remove double
+        data = data.replace(/\\%/g, 'Prozent')
+        data = removeComments(data);
+        
+        data = data.replace("\\\\", '');// remove double
+        data = data.replace("\n\n", '\n');// remove double
+        data = data.replace("\n", ' ');// remove double
+        
         data = processParagraphs(data);
+
         data = replaceHeadings(data);
         data = replaceTags(data);
         data = eliminateFullTags(data);
-        data = removeComments(data);
+
         data = data.replace(/(^[ \t]*\n)/gm, ""); // remove blank lines
         // Validation
         validateOutput(data);
 
+        // clean empty lines
+        data = data
+            .replace(/\<p\>\<s\>\<\/s\>\<\/p\>/g,'')
+            .replace(/\<p\>\ \<\/p\>/g, '')
+            ;
+        
+        textanalysis.analyse(data, file.replace('.tex', ''));
 
         // finalize xml file
         data = preamble + '\n' + data + '\n' + closing;
@@ -62,7 +74,7 @@ exports.tex2SSML = function (file, path) {
         //data = preamble + '\n' + test + '\n' + closing;
         //data = test;
 
-        fs.writeFile('output-'+file.replace('.tex','')+'.xml', data, err => {
+        fs.writeFile('output-' + file.replace('.tex', '') + '.xml', data, err => {
             if (err) {
                 console.error('ERROR:', err);
                 return;
@@ -83,11 +95,11 @@ exports.tex2SSML = function (file, path) {
  */
 var validateOutput = function (data) {
     console.log('................................................');
-    
-    if (data.match(/\\([^\0]*?)\ /gm) === null){
-        data = data.replace(/\{/g,'');
+
+    if (data.match(/\\([^\0]*?)\ /gm) === null) {
+        data = data.replace(/\{/g, '');
         data = data.replace(/\}/g, '');
-    }else{
+    } else {
         console.log('WARNING: Unhandled LaTeX expressions found :::::');
         console.log('................................................');
         console.log(data.match(/\\([^\0]*?)\ /gm));
@@ -104,14 +116,14 @@ var validateOutput = function (data) {
         if (match1.exec(line)) { f1.push(number); }
         if (match2.exec(line)) { f2.push(number); }
     });
-    if(f1.length > 0 || f2.length > 0){
+    if (f1.length > 0 || f2.length > 0) {
         console.log('Symbol "{" found on lines ' + f1.toString());
         console.log('Symbol "}" found on lines ' + f2.toString());
-    }else{
+    } else {
         console.log("No more LaTeX expressions found.")
     }
 
-    
+
     var libxmljs = require("libxmljs");
     var xml = function (text) {
         try {
@@ -136,17 +148,25 @@ var processParagraphs = function (data) {
         paragraphs = data.split('\n'),
         sentences = []
         ;
+
     for (var i = 0; i < paragraphs.length; i++) {
         if (paragraphs[i].trim !== '\n' && paragraphs[i].length > 0) {
             // process sentences
-            // sentences
-            sentences = paragraphs[i].match(/[^\.!\?]\s+[\.!\?]\s+/g); //console.log(result)
+            var re = /\b(\w\.\ \w\.|\w\.\w\.)|([.?!])\s+(?=[A-Za-z])/g;
+            var result = paragraphs[i].replace(re, function (m, g1, g2) {
+                return g1 ? g1 : g2 + "\r";
+            });
+            sentences = result.split("\r");
+
             if (sentences) {
+                //console.log('----------',sentences);
                 for (var j = 0; j < sentences.length; j++) {
-                    sentences[j] = '<s>' + sentences[j] + '</s>';
+                    if (sentences[j].length > 2) {
+                        sentences[j] = '<s>' + sentences[j] + '</s>';
+                    }
                 }
                 paragraphs[i] = sentences.join('\n');
-                paragraphs[i] = '<p>\n' + paragraphs[i] + '\n</p>';
+                paragraphs[i] = '<p>' + paragraphs[i] + '</p>';
             }
 
         } else {
@@ -191,28 +211,148 @@ var replaceHeadings = function (str) {
 
 /**
  * 
+ * @param {*} str 
+ */
+var handleQuote = function (match, capture) {
+    capture.replace(/\\textit\{([^\0]*?)\}/g, '$1');
+    //console.log(capture);
+    capture.replace(/{([^\0]*?)}/g, function (m, e) {
+        //console.log('--', e);
+        return e;
+    });
+    if (franc(capture) === 'eng') {
+        //console.log(capture, '-- ', franc(capture));
+        return '<lang xml:lang="en-GB">' + capture + '</lang>';
+    } else {
+        return capture;
+    }
+};
+
+
+/**
+ * 
+ * @param {*} str 
+ * todo: replaces cite key with author names without any mark-tags
+ */
+var replaceCitations = function (str, plain=false) {
+    return str
+        .replace(/\\cite\{([^\0]*?)\}/g, function (match, capture) {
+            return bibliography.getAuthorNames(capture, 'passive', plain);
+        })
+        .replace(/\\citep\{([^\0]*?)\}/g, function (match, key) {
+            return bibliography.getAuthorNames(key, 'passive', plain);
+        })
+        .replace(/\\citep\[([^\0]*?)\]\{([^\0]*?)\}/g, function (match, page, key) {
+            return bibliography.getAuthorNames(key, 'passive', plain);
+        })
+        .replace(/\\citeN\{([^\0]*?)\}/g, function (match, key) {
+            return bibliography.getAuthorNames(key, 'active', plain);
+        })
+        .replace(/\\citet\{([^\0]*?)\}/g, function (match, key) {
+            return bibliography.getAuthorNames(key, 'active', plain);
+        })
+        .replace(/\\citeN\[([^\0]*?)\]\{([^\0]*?)\}/g, function (match, page, key) {
+            return bibliography.getAuthorNames(key, 'active', plain);
+        })
+        .replace(/\\citet\[([^\0]*?)\]\{([^\0]*?)\}/g, function (match, page, key) {
+            return '<mark name="citation-' + key + '" />' + bibliography.getAuthorNames(key, 'active', plain);
+        });
+};
+
+
+
+var references = {};
+references.table = [0];
+references.figure = [0];
+references.text = [0];
+
+/**
+ * 
+ * @param {RegEx} match 
+ * @param {String} p1 
+ */
+var handleReferences = function (match, p1) { 
+    var output = '';
+    if (references.table.indexOf(p1) !== -1){
+        output += '<mark name"tableref-' + p1 + '" />';
+        output += 'Tabelle <say-as interpret-as="ordinal">' + references.table.indexOf(p1) +'</say-as>';
+    } else if (references.figure.indexOf(p1) !== -1) {
+        output += '<mark name"figureref-' + p1 + '" />';
+        output += 'Abbildung <say-as interpret-as="ordinal">' + references.figure.indexOf(p1) + '</say-as>';
+    } else if (references.text.indexOf(p1) !== -1) {
+        output += '<mark name"textref-' + p1 + '" />';
+        output += '<say-as interpret-as="ordinal">' + references.table.indexOf(p1) + '</say-as>';
+    }
+    //console.log(match, p1, output)
+    return output;
+};
+
+
+/**
+ * Throughs the figures away, but return its captions and stores its labels
+ * @param {*} str 
+ */
+var handleFigure = function (match, p1, p2) {
+    var res = typeof (p2) === 'number' ? p1 : p2;
+
+    var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
+    // store label as reference
+    if (mark !== undefined && mark.length > 0) {
+        references.figure.push(mark);
+    }
+    res = res.replace("\label{" + mark + "}", '');
+    var marklabel = '<mark name"figurelabel-' + mark + '" />';
+
+    var caption = String(res.match(/caption\{(.*?)\}/gm))
+        .replace(/caption\{/, '')
+        
+        ;
+    caption = caption.replace(/\\protect/g,'');    
+    caption = replaceCitations(caption, true);
+    caption = caption.replace(/\\/g, '').replace(/\}/g, '');
+    caption = '<mark name"figurecaption-' + caption + '" />';
+    return marklabel + caption;
+};
+
+
+/**
+ * Throughs the tables away, but return its captions and stores its labels
+ * @param {*} str 
+ */
+var handleTable = function (match, p1, p2) {
+    var res = typeof (p2) === 'number' ? p1 : p2;
+
+    var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
+    // store label as reference
+    if(mark !== undefined && mark.length > 0){
+        references.table.push(mark);
+    }
+    res = res.replace("\label{" + mark + "}", '');
+    var labelmark = '<mark name"tablelabel-' + mark + '" />';
+
+    var caption = String(res.match(/caption\{(.*?)\}/gm))
+        .replace(/caption\{/, '')
+        .replace(/\}/g, '')
+        .replace(/\\/g, '');
+    caption = replaceCitations(caption, true);
+    caption = '<mark name"tablecaption-' + caption + '" />';
+
+    return labelmark + caption;
+};
+
+
+
+/**
+ * 
  */
 var replaceTags = function (str) {
     var
         item = 0,
-        maskQuote = function (match, key, page){ 
-            return '<break strength="medium" />Zitat<break strength="medium" />' + key +  '<break strength="medium" />Zitatende<break strength="medium" />';
-        },
-        handleQuote = function (match, capture) {
-            capture.replace(/\\textit\{([^\0]*?)\}/g, '$1');
-            //console.log(capture);
-            capture.replace(/{([^\0]*?)}/g, function(m, e){
-                console.log('--',e);
-                return e;
-            });
-            if (franc(capture) === 'eng') {
-                //console.log(capture, '-- ', franc(capture));
-                return '<lang xml:lang="en-GB">' + capture + '</lang>';
-            } else {
-                return capture;
-            }
+        maskQuote = function (match, key, page) {
+            return '<break strength="medium" />Zitat<break strength="medium" />' + key + '<break strength="medium" />Zitatende<break strength="medium" />';
         }
         ;
+
 
     return str
         // special words
@@ -221,23 +361,44 @@ var replaceTags = function (str) {
         .replace(/\\pattern\{([^\0]*?)\}\{([^\0]*?)\}\{([^\0]*?)\}/gm, '<mark name="pattern-desc-$1" /><break strength="medium" />$1: $3<break strength="medium" />')
         .replace(/\\today/g, 'heute')
         .replace(/\$([^\0]*?)\$/g, '$1') // xxx, no math support
-        
-        
-        
+
+
+
         // text styles
         .replace(/\\emph\{([^\0]*?)\}/g, '$1')
+        .replace(/\\SS/g, 'Paragraph ')
         .replace(/\\textit\{([^\0]*?)\}/gm, '$1')
         .replace(/\\textsf\{([^\0]*?)\}/gm, '$1')
         .replace(/\\textbf\{([^\0]*?)\}/gm, '$1') // could be more pronounced
         .replace(/\\textsc\{([^\0]*?)\}/gm, "$1")
-        
+
         // special characters
         .replace(/--/g, '-')
         .replace(/~/g, "")
         .replace(/\\&/g, "und")
         .replace(/\\pm/g, "plus minus")
-        
 
+        // do figures, tables, and labels before the citations and refs.
+        .replace(/XXXXXXX\{figure\}([^\0]*?)YYYYYYY\{figure\}/gm, handleFigure)
+        .replace(/XXXXXXX\{table\}([^\0]*?)YYYYYYY\{table\}/g, handleTable) // \[([^\0]*?)\]
+        .replace(/\\label\{(.*?)\}/g, '<mark name"textlabel-$1" />')
+
+        // References in the text referring on tables, figures and text sections
+       
+        .replace(/Tab\.\ \\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Tabelle\ \\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Tab\.?\\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Tabelle~\\ref\{([^\0]*?)\}/g, handleReferences)
+        //.replace(/Abb\.\ \\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Abb\.?\\ref\{([^\0]*?)\}/gm, handleReferences)
+        .replace(/Abbildung?\\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Kapitel\ \\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Kapitel?\\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Abschnitt \\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Abschnitt?\\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Teilabschnitt\ \\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/Teilabschnitt?\\ref\{([^\0]*?)\}/g, handleReferences)
+        .replace(/\\ref\{([^\0]*?)\}/g, handleReferences)
 
         // citation
         .replace(/\\cite\{([^\0]*?)\}/g, function (match, capture) {
@@ -314,10 +475,10 @@ var replaceTags = function (str) {
         })
 
         // sounds
-        .replace(/\\url\{([^\0]*?)\}/g, '<mark name="url-$1" />')
+        .replace(/\\url\{([^\0]*?)\}/g, '<mark name="url-$1" />URL')
         .replace(/\\href\{([^\0]*?)\}\{([^\0]*?)\}/g, '<mark name="url-$2" />')
         .replace(/\\link\{([^\0]*?)\}/gm, '<mark name="link-$1" />')
-        .replace(/\\link/g,'')
+        .replace(/\\link/g, '')
         .replace(/\\book/g, '<mark name="book" />')
         .replace(/\\video\{([^\0]*?)\}/g, '<mark name="video-$1" />')
         .replace(/\\video/g, '<mark name="video" />')
@@ -327,20 +488,16 @@ var replaceTags = function (str) {
         .replace(/\\quiz/g, '<mark name="icon-quiz" />')
         .replace(/\\discuss/g, '<mark name="icon-discussion" />')
 
-        // todo: handle tables, xxx
         .replace(/\\includegraphics\[([^\0]*?)\]\{([^\0]*?)\}/gm, '<mark name="image-$2" />')
         .replace(/\\captionof\{figure\}\{([^\0]*?)\}/gm, '<mark name="imagecaption" />$1')
         .replace(/\\captionof\{figure\}/gm, '')
         .replace(/\\captionof\{table\}\{([^\0]*?)\}/gm, '<mark name="tablecaption" />$1')
         .replace(/\\lstinputlisting\[([^\0]*?)\]\{([^\0]*?)\}/gm, '<mark name="listing" />')
 
-        //.replace(/XXXXXXX\{figure\}\[H\]([^\0]*?)YYYYYYY\{figure\}/gm, '$1')
-        .replace(/XXXXXXX\{figure\}\[([^\0]*?)]([^\0]*?)YYYYYYY\{figure\}/gm, '$2')
-        .replace(/XXXXXXX\{figure\}([^\0]*?)YYYYYYY\{figure\}/gm, '$1')
         .replace(/XXXXXXX\{flushleft\}([^\0]*?)YYYYYYY\{flushleft\}/g, '')
         .replace(/XXXXXXX\{flushright\}([^\0]*?)YYYYYYY\{flushright\}/g, '$1')
         .replace(/XXXXXXX\{leftbar\}([^\0]*?)YYYYYYY\{leftbar\}/g, '')
-       
+
         .replace(/\\blfootnote\{([^\0]*?)\}/g, '<mark name="footnote" />') // todo: strip footnote content
         .replace(/\\footnote\{([^\0]*?)\}/g, '<mark name="footnote" />') // todo: strip footnote content
 
@@ -349,8 +506,8 @@ var replaceTags = function (str) {
         .replace(/\\randhervor\{([^\0]*?)\}/g, '$1')
         .replace(/\\randnotiz\{([^\0]*?)\}/g, '')
         .replace(/\\marginpar\{([^\0]*?)\}/g, "")
-        .replace(/\[label\=\\alph\*\]/g,'')
-        .replace(/\]/g,'')
+        .replace(/\[label\=\\alph\*\]/g, '')
+        .replace(/\]/g, '')
         .replace(/\[/g, '')
         ;
 };
@@ -361,20 +518,6 @@ var replaceTags = function (str) {
  */
 var eliminateFullTags = function (str) {
 
-    var handleTable = function (match, p1, p2) {
-        
-        var mark = res.replace(/\\label\{([^\0]*?)\}/g, ' <mark name"table-$1">');
-        var caption = res.replace(/\\caption\{([^\0]*?)\}/gm, '<mark name="caption" />$1');
-        if (caption == undefined) {
-            caption = res.replace(/\\caption\[([^\0]*?)\]\{([^\0]*?)\}/gm, '<mark name="caption" />$2')
-        }
-
-        //.replace(/XXXXXXX\{tabular\}([^\0]*?)YYYYYYY\{tabular\}/g, '')
-        //.replace(/XXXXXXX\{tabularx\}([^\0]*?)YYYYYYY\{tabularx\}/g, '')
-
-        return mark + 'Tabelle: ' + caption;
-    };
-    
     return str
         //		.replace(/~/g, "")
         .replace(/\\-/g, '')
@@ -385,14 +528,10 @@ var eliminateFullTags = function (str) {
         .replace(/\\minitoc/g, '')
         .replace(/\\vspace\{([^\0]*?)\}/g, "")
 
-        // handle tables
-        .replace(/XXXXXXX\{table\}([^\0]*?)YYYYYYY\{table\}/g, handleTable)
-        .replace(/XXXXXXX\{table\}\[([^\0]*?)\]([^\0]*?)YYYYYYY\{table\}/g, handleTable)
-        //.replace(/XXXXXXX\{table\}\[H\]/g, handleTable)
-        //.replace(/XXXXXXX\{table\}/g, '')
-        //.replace(/YYYYYYY\{table\}/g, '')
+        // handle table fragments and listings
+        .replace(/XXXXXXX\{tabular\}([^\0]*?)YYYYYYY\{tabular\}/g, '')
+        .replace(/XXXXXXX\{lstlisting\}([^\0]*?)YYYYYYY\{lstlisting\}/g, '')
 
-        .replace(/\\label\{(.*?)\}/g, "")
         .replace(/\\newpage/g, "")
         .replace(/\\noindent/g, "")
         .replace(/\\-/g, "")
@@ -401,20 +540,19 @@ var eliminateFullTags = function (str) {
         .replace(/\\cleardoublepage/g, "")
         .replace(/\\index\{p\}\{([^\0]*?)\}/g, "") // remove person index
         .replace(/\\index\{o\}\{([^\0]*?)\}/g, "") // remove place index
-        .replace(/\\ref\{([^\0]*?)\}/g, "")
         .replace(/\\dots/g, '')
         .replace(/\[\\dots\]/g, '')
         .replace(/\.\.\./g, '')
         .replace(/\\cdot/g, '')
-        .replace(/\\,/g, ',')
+        .replace(/\\,/g, ' ')
         .replace(/XXXXXXX\{shaded\}/g, '')
         .replace(/YYYYYYY\{shaded\}/g, '')
         .replace(/XXXXXXX\{shaded\*\}/g, '')
         .replace(/YYYYYYY\{shaded\*\}/g, '')
         .replace(/XXXXXXX\{center\}/g, '')
         .replace(/YYYYYYY\{center\}/g, '')
-        
-        .replace(/\\renewcommand\{\\arraystretch\}\{([^\0]*?)\}/g,'')
+
+        .replace(/\\renewcommand\{\\arraystretch\}\{([^\0]*?)\}/g, '')
         .replace(/\\subtitle\{([^\0]*?)\}/g, "")
         .replace(/\\ifsplit/g, "")
         .replace(/\\setcounter\{([^\0]*?)\}\{([^\0]*?)\}/g, "")
@@ -452,7 +590,7 @@ var eliminateFullTags = function (str) {
 
         // eleminta epolish
         .replace(/\\l\{\}/g, "l")
-        
+
         ;
 };
 
