@@ -5,8 +5,8 @@
  */
 
 const
-    fs = require('fs')
-path = require('path'),
+    fs = require('fs'),
+    path = require('path'),
     file_bib = '/home/abb/Documents/library.bib'
     ;
 
@@ -47,7 +47,7 @@ exports.importBibliografy = function () {
  * @param {*} citation_type 
  * xxx: fix bug if author has multiple family names
  */
-exports.getAuthorNames = function (key, citation_type = 'passive', plain=false) {
+exports.getAuthorNames = function (key, citation_type = 'passive', plain = false) {
     if (mybib.length === 0) {
         return;
     }
@@ -64,7 +64,7 @@ exports.getAuthorNames = function (key, citation_type = 'passive', plain=false) 
         case 2:
             if (mybib[key].author[1].family[0] && mybib[key].author[1].family[0]) {
                 out = mybib[key].author[0].family[0].text + ' und ' + mybib[key].author[1].family[0].text;
-            } else { 
+            } else {
                 //console.log(key, mybib[key].author[1]); 
             }
             break;
@@ -72,7 +72,7 @@ exports.getAuthorNames = function (key, citation_type = 'passive', plain=false) 
             out = mybib[key].author[0].family[0].text + ' und Kollegen';
     }
     var date = plain ? mybib[key].date.substring(0, 4) : '<say-as interpret-as="date" format="y">' + mybib[key].date.substring(0, 4) + '</say-as>';
-    
+
     if (citation_type === 'active') {
         return out + ' (' + date + ')';
     } else {
@@ -80,10 +80,11 @@ exports.getAuthorNames = function (key, citation_type = 'passive', plain=false) 
     }
 };
 
+
 /**
  * Returns plain formated citation for a given key
  * todo: xxx
  */
-exports.getPlainCitation = function(key){
+exports.getPlainCitation = function (key) {
     return this.getAuthorNames(key);
 }
