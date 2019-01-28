@@ -12,9 +12,9 @@
  */
 
 const
+    echo = false,
     fs = require('fs'),
     bibliography = require('./bibliography'),
-    textanalysis = require('./textanalysis'),
     franc = require('franc')
     ;
 
@@ -64,22 +64,19 @@ exports.tex2SSML = function (file, path) {
             .replace(/\<p\>\ \<\/p\>/g, '')
             ;
         
-        textanalysis.analyse(data, file.replace('.tex', ''));
-
+        
         // finalize xml file
         data = preamble + '\n' + data + '\n' + closing;
 
-        //var test = "<speak>Hallo liebe <mark name='leute' />Leute</speak>";
-        //test = "Hallo liebe Leute";
-        //data = preamble + '\n' + test + '\n' + closing;
-        //data = test;
-
-        fs.writeFile('output-' + file.replace('.tex', '') + '.xml', data, err => {
+        fs.writeFile('output/ssml-' + file.replace('.tex', '') + '.xml', data, err => {
             if (err) {
                 console.error('ERROR:', err);
                 return;
             }
-            console.log('text content written to ' + 'output-' + file.replace('.tex', '') + '.xml');
+            
+            if(echo){
+                console.log('text content written to ' + 'output/ssml-' + file.replace('.tex', '') + '.xml');
+            }
             //polly.speechSynthesis(data);
             //polly.speechSynthesis(data, true); // marks
         });
@@ -94,8 +91,10 @@ exports.tex2SSML = function (file, path) {
  * @param {*} data 
  */
 var validateOutput = function (data) {
-    console.log('................................................');
-
+    if(echo){
+        console.log('................................................');
+    }
+    
     if (data.match(/\\([^\0]*?)\ /gm) === null) {
         data = data.replace(/\{/g, '');
         data = data.replace(/\}/g, '');
@@ -119,7 +118,7 @@ var validateOutput = function (data) {
     if (f1.length > 0 || f2.length > 0) {
         console.log('Symbol "{" found on lines ' + f1.toString());
         console.log('Symbol "}" found on lines ' + f2.toString());
-    } else {
+    } else if(echo){
         console.log("No more LaTeX expressions found.")
     }
 
@@ -134,8 +133,10 @@ var validateOutput = function (data) {
 
         return true;
     };
-    console.log('XML is valid? ' + xml(data));
-    console.log('................................................');
+    if(echo){
+        console.log('................................................');
+    }
+    
 };
 
 
@@ -152,7 +153,7 @@ var processParagraphs = function (data) {
     for (var i = 0; i < paragraphs.length; i++) {
         if (paragraphs[i].trim !== '\n' && paragraphs[i].length > 0) {
             // process sentences
-            var re = /\b(\w\.\ \w\.|\w\.\w\.)|([.?!])\s+(?=[A-Za-z])/g;
+            var re = /\b(\w\.\ \w\.|\w\.\w\.|vgl\.|bzw\.|bspw\.|[0-9]+\.)|([.?!])\s+(?=[A-Za-z])/g;
             var result = paragraphs[i].replace(re, function (m, g1, g2) {
                 return g1 ? g1 : g2 + "\r";
             });
