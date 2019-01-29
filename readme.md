@@ -1,15 +1,18 @@
 
 
 ## ToDo
-- prepare all data for experiment
+- handle tables: extract from pdf
+- handle listing: extract from pdf
+- extract and link images
+
+## nth
 - check what SSML-features of AWS polly could be supported
 - clean linebreaks in Tex-Sources
 - correct mistakes in Tex-Sources
-- handle tables: extract from pdf
-- handle listing: extract from pdf
 - handle math expressions
 - put all output files in a container with relative links
 - bug: flesh index analysis includes headlines and listings
+
 
 # Installation
 

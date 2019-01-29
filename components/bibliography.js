@@ -11,7 +11,7 @@ const
     ;
 
 // use existing file rather than importing one
-var contents = fs.readFileSync('./mybibfile.json');
+var contents = fs.readFileSync('./output/mybibfile.json');
 var mybib = JSON.parse(contents);
 
 /**

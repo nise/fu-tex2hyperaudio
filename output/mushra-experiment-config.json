@@ -18,8 +18,8 @@
 	"AudioRoot": "",
 	"Testsets": [
 		{
-			"Name": "Set ssml-ke1",
-			"TestID": "id-ssml-ke1",
+			"Name": "Set ssml-ke2",
+			"TestID": "id-ssml-ke2",
 			"Files": {
 				"Reference": "audio/schubert_ref.wav",
 				"file0": "./output/polly-Hans-ssml-ke1-10.mp3",
@@ -34,8 +34,8 @@
 			}
 		},
 		{
-			"Name": "Set ssml-ke2",
-			"TestID": "id-ssml-ke2",
+			"Name": "Set ssml-ke1",
+			"TestID": "id-ssml-ke1",
 			"Files": {
 				"Reference": "audio/schubert_ref.wav",
 				"file0": "./output/polly-Hans-ssml-ke1-10.mp3",
@@ -66,22 +66,6 @@
 			}
 		},
 		{
-			"Name": "Set ssml-ke5",
-			"TestID": "id-ssml-ke5",
-			"Files": {
-				"Reference": "audio/schubert_ref.wav",
-				"file0": "./output/polly-Hans-ssml-ke1-10.mp3",
-				"file1": "./output/polly-Marlene-ssml-ke1-10.mp3",
-				"file2": "./output/polly-Vicki-ssml-ke1-10.mp3",
-				"file3": "./output/google-de-DE-Standard-A-ssml-ke1-10.mp3",
-				"file4": "./output/google-de-DE-Wavenet-A-ssml-ke1-10.mp3",
-				"file5": "./output/google-de-DE-Wavenet-C-ssml-ke1-10.mp3",
-				"file6": "./output/google-de-DE-Standard-B-ssml-ke1-10.mp3",
-				"file7": "./output/google-de-DE-Wavenet-B-ssml-ke1-10.mp3",
-				"file8": "./output/google-de-DE-Wavenet-D-ssml-ke1-10.mp3"
-			}
-		},
-		{
 			"Name": "Set ssml-ke4",
 			"TestID": "id-ssml-ke4",
 			"Files": {
@@ -98,8 +82,8 @@
 			}
 		},
 		{
-			"Name": "Set ssml-ke6",
-			"TestID": "id-ssml-ke6",
+			"Name": "Set ssml-ke5",
+			"TestID": "id-ssml-ke5",
 			"Files": {
 				"Reference": "audio/schubert_ref.wav",
 				"file0": "./output/polly-Hans-ssml-ke1-10.mp3",
@@ -116,6 +100,22 @@
 		{
 			"Name": "Set ssml-ke7",
 			"TestID": "id-ssml-ke7",
+			"Files": {
+				"Reference": "audio/schubert_ref.wav",
+				"file0": "./output/polly-Hans-ssml-ke1-10.mp3",
+				"file1": "./output/polly-Marlene-ssml-ke1-10.mp3",
+				"file2": "./output/polly-Vicki-ssml-ke1-10.mp3",
+				"file3": "./output/google-de-DE-Standard-A-ssml-ke1-10.mp3",
+				"file4": "./output/google-de-DE-Wavenet-A-ssml-ke1-10.mp3",
+				"file5": "./output/google-de-DE-Wavenet-C-ssml-ke1-10.mp3",
+				"file6": "./output/google-de-DE-Standard-B-ssml-ke1-10.mp3",
+				"file7": "./output/google-de-DE-Wavenet-B-ssml-ke1-10.mp3",
+				"file8": "./output/google-de-DE-Wavenet-D-ssml-ke1-10.mp3"
+			}
+		},
+		{
+			"Name": "Set ssml-ke6",
+			"TestID": "id-ssml-ke6",
 			"Files": {
 				"Reference": "audio/schubert_ref.wav",
 				"file0": "./output/polly-Hans-ssml-ke1-10.mp3",

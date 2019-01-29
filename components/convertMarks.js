@@ -9,7 +9,7 @@ let
     bibliography = require('./bibliography')
     ;
 
-loadMarks('./1a88fda7-5abe-42d0-b960-9add69e63250.marks');
+loadMarks('./output/1a88fda7-5abe-42d0-b960-9add69e63250.marks');
 
 let template = {
     "AppName": "hear and learn",

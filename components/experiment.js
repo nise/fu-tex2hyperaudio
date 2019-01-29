@@ -194,7 +194,7 @@ var getSSMLofString = function (str) {
  */
 var prepareMushraConfig = function(){
     // prepare mashra config
-    var config = require('./output/mushra-config-sample');
+    var config = require('../output/mushra-config-sample');
     if(testsets.length === 7){
         config.TestConfig.Testsets = testsets;
         console.log(config.TestConfig);

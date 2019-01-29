@@ -9,7 +9,7 @@
  */
 
 const
-    p = require('./tex2SSML'),
+    p = require('./components/tex2SSML'),
     path = '/home/abb/Documents/proj_001_doc/teaching-courses/2017-Gestaltung-kooperativer-Systeme/cvs/Kurs1884/Kurstext/polly/',
     path2 = 'tex/'
     ;
@@ -17,5 +17,5 @@ const
 
 //for (var i = 1; i < 8; i++) { p.tex2SSML('ke'+i+'.tex', path); }
 
-require('./experiment').init();
+require('./components/experiment').init();
 
