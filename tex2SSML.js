@@ -1,11 +1,8 @@
 /**
- * name: polly
- * description: Interface to Amazon AWS Polly web services
+ * name: tex2SSML
+ * description: Converts LaTeX code into SSML
  * author: niels seidel (niels.seidel@fernuni-hagen.de) 
- * 
- * todo: 
- * - Support Google Text2Speeck SSML.
- * - testing
+ * lisence: MIT
  * 
  * bugs
  * -ke3:480 => not as englisch detected
@@ -88,7 +85,7 @@ exports.tex2SSML = function (file, path) {
 
 /**
  * Validation
- * @param {*} data 
+ * @param {String} data SSML data
  */
 var validateOutput = function (data) {
     if(echo){
@@ -141,8 +138,8 @@ var validateOutput = function (data) {
 
 
 /**
- * process paragraphs and sentences
- * @param {object} data 
+ * Process paragraphs and sentences
+ * @param {String} data Text
  */
 var processParagraphs = function (data) {
     var
@@ -163,7 +160,8 @@ var processParagraphs = function (data) {
                 //console.log('----------',sentences);
                 for (var j = 0; j < sentences.length; j++) {
                     if (sentences[j].length > 2) {
-                        sentences[j] = '<s>' + sentences[j] + '</s>';
+                        var stop = sentences[j].substring(sentences[j].length-1) !== '.' ? '.' :'';
+                        sentences[j] = '<s>' + sentences[j] + stop + '</s>';
                     }
                 }
                 paragraphs[i] = sentences.join('\n');
