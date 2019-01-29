@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
@@ -9,15 +11,26 @@ Try executing this chunk by clicking the *Run* button within the chunk or by pla
 
 ```{r}
 library(ggplot2)
-install.packages("Cairo")
-getwd()
+
 tab <- read.table("./output/text-analysis-all.csv", header=TRUE, sep=",")
 
-plot <- ggplot(tab, aes(x=flesh, y = words, shape = factor(selected), color=factor(document))) + 
-    geom_point(na.rm=TRUE, size=2) + #, alpha = 1/10
-    labs(title="Lesbarkeit", x="Flesh Index", y='Words per sentence')
+ggplot(tab, aes(x=flesh, y = words, shape = factor(selected), color=factor(selected))) + 
+  geom_point(na.rm=TRUE, size=1) + #, alpha = 0.2
+  facet_grid(document ~ .) +
+  labs(title="Lesbarkeit", x="Flesh Lesbarkeitsindex", y='Worte pro Satz') +
+  theme_bw() +
+    theme(panel.background = element_rect(colour = "white", linetype = "dashed")) +
+    theme(legend.key = element_rect(colour = "white", size=1)) +
+    theme(legend.key.size = unit(4, "mm")) +
+    theme(legend.position="bottom") +
+    theme(panel.border = element_rect(colour = "white")) +
+    theme(strip.background = element_rect(colour = "white", fill = "white", size = 0)) +
+    theme(strip.text.x = element_text(colour = "black", angle = 90, size = 9, hjust = .5, vjust = 0)) +
+    theme(axis.ticks.x = element_line(colour="white")) +
+    theme(axis.text.y = element_text(colour = "black", size = 9)) +
+    theme(axis.text.x = element_text(colour = "white", size = 0))
 
-print(plot)
+#print(plot)
 
 
 ```

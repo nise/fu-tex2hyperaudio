@@ -11,7 +11,7 @@ const
     ;
 let
     sentences = [],
-    ssml=''
+    ssml = ''
     ;
 
 /**
@@ -21,7 +21,7 @@ let
  * @param {String} document
  */
 exports.analyse = function (text, document) {
-    if(text === null){
+    if (text === null) {
         return;
     }
     ssml = text;
@@ -35,7 +35,6 @@ exports.analyse = function (text, document) {
         return g1 ? g1 : g2 + "\r";
     });
     sentences = result.split("\r");
-    calculateFleshIndex(document);
     //fs.writeFile('output/full-text.txt', text, err => {});
     return calculateFleshIndex(document);
 };
@@ -48,8 +47,18 @@ var calculateFleshIndex = function (document) {
     var
         words = [],
         total_syllables = 0,
+        total_sentence_words = 0,
         total_words = 0
         ;
+    // determin total number of word in the text
+    var count_words = function (sentences) {
+        var len = 0;
+        for (var i = 0; i < sentences.length; i++) {
+            len += sentences[i].split(/\ /g).length;
+        }
+        return len;
+    };
+    total_words = count_words(sentences);
     // calculate Flesh index per sentence
     var
         sum = 0,
@@ -57,29 +66,34 @@ var calculateFleshIndex = function (document) {
         ;
     for (var i = 0; i < sentences.length; i++) {
         words = sentences[i].split(/\ /g);
-        total_words = words.length;
+        total_sentence_words = words.length;
         total_syllables = 0;
-        for (var j = 0; j < total_words; j++) {
+        for (var j = 0; j < total_sentence_words; j++) {
             total_syllables += countSyllables(words[j]);
         }
         // https://de.wikipedia.org/wiki/Lesbarkeitsindex
         // total_words / sentences.length
         //EN:  206.835 - 1.015 * (total_words / sentences.length) - 84.6 * (total_syllables / total_words);
-        var flesh_de = 180 - (1) - 58.5 * (total_syllables / total_words);
-        
-        json.push({ document: document, id: i, words: total_words, flesh: flesh_de, text: sentences[i], selected: false });
-        sum += flesh_de;
-        // debug
-        if (flesh_de < 0 && debug) {
-            console.log(flesh_de + ' ' + ' ' + sentences[i] + '\n\n');
+        // DE: 180 - 1() ...
+        var flesh_de = 180 - (total_words / sentences.length) - 58.5 * (total_syllables / total_sentence_words);
+        if (total_sentence_words > 3) {
+            json.push({ document: document, id: i, words: total_sentence_words, flesh: flesh_de, text: sentences[i], selected: false });
+            sum += flesh_de;
+            // debug
+            if (flesh_de < 0 && debug) {
+                console.log(flesh_de + ' ' + ' ' + sentences[i] + '\n\n');
+            }
+            if (total_sentence_words > 100 && debug) {
+                console.log('# Long Sentence in ' + document + ':  ' + sentences[i] + '\n\n');
+            }
         }
     }
-   
+
     // print output
     if (echo) {
         console.log('Flesh readability index (DE-de) of ' + document + ' ' + (sum / sentences.length).toFixed(2));
     }
-    fs.appendFile('output/text-analysis-all.csv', json2csv(json), err => { }); 
+    fs.appendFile('output/text-analysis-all.csv', json2csv(json), err => { });
 
     return json;
 };
@@ -90,6 +104,9 @@ var calculateFleshIndex = function (document) {
  * @param {String} word 
  */
 var countSyllables = function (word) {
+    if (word === undefined) {
+        console.error('Syllable of undefined word'); return;
+    }
     const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'ä', 'ü', 'ö'];
     var
         currentWord = word.toLowerCase().split(''),
@@ -132,7 +149,7 @@ var countSyllables = function (word) {
  */
 var json2csv = function (json) {
     var csv = '';//'document,id,words,flesh,selectd\n';
-    for(var i=0; i<json.length;i++){
+    for (var i = 0; i < json.length; i++) {
         csv += json[i].document + ',' + json[i].id + ',' + json[i].words + ',' + json[i].flesh + ',' + json[i].selected + '\n';
     }
     return csv;
