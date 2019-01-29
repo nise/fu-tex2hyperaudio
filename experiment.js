@@ -1,23 +1,24 @@
 /**
- * 
+ * name: experiement
+ * description: Script to prepare data for an text to speech evaluation
+ * author: niels seidel (niels.seidel@fernuni-hagen.de)
+ * lisence: MIT
  */
 
 const
     fs = require('fs'),
-    AWS = require('aws-sdk'),
-    polly = new AWS.Polly({ 'region': 'eu-central-1' }),
-    GoogleTextToSpeech = require('@google-cloud/text-to-speech'),
-    GoogleTextToSpeechClient = new GoogleTextToSpeech.TextToSpeechClient(),
-    textanalysis = require('./textanalysis')
-debug = false, // debug modus on/off
+    t2s_google = require('./t2s_google'),
+    t2s_aws_polly = require('./t2s_aws_polly'),
+    textanalysis = require('./textanalysis'),
+    debug = false, // debug modus on/off
     echo = false,
-    percentils = [0.10, 0.5, 0.9]
+    percentils = [0.10] // , 0.5, 0.9
     ;
-
 
 let
     ssml = '', // Array of sentences
-    text_id = '' // document name    
+    text_id = '', // document name  
+    testsets = []  
     ;
 
 
@@ -25,11 +26,11 @@ let
  * 
  */
 exports.init = function () {
-
     // reset analysis file
     fs.writeFile('./output/text-analysis-all.csv', 'document,id,words,flesh,selected\n', err => { });
     text_id = 'ssml-ke1';
-    selectSentencesFromFile(text_id);
+    //selectSentencesFromFile(text_id);
+    for (var i = 1; i < 8; i++) { selectSentencesFromFile('ssml-ke' + i, prepareMushraConfig); }
 };
 
 
@@ -37,7 +38,7 @@ exports.init = function () {
  * 
  * @param {*} file 
  */
-var selectSentencesFromFile = function (file) {
+var selectSentencesFromFile = function (file, callback) {
     fs.readFile('./output/' + file + '.xml', 'utf-8', function read(err, data) {
         if (err) {
             throw err;
@@ -46,8 +47,25 @@ var selectSentencesFromFile = function (file) {
         var fleshIndexPerSentence = textanalysis.analyse(data, file);
         // Get example sentences for certain pecentils
         var selectedSentences = getPercentils(fleshIndexPerSentence, percentils);
-        console.log(selectedSentences.selected);
-        syntesizeTestFiles(selectedSentences.selected);
+        //console.log(selectedSentences.selected);
+        var generatedFiles = syntesizeTestFiles(selectedSentences.selected);
+
+        var testset = {
+            "Name": "Set "+file,
+            "TestID": "id-"+file,
+            "Files": {
+                "Reference": "audio/schubert_ref.wav"/*,
+                "1": "audio/schubert_1.wav",
+                "2": "audio/schubert_2.wav",
+                "3": "audio/schubert_3.wav",
+                "4": "audio/schubert_anch.wav",*/
+            }
+        };
+        for (var i = 0; i < generatedFiles.length; i++){
+            testset.Files['file' + i] = generatedFiles[i];
+        }
+        testsets.push(testset);
+        callback();
     });
 };
 
@@ -62,6 +80,9 @@ var syntesizeTestFiles = function (selected) {
         LanguageCode: 'de-DE',
         TextType: 'ssml'
     };
+    var 
+        filename = 'trash.mp3'
+        output_filename_list = [];
     // speech syntesis with polly
     var voices = ['Hans', 'Marlene', 'Vicki'];
     for (var j = 0; j < voices.length; j++) {
@@ -69,88 +90,42 @@ var syntesizeTestFiles = function (selected) {
             var m = selected[i];
             params.Text = m.ssml;
             params.VoiceId = voices[j];
-            doPolly(params, 'polly-' + voices[j] + '-' + m.ke + '-' + (m.percentil * 100) + '.mp3');
+            filename = './output/polly-' + voices[j] + '-' + m.ke + '-' + (m.percentil * 100) + '.mp3';
+            output_filename_list.push(filename);
+            //t2s_aws_polly.synthesizeShortText(params, filename);
         }
     }
 
     // speech synthesis with Google, //'name': ' de-DE-Wavenet-B', // gut: de-DE-Wavenet-B
     params = {
-        voice: {
-            languageCode: 'de-DE'
-        }, 
-        audioConfig: { audioEncoding: 'MP3' },
+        'voice': {
+            'languageCode': 'de-DE'
+        },
+        'audioConfig': { 'audioEncoding': 'MP3' },
     };
     // speech syntesis with polly
     var g_voices = [
-        {name: 'de-DE-Standard-A', gender: 'FEMALE'},
+        { name: 'de-DE-Standard-A', gender: 'FEMALE' },
         { name: 'de-DE-Wavenet-A', gender: 'FEMALE' },
         { name: 'de-DE-Wavenet-C', gender: 'FEMALE' },
         { name: 'de-DE-Standard-B', gender: 'MALE' },
         { name: 'de-DE-Wavenet-B', gender: 'MALE' },
         { name: 'de-DE-Wavenet-D', gender: 'MALE' }
     ];
-    for (var jj = 0; jj < voices.length; jj++) {
+    for (var jj = 0; jj < g_voices.length; jj++) {
         for (var ii = 0; ii < selected.length; ii++) {
             var m = selected[ii];
-            params.input = { ssml: m.ssml }; 
+            params.input = { 'ssml': '<speak>'+m.ssml+'</speak>' };
             params.voice.name = g_voices[jj].name;
             params.voice.ssmlGender = g_voices[jj].gender;
-            doGoogle(params, 'google-' + g_voices[jj] + '-' + m.ke + '-' + (m.percentil * 100) + '.mp3');
+            filename = './output/google-' + g_voices[jj].name + '-' + m.ke + '-' + (m.percentil * 100) + '.mp3';
+            output_filename_list.push(filename);
+            //t2s_google.synthesizeShortText(params, filename);
+            //console.log(params)
         }
     }
+    return output_filename_list;
 };
-
-
-/**
- * 
- * @param {*} params 
- * @param {*} filename 
- */
-var doPolly = function (params, filename) {
-    if (params.Text.length > 3000) {
-        console.log('Text too large');
-        return;
-    }
-    polly.synthesizeSpeech(params, function (err, data) {
-        if (err) {
-            console.error(err);
-        } else if (data) {
-            if (data.AudioStream instanceof Buffer) {
-                fs.writeFile("./output/" + filename, data.AudioStream, function (err) {
-                    if (err) {
-                        return console.error(err);
-                    }
-                    console.log("Saved " + filename);
-                });
-            }
-        }
-    });
-};
-
-
-/**
- *  Performs the Google Text-to-Speech request
- *  todo: cleanup
- */
-function doGoogle(params, filename) {
-    if (params.input.ssml.length > 3000) {
-        console.log('Text too large');
-        return;
-    }
-    GoogleTextToSpeechClient.synthesizeSpeech(params, function(err, data) {
-        if (err) {
-            console.error(err);
-        } else if (data){
-            fs.writeFile('./output/' + filename, data.audioContent, 'binary', err => {
-                if (err) {
-                    console.error(err);
-                    return;
-                }
-                console.log('Saved ' + filename);
-            });
-        }
-    });
-}
 
 
 /**
@@ -185,16 +160,13 @@ var getPercentils = function (json, percentils) {
 };
 
 
-//
 /**
  * 
- * @param {Array} word 
+ * @param {String} str 
  */
 var getSSMLofString = function (str) {
-    // strip mark tags from ssml
-    var ssml_cleaned = ssml.replace(/(<mark([^>]+)>)/ig, "");
-
-    var
+    var 
+        ssml_cleaned = ssml.replace(/(<mark([^>]+)>)/ig, ""), // strip mark tags from ssml
         arr = ssml_cleaned.split("<s>"),
         res = ''
         ;
@@ -214,4 +186,18 @@ var getSSMLofString = function (str) {
         }
     }
     return res;
+};
+
+
+/**
+ * 
+ */
+var prepareMushraConfig = function(){
+    // prepare mashra config
+    var config = require('./output/mushra-config-sample');
+    if(testsets.length === 7){
+        config.TestConfig.Testsets = testsets;
+        console.log(config.TestConfig);
+        fs.writeFile('./output/mushra-experiment-config.json', JSON.stringify(config.TestConfig, null, "\t"), function(){});
+    }
 };
