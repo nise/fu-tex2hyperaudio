@@ -54,7 +54,7 @@ var selectSentencesFromFile = function (file, callback) {
             "Name": "Set "+file,
             "TestID": "id-"+file,
             "Files": {
-                "Reference": "audio/schubert_ref.wav"/*,
+                "Reference": "./output/test.mp3"/*,
                 "1": "audio/schubert_1.wav",
                 "2": "audio/schubert_2.wav",
                 "3": "audio/schubert_3.wav",
