@@ -2,6 +2,7 @@
  * name: polly
  * description: Interface to Amazon AWS Polly web services
  * author: niels seidel (niels.seidel@fernuni-hagen.de) 
+ * license: MIT
  */
 
 let 

@@ -3,6 +3,7 @@
  * description: Interface to Amazon AWS Polly web services
  * author: niels seidel (niels.seidel@fernuni-hagen.de) 
  * lisence: MIT
+ * 
  * **For less than 3000 characters**
     aws polly synthesize-speech \
      --text-type ssml \

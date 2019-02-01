@@ -1,6 +1,6 @@
 /**
  * name: experiement
- * description: Script to prepare data for an text to speech evaluation
+ * description: Script to prepare data for an text to speech evaluation with beaqle-node
  * author: niels seidel (niels.seidel@fernuni-hagen.de)
  * lisence: MIT
  * 

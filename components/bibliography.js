@@ -1,7 +1,8 @@
 /**
  * name: bibliography
- * description: BibTeX interface and wrapper
+ * description: BibTeX interface and wrapper for SSML 
  * author: niels seidel (niels.seidel@fernuni-hagen.de) 
+ * license: MIT
  */
 
 const

@@ -353,7 +353,7 @@ var handleListings = function (match, p1, p2) {
     // store label as reference
     if (mark !== undefined && mark.length > 0) {
         references.table.push(mark);
-        tex2image.makeImage(res, mark);
+        //tex2image.makeImage(res, mark);
     }
     res = res.replace("\label{" + mark + "}", '');
     var labelmark = '<mark name"listinglabel-' + mark + '" />';

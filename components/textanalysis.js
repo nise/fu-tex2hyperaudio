@@ -1,7 +1,15 @@
 /**
- * Textanalyis using the Flesh Readability score
+ * name: textanalyses using the Flesh readability score for long texts and per sentence
+ * description: Textanalyis using the Flesh Readability score
  * author: niels.seidel@fernuni-hagen.de
- * Source: https://web.archive.org/web/20160712094308/http://www.mang.canterbury.ac.nz/writing_guide/writing/flesch.shtml
+ * license: MIT
+ * 
+ * todo:
+ * - provide CLI interface ... //process.argv[3];
+ * - publish as stand-alone node-module
+ * - implement alternative metrics for readability and text difficulty
+ * - visualize results other then in Rmarkdown
+ * - consider instructions in the original source: https://web.archive.org/web/20160712094308/http://www.mang.canterbury.ac.nz/writing_guide/writing/flesch.shtml
  */
 
 const
