@@ -9,7 +9,7 @@
  */
 
 const
-    echo = false,
+    echo = true,
     fs = require('fs'),
     bibliography = require('./bibliography'),
     tex2image = require('./tex2image'),
@@ -296,10 +296,14 @@ var handleFigure = function (match, p1, p2) {
     res = res.replace("\label{" + mark + "}", '');
     var marklabel = '<mark name"figurelabel-' + mark + '" />';
 
-    var caption = String(res.match(/caption\{(.*?)\}/gm))
+    var caption = String(res.match(/caption\{([^\0]*?)\}/gm))
         .replace(/caption\{/, '')
 
         ;
+    if (caption === 'null' && echo) {
+        console.log('ERR: caption not found at figure:')
+        console.log(match);
+    }
     caption = caption.replace(/\\protect/g, '');
     caption = replaceCitations(caption, true);
     caption = caption.replace(/\\/g, '').replace(/\}/g, '');
@@ -314,23 +318,28 @@ var handleFigure = function (match, p1, p2) {
  */
 var handleTable = function (match, p1, p2) {
     var res = typeof (p2) === 'number' ? p1 : p2;
-
+    var fileName = '';
+    var labelmark = 'null';
     var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
     // store label as reference
     if (mark !== undefined && mark.length > 0) {
         references.table.push(mark);
-        tex2image.makeImage(match, document_name + '-table-' + references.table.indexOf(mark));
+        fileName = document_name + '-table-' + references.table.indexOf(mark) + '.png';
+        tex2image.makeImage(match, fileName);
+        res = res.replace("\label{" + mark + "}", '');
+        labelmark = '<mark name"table-' + references.table.indexOf(mark) + '.png" />';
     }
-    res = res.replace("\label{" + mark + "}", '');
-    var labelmark = '<mark name"tablelabel-' + mark + '" />';
-
     var caption = String(res.match(/caption\{(.*?)\}/gm))
         .replace(/caption\{/, '')
         .replace(/\}/g, '')
         .replace(/\\/g, '');
     caption = replaceCitations(caption, true);
-    caption = '<mark name"tablecaption-' + caption + '" />';
+    if (caption === 'null' && echo) {
+        console.log('ERR: caption not found at table:')
+        console.log(match);
+    }
 
+    caption = '<mark name"tablecaption-' + caption + '" />';
     return labelmark + caption;
 };
 
@@ -341,24 +350,20 @@ var handleTable = function (match, p1, p2) {
  */
 var handleListings = function (match, p1, p2) {
     var res = typeof (p2) === 'number' ? p1 : p2;
+    var fileName = '';
 
     var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
     // store label as reference
     if (mark !== undefined && mark.length > 0) {
         references.table.push(mark);
-        tex2image.makeImage(match, document_name + '-code-' + references.table.indexOf(mark));
+        imageName = document_name + '-code-' + references.table.indexOf(mark) + '.png';
+        tex2image.makeImage(match, imageName);
+        res = res.replace("\label{" + mark + "}", '');
+        var labelmark = '<mark name"code-' + fileName + '" />';
+        return labelmark;
     }
-    res = res.replace("\label{" + mark + "}", '');
-    var labelmark = '<mark name"listinglabel-' + mark + '" />';
-
-    /*var caption = String(res.match(/caption\{(.*?)\}/gm))
-        .replace(/caption\{/, '')
-        .replace(/\}/g, '')
-        .replace(/\\/g, '');
-    caption = replaceCitations(caption, true);
-    caption = '<mark name"tablecaption-' + caption + '" />';
-*/
-    return labelmark;// + caption;
+    
+    return 'null';
 };
 
 
