@@ -1,5 +1,5 @@
 /**
- * 
+ * Textanalyis using the Flesh Readability score
  * author: niels.seidel@fernuni-hagen.de
  * Source: https://web.archive.org/web/20160712094308/http://www.mang.canterbury.ac.nz/writing_guide/writing/flesch.shtml
  */
