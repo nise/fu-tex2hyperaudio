@@ -13,7 +13,7 @@ const
     path = '/home/abb/Documents/proj_001_doc/teaching-courses/2017-Gestaltung-kooperativer-Systeme/cvs/Kurs1884/Kurstext/polly/',
     path2 = 'tex/'
     ;
-//p.tex2SSML('ke7.tex', path);
+p.tex2SSML('ke7.tex', path);
 
 //for (var i = 1; i < 8; i++) { p.tex2SSML('ke'+i+'.tex', path); }
 

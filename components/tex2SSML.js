@@ -15,11 +15,15 @@ const
     tex2image = require('./tex2image'),
     franc = require('franc')
     ;
+let
+    document_name = 'null'
+    ;
 
 /**
  * 
  */
 exports.tex2SSML = function (file, path) {
+    document_name = file.replace('.tex', '');
     fs.readFile(path + file, 'utf8', function (err, data) {
         if (err) {
             console.log(err);
@@ -39,13 +43,13 @@ exports.tex2SSML = function (file, path) {
         data = data.replace(/\\begin/g, 'XXXXXXX');
         data = data.replace(/\\end/g, 'YYYYYYY');
         data = data.replace(/XXXXXXX\{comment\}([^\0]*?)YYYYYYY\{comment\}/gm, '');
-        data = data.replace(/\\%/g, 'Prozent')
+        data = data.replace(/\\%/g, 'Prozent');
         data = removeComments(data);
-        
+
         data = data.replace("\\\\", '');// remove double
         data = data.replace("\n\n", '\n');// remove double
         data = data.replace("\n", ' ');// remove double
-        
+
         data = processParagraphs(data);
 
         data = replaceHeadings(data);
@@ -58,11 +62,11 @@ exports.tex2SSML = function (file, path) {
 
         // clean empty lines
         data = data
-            .replace(/\<p\>\<s\>\<\/s\>\<\/p\>/g,'')
+            .replace(/\<p\>\<s\>\<\/s\>\<\/p\>/g, '')
             .replace(/\<p\>\ \<\/p\>/g, '')
             ;
-        
-        
+
+
         // finalize xml file
         data = preamble + '\n' + data + '\n' + closing;
 
@@ -71,8 +75,8 @@ exports.tex2SSML = function (file, path) {
                 console.error('ERROR:', err);
                 return;
             }
-            
-            if(echo){
+
+            if (echo) {
                 console.log('text content written to ' + 'output/ssml-' + file.replace('.tex', '') + '.xml');
             }
             //polly.speechSynthesis(data);
@@ -89,10 +93,10 @@ exports.tex2SSML = function (file, path) {
  * @param {String} data SSML data
  */
 var validateOutput = function (data) {
-    if(echo){
+    if (echo) {
         console.log('................................................');
     }
-    
+
     if (data.match(/\\([^\0]*?)\ /gm) === null) {
         data = data.replace(/\{/g, '');
         data = data.replace(/\}/g, '');
@@ -116,25 +120,13 @@ var validateOutput = function (data) {
     if (f1.length > 0 || f2.length > 0) {
         console.log('Symbol "{" found on lines ' + f1.toString());
         console.log('Symbol "}" found on lines ' + f2.toString());
-    } else if(echo){
+    } else if (echo) {
         console.log("No more LaTeX expressions found.")
     }
-
-
-    var libxmljs = require("libxmljs");
-    var xml = function (text) {
-        try {
-            libxmljs.parseXml(text);
-        } catch (e) {
-            return false;
-        }
-
-        return true;
-    };
-    if(echo){
+    if (echo) {
         console.log('................................................');
     }
-    
+
 };
 
 
@@ -145,7 +137,8 @@ var validateOutput = function (data) {
 var processParagraphs = function (data) {
     var
         paragraphs = data.split('\n'),
-        sentences = []
+        sentences = [],
+        stop = ''
         ;
 
     for (var i = 0; i < paragraphs.length; i++) {
@@ -161,7 +154,7 @@ var processParagraphs = function (data) {
                 //console.log('----------',sentences);
                 for (var j = 0; j < sentences.length; j++) {
                     if (sentences[j].length > 2) {
-                        var stop = sentences[j].substring(sentences[j].length-1) !== '.' ? '.' :'';
+                        //stop = sentences[j].substring(sentences[j].length - 1) !== '.' ? '.' : ''; // xxx bug. This line would be nececary for splitting up senences, but distroys tables and itemize environments 
                         sentences[j] = '<s>' + sentences[j] + stop + '</s>';
                     }
                 }
@@ -234,7 +227,7 @@ var handleQuote = function (match, capture) {
  * @param {*} str 
  * todo: replaces cite key with author names without any mark-tags
  */
-var replaceCitations = function (str, plain=false) {
+var replaceCitations = function (str, plain = false) {
     return str
         .replace(/\\cite\{([^\0]*?)\}/g, function (match, capture) {
             return bibliography.getAuthorNames(capture, 'passive', plain);
@@ -271,11 +264,11 @@ references.text = [0];
  * @param {RegEx} match 
  * @param {String} p1 
  */
-var handleReferences = function (match, p1) { 
+var handleReferences = function (match, p1) {
     var output = '';
-    if (references.table.indexOf(p1) !== -1){
+    if (references.table.indexOf(p1) !== -1) {
         output += '<mark name"tableref-' + p1 + '" />';
-        output += 'Tabelle <say-as interpret-as="ordinal">' + references.table.indexOf(p1) +'</say-as>';
+        output += 'Tabelle <say-as interpret-as="ordinal">' + references.table.indexOf(p1) + '</say-as>';
     } else if (references.figure.indexOf(p1) !== -1) {
         output += '<mark name"figureref-' + p1 + '" />';
         output += 'Abbildung <say-as interpret-as="ordinal">' + references.figure.indexOf(p1) + '</say-as>';
@@ -305,9 +298,9 @@ var handleFigure = function (match, p1, p2) {
 
     var caption = String(res.match(/caption\{(.*?)\}/gm))
         .replace(/caption\{/, '')
-        
+
         ;
-    caption = caption.replace(/\\protect/g,'');    
+    caption = caption.replace(/\\protect/g, '');
     caption = replaceCitations(caption, true);
     caption = caption.replace(/\\/g, '').replace(/\}/g, '');
     caption = '<mark name"figurecaption-' + caption + '" />';
@@ -321,12 +314,12 @@ var handleFigure = function (match, p1, p2) {
  */
 var handleTable = function (match, p1, p2) {
     var res = typeof (p2) === 'number' ? p1 : p2;
-    
+
     var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
     // store label as reference
-    if(mark !== undefined && mark.length > 0){
+    if (mark !== undefined && mark.length > 0) {
         references.table.push(mark);
-        tex2image.makeImage(res, mark);
+        tex2image.makeImage(match, document_name + '-table-' + references.table.indexOf(mark));
     }
     res = res.replace("\label{" + mark + "}", '');
     var labelmark = '<mark name"tablelabel-' + mark + '" />';
@@ -353,7 +346,7 @@ var handleListings = function (match, p1, p2) {
     // store label as reference
     if (mark !== undefined && mark.length > 0) {
         references.table.push(mark);
-        //tex2image.makeImage(res, mark);
+        tex2image.makeImage(match, document_name + '-code-' + references.table.indexOf(mark));
     }
     res = res.replace("\label{" + mark + "}", '');
     var labelmark = '<mark name"listinglabel-' + mark + '" />';
@@ -412,7 +405,7 @@ var replaceTags = function (str) {
         .replace(/\\label\{(.*?)\}/g, '<mark name"textlabel-$1" />')
 
         // References in the text referring on tables, figures and text sections
-       
+
         .replace(/Tab\.\ \\ref\{([^\0]*?)\}/g, handleReferences)
         .replace(/Tabelle\ \\ref\{([^\0]*?)\}/g, handleReferences)
         .replace(/Tab\.?\\ref\{([^\0]*?)\}/g, handleReferences)
@@ -558,7 +551,7 @@ var eliminateFullTags = function (str) {
 
         // handle table fragments
         .replace(/XXXXXXX\{tabular\}([^\0]*?)YYYYYYY\{tabular\}/g, '')
-        
+
         .replace(/\\newpage/g, "")
         .replace(/\\noindent/g, "")
         .replace(/\\-/g, "")

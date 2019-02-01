@@ -7,8 +7,8 @@
 
 const
     fs = require('fs'),
-    preamble = './templates/latex-preamble.tex';,
-postamble = '\\end{document}'
+    preamble = './templates/latex-preamble.tex',
+    postamble = '\\end{document}'
     ;
 
 /**
@@ -33,11 +33,10 @@ var latex = function (latex, filename) {
 
     fs.readFile(preamble, 'utf8', function (err, data) {
         if (err) throw err;
-        console.log('>>> Tex file imported.');
-        console.log(data)
-        temp.push(data + latex + postamble);
-        var options = { 'command': 'pdflatex' };
-        require('latex')(temp, options).pipe(fs.createWriteStream(filename));
-        console.log('>>> Tex file built.');
+        temp.push(data);
+        temp.push(latex);
+        temp.push(postamble);
+        var options = { command: 'pdflatex', format: 'png' };
+        require('latex')(temp, options).pipe(fs.createWriteStream('./output/'+filename+'.png'));
     });
 };
