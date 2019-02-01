@@ -6,7 +6,6 @@
 - extract and link images
 
 ## nth
-- check what SSML-features of AWS polly could be supported
 - clean linebreaks in Tex-Sources
 - correct mistakes in Tex-Sources
 - handle math expressions
