@@ -182,6 +182,7 @@ function ssml2hyperaudio(data){
     writeHyperaudio(template, './Kurseinheiten.json');
 }
 
+
 /**
  * Writes hypervideo json to disk
  */

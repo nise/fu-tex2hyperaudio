@@ -229,7 +229,7 @@ var getSSMLofString = function (str) {
 var prepareMushraConfig = function () {
     console.log(testsets)
     // prepare mashra config
-    var config = require('../output/ab-config-sample.json');
+    var config = require('../templates/beaqle-ab-config-sample.json');
     if (testsets.length === 42) {
         config.Testsets = testsets;
         fs.writeFile('./output/ab-experiment-config.json', JSON.stringify(config, null, "\t"), function (e, r) {});
