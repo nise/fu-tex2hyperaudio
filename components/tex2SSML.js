@@ -12,6 +12,7 @@ const
     echo = false,
     fs = require('fs'),
     bibliography = require('./bibliography'),
+    tex2image = require('./tex2image'),
     franc = require('franc')
     ;
 
@@ -320,11 +321,12 @@ var handleFigure = function (match, p1, p2) {
  */
 var handleTable = function (match, p1, p2) {
     var res = typeof (p2) === 'number' ? p1 : p2;
-
+    
     var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
     // store label as reference
     if(mark !== undefined && mark.length > 0){
         references.table.push(mark);
+        tex2image.makeImage(res, mark);
     }
     res = res.replace("\label{" + mark + "}", '');
     var labelmark = '<mark name"tablelabel-' + mark + '" />';
@@ -339,6 +341,32 @@ var handleTable = function (match, p1, p2) {
     return labelmark + caption;
 };
 
+
+/**
+ * Throughs the listings away, but return its captions and stores its labels
+ * @param {*} str 
+ */
+var handleListings = function (match, p1, p2) {
+    var res = typeof (p2) === 'number' ? p1 : p2;
+
+    var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
+    // store label as reference
+    if (mark !== undefined && mark.length > 0) {
+        references.table.push(mark);
+        tex2image.makeImage(res, mark);
+    }
+    res = res.replace("\label{" + mark + "}", '');
+    var labelmark = '<mark name"listinglabel-' + mark + '" />';
+
+    /*var caption = String(res.match(/caption\{(.*?)\}/gm))
+        .replace(/caption\{/, '')
+        .replace(/\}/g, '')
+        .replace(/\\/g, '');
+    caption = replaceCitations(caption, true);
+    caption = '<mark name"tablecaption-' + caption + '" />';
+*/
+    return labelmark;// + caption;
+};
 
 
 /**
@@ -380,6 +408,7 @@ var replaceTags = function (str) {
         // do figures, tables, and labels before the citations and refs.
         .replace(/XXXXXXX\{figure\}([^\0]*?)YYYYYYY\{figure\}/gm, handleFigure)
         .replace(/XXXXXXX\{table\}([^\0]*?)YYYYYYY\{table\}/g, handleTable) // \[([^\0]*?)\]
+        .replace(/XXXXXXX\{lstlisting\}([^\0]*?)YYYYYYY\{lstlisting\}/g, handleListings)
         .replace(/\\label\{(.*?)\}/g, '<mark name"textlabel-$1" />')
 
         // References in the text referring on tables, figures and text sections
@@ -527,10 +556,9 @@ var eliminateFullTags = function (str) {
         .replace(/\\minitoc/g, '')
         .replace(/\\vspace\{([^\0]*?)\}/g, "")
 
-        // handle table fragments and listings
+        // handle table fragments
         .replace(/XXXXXXX\{tabular\}([^\0]*?)YYYYYYY\{tabular\}/g, '')
-        .replace(/XXXXXXX\{lstlisting\}([^\0]*?)YYYYYYY\{lstlisting\}/g, '')
-
+        
         .replace(/\\newpage/g, "")
         .replace(/\\noindent/g, "")
         .replace(/\\-/g, "")
