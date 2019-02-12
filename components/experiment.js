@@ -12,6 +12,7 @@ const
     fs = require('fs'),
     t2s_google = require('./t2s_google'),
     t2s_aws_polly = require('./t2s_aws_polly'),
+    t2s_azure = require('./t2s_azure'),
     textanalysis = require('./textanalysis'),
     debug = false, // debug modus on/off
     echo = false,
@@ -23,7 +24,7 @@ let
     ssml = '', // Array of sentences
     text_id = '', // document name  
     testsets = [],
-    testsetLength = 42
+    testset_counter = 0
     ;
 
 
@@ -37,7 +38,7 @@ exports.init = function () {
     //selectSentencesFromFile(text_id, prepareMushraConfig);
     var promises = [];
     for (var i = 1; i < 8; i++) {
-        promises.push(selectSentencesFromFile('ssml-ke' + i, prepareMushraConfig));
+        promises.push(new Promise(selectSentencesFromFile('ssml-ke' + i, prepareMushraConfig)));
     }
     Promise.all(promises)
         .then(function (data) {  })
@@ -68,13 +69,13 @@ var selectSentencesFromFile = function (file, callback) {
         for (var j = 0; j < pairs.length; j++) {
             var testset = {
                 "Name": "Set " + file,
-                "TestID": "id-" + file,
+                "TestID": testset_counter,
                 "Files": {}
             };
-            //testset.Files = {};
             testset.Files.A = pairs[j][0];
             testset.Files.B = pairs[j][1];
             testsets.push(testset);
+            testset_counter++;
         }
         callback();
     });
@@ -130,6 +131,7 @@ var syntesizeTestFiles = function (selected) {
             //t2s_aws_polly.synthesizeShortText(params, filename);
         }
     }
+
     // speech synthesis with Google, //'name': ' de-DE-Wavenet-B', // gut: de-DE-Wavenet-B
     params = {
         'voice': {
@@ -158,6 +160,30 @@ var syntesizeTestFiles = function (selected) {
             //t2s_google.synthesizeShortText(params, filename);
         }
     } 
+
+    // speech synthesis with Microsoft Azure
+    params = {
+        
+    };
+    var m_voices = [
+        { lang: 'de-AT', voice: 'Michael', gender: 'male' },
+        { lang: 'de-CH', voice: 'Karsten', gender: 'male' },
+        { lang: 'de-DE', voice: 'Hedda', gender: 'female' },
+        { lang: 'de-DE', voice: 'HeddaRUS', gender: 'female' },
+        { lang: 'de-DE', voice: 'Stefan', gender: 'male' }
+    ];
+    for (var jjj = 0; jjj < m_voices.length; jjj++) {
+        for (var iii = 0; iii < selected.length; iii++) {
+            var m = selected[iii];
+            params.text = m.ssml;
+            params.voice = m_voices[jjj].name;
+            filename = path + 'azure-' + m_voices[jjj].voice + '-' + m.ke + '-' + (m.percentil * 100) + '.mp3';
+            output_filename_list.push(filename);
+            //t2s_azure.synthesizeShortText(params, filename);
+        }
+    } 
+
+    // return combinations
     return output_filename_list;
 };
 
