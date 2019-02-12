@@ -13,6 +13,8 @@
     "aws-sdk": "^2.378.0",
     "biblatex-csl-converter": "^1.6.1",
     "franc": "^4.0.0",
-    "latex": "0.0.1"
+    "latex": "0.0.1",
+    "readline-sync": "^1.4.9",
+    "request": "^2.88.0"
   }
 }

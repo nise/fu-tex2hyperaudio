@@ -10,6 +10,7 @@
  * - implement alternative metrics for readability and text difficulty
  * - visualize results other then in Rmarkdown
  * - consider instructions in the original source: https://web.archive.org/web/20160712094308/http://www.mang.canterbury.ac.nz/writing_guide/writing/flesch.shtml
+ * - https://www.woerter-zaehlen.de/
  */
 
 const

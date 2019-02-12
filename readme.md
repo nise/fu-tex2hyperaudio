@@ -1,6 +1,13 @@
 
 tex2hyperaudio is a companion tool for converting LaTex to SSML, SSML into Speech, and Speech into Hyperaudio. 
 
+## ToDo
+- include MS Azure TTS
+- do async calls for latex calls
+- prepare TTS test set fo beaqle-node
+- extract and link images
+
+
 # Features
 
 * **tex2ssml:** Converts LaTeX (including BibTeX) into the *Speech Synthesis Markup Language* (SSML)
@@ -15,7 +22,7 @@ tex2hyperaudio is a companion tool for converting LaTex to SSML, SSML into Speec
 * tables
 * references
 * citations
-* 
+* ref / pageref
 
 
 # Getting started
@@ -38,12 +45,6 @@ tex2hyperaudio is a companion tool for converting LaTex to SSML, SSML into Speec
 
 # Roadmap
 
-## ToDo
-- handle tables: extract from pdf
-- handle listing: extract from pdf
-- extract and link images
-
-## nth
 - clean linebreaks in Tex-Sources
 - correct mistakes in Tex-Sources
 - handle math expressions

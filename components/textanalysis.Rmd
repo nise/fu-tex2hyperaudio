@@ -60,7 +60,7 @@ library(ggplot2)
 
 d <- read.table('../output/duration.csv', header=TRUE, sep=",")
 
-aggregate(d$, list(d$ke), mean)
+aggregate(d$duration, list(d$ke), sd)
 
 plot <- ggplot(d, aes(y=duration, x = voice)) + 
   geom_bar(stat="identity") +

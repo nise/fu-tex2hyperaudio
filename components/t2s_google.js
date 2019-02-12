@@ -18,7 +18,7 @@ const
  */
 exports.synthesizeShortText = function(params, filename) {
     if (params.input.ssml.length > 3000) {
-        console.log('Text too large');
+        console.log('Text is too large. Only 3000 characters (without SSML tags) can be processed.');
         return;
     }
     GoogleTextToSpeechClient.synthesizeSpeech(params, function (err, data) {

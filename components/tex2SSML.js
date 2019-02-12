@@ -79,6 +79,7 @@ exports.tex2SSML = function (file, path) {
             if (echo) {
                 console.log('text content written to ' + 'output/ssml-' + file.replace('.tex', '') + '.xml');
             }
+            Promise.resolve();
             //polly.speechSynthesis(data);
             //polly.speechSynthesis(data, true); // marks
         });
@@ -256,6 +257,7 @@ var replaceCitations = function (str, plain = false) {
 
 var references = {};
 references.table = [0];
+references.listings = [0];
 references.figure = [0];
 references.text = [0];
 
@@ -325,7 +327,7 @@ var handleTable = function (match, p1, p2) {
     if (mark !== undefined && mark.length > 0) {
         references.table.push(mark);
         fileName = document_name + '-table-' + references.table.indexOf(mark) + '.png';
-        tex2image.makeImage(match, fileName);
+        tex2image.makeImage(match, fileName); 
         res = res.replace("\label{" + mark + "}", '');
         labelmark = '<mark name"table-' + references.table.indexOf(mark) + '.png" />';
     }
@@ -355,8 +357,8 @@ var handleListings = function (match, p1, p2) {
     var mark = String(res.match(/label\{(.*?)\}/g)).replace(/label\{/, '').replace(/\}/, '');
     // store label as reference
     if (mark !== undefined && mark.length > 0) {
-        references.table.push(mark);
-        imageName = document_name + '-code-' + references.table.indexOf(mark) + '.png';
+        references.listings.push(mark);
+        imageName = document_name + '-code-' + references.listings.indexOf(mark) + '.png';
         tex2image.makeImage(match, imageName);
         res = res.replace("\label{" + mark + "}", '');
         var labelmark = '<mark name"code-' + fileName + '" />';

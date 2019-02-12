@@ -1,5 +1,6 @@
 {
     "TestName": "Test",
+    "maxNumberOfTests": 15,
     "LoopByDefault": true,
     "ShowFileIDs": false,
     "ShowResults": false,
@@ -8,8 +9,8 @@
     "BeaqleServiceURL": "",
     "SupervisorContact": "",
     "AudioRoot": "",
-    "question": "Deine Ome ist gern grüne",
-    "instruction": "Drücken Sie die Buttons um die Wiedergabe zu starten oder zu stoppen.",
+    "question": "Wählen Sie die Aufzeichnung aus, die sich für Sie natürlicher anhört.",
+    "instruction": "",
     "next": "Nächste Aufgabe",
     "previous": "Vorherige Aufgabe",
     "Testsets": [
